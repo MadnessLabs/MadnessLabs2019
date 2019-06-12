@@ -1,16 +1,41 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, State } from '@stencil/core';
+import { APIService } from "../../services/api";
+import { AuthService } from "../../services/auth";
 
 @Component({
   tag: 'app-root',
   styleUrl: 'app-root.css'
 })
 export class AppRoot {
-  // ml-01
+
+  api: APIService;
+
+  @State()
+  defaultProps: {
+    auth: AuthService;
+    api: APIService;
+  };
+
+  componentWillLoad() {
+
+    this.api = new APIService({
+      host: app.apiUrl,
+      token: await this.auth.getToken()
+    });
+
+    this.defaulProps = {
+      auth: this.auth,
+      api: this.api
+    }
+
+  }
+
+
   render() {
     return (
       <ion-app>
         <ion-router useHash={false}>
-          <ion-route url="/" component="app-home" />
+          <ion-route url="/"               componentProps={this.defaultProps}component="app-home" />
           <ion-route url="/profile/:name" component="app-profile" />
         </ion-router>
         <ion-nav />
