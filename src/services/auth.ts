@@ -42,123 +42,123 @@ export class AuthService {
   // private twitter: any = TwitterConnect;
 
   constructor(config?: IFireEnjinAuthConfig) {
-    let firstRun = false;
+    // let firstRun = false;
     this.config = { ...this.config, ...config };
 
-    if (firebase.apps.length === 0) {
+    // if (firebase.apps.length === 0) {
       firebase.initializeApp(config.firebase);
-      firstRun = true;
-    }
+      // firstRun = true;
+    // }
 
-    if (
-      !this.config.googlePlus ||
-      !this.config.googlePlus.options ||
-      !this.config.googlePlus.options.webClientId
-    ) {
-      console.log(
-        "googlePlus.options.webClientId is required for Google Native Auth See Here: https://github.com/EddyVerbruggen/cordova-plugin-googleplus#6-usage"
-      );
-    }
+    // if (
+    //   !this.config.googlePlus ||
+    //   !this.config.googlePlus.options ||
+    //   !this.config.googlePlus.options.webClientId
+    // ) {
+    //   console.log(
+    //     "googlePlus.options.webClientId is required for Google Native Auth See Here: https://github.com/EddyVerbruggen/cordova-plugin-googleplus#6-usage"
+    //   );
+    // }
 
-    if (firstRun) {
-      this.onEmailLink(window.location.href);
-    }
+    // if (firstRun) {
+    //   this.onEmailLink(window.location.href);
+    // }
   }
 
-  async getToken() {
-    return firebase.auth().currentUser
-      ? firebase.auth().currentUser.getIdToken(true)
-      : localStorage.getItem(this.config.tokenLocalStorageKey);
-  }
+  // async getToken() {
+  //   return firebase.auth().currentUser
+  //     ? firebase.auth().currentUser.getIdToken(true)
+  //     : localStorage.getItem(this.config.tokenLocalStorageKey);
+  // }
 
-  async onEmailLink(link) {
-    if (firebase.auth().isSignInWithEmailLink(link)) {
-      let email = window.localStorage.getItem("emailForSignIn");
-      if (!email) {
-        email = window.prompt("Please provide your email for confirmation");
-      }
+  // async onEmailLink(link) {
+  //   if (firebase.auth().isSignInWithEmailLink(link)) {
+  //     let email = window.localStorage.getItem("emailForSignIn");
+  //     if (!email) {
+  //       email = window.prompt("Please provide your email for confirmation");
+  //     }
 
-      const authUser = await firebase.auth().signInWithEmailLink(email, link);
-      window.localStorage.removeItem("emailForSignIn");
+  //     const authUser = await firebase.auth().signInWithEmailLink(email, link);
+  //     window.localStorage.removeItem("emailForSignIn");
 
-      this.emitLoggedInEvent(authUser);
+  //     this.emitLoggedInEvent(authUser);
 
-      return authUser;
-    }
-  }
+  //     return authUser;
+  //   }
+  // }
 
-  createCaptcha(buttonEl: HTMLButtonElement) {
-    return new Promise((resolve, reject) => {
-      try {
-        (window as any).RecaptchaVerifier = new firebase.auth.RecaptchaVerifier(
-          buttonEl,
-          {
-            size: "invisible",
-            callback(response) {
-              resolve(response);
-            }
-          }
-        );
-      } catch (error) {
-        reject(error);
-      }
-    });
-  }
+  // createCaptcha(buttonEl: HTMLButtonElement) {
+  //   return new Promise((resolve, reject) => {
+  //     try {
+  //       (window as any).RecaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+  //         buttonEl,
+  //         {
+  //           size: "invisible",
+  //           callback(response) {
+  //             resolve(response);
+  //           }
+  //         }
+  //       );
+  //     } catch (error) {
+  //       reject(error);
+  //     }
+  //   });
+  // }
 
-  createRecapchaWidget(id: string) {
-    (window as any).recaptchaVerifier = new firebase.auth.RecaptchaVerifier(id);
-  }
+  // createRecapchaWidget(id: string) {
+  //   (window as any).recaptchaVerifier = new firebase.auth.RecaptchaVerifier(id);
+  // }
 
-  withCredential(credential) {
-    return firebase.auth().signInWithCredential(credential);
-  }
+  // withCredential(credential) {
+  //   return firebase.auth().signInWithCredential(credential);
+  // }
 
-  withPhoneNumber(phoneNumber: string, capId: any) {
-    phoneNumber = "+" + phoneNumber;
-    window.localStorage.setItem("phoneForSignIn", phoneNumber);
+  // withPhoneNumber(phoneNumber: string, capId: any) {
+  //   phoneNumber = "+" + phoneNumber;
+  //   window.localStorage.setItem("phoneForSignIn", phoneNumber);
 
-    return firebase.auth().signInWithPhoneNumber(phoneNumber, capId);
-  }
+  //   return firebase.auth().signInWithPhoneNumber(phoneNumber, capId);
+  // }
 
-  withEmailLink(email: string, actionCodeSettings: any) {
-    window.localStorage.setItem("emailForSignIn", email);
+  // withEmailLink(email: string, actionCodeSettings: any) {
+  //   window.localStorage.setItem("emailForSignIn", email);
 
-    return firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings);
-  }
+  //   return firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings);
+  // }
 
-  anonymously() {
-    return firebase.auth().signInAnonymously();
-  }
+  // anonymously() {
+  //   return firebase.auth().signInAnonymously();
+  // }
 
-  onAuthChanged(callback) {
-    firebase.auth().onAuthStateChanged(async session => {
-      if (
-        !session ||
-        (!session.emailVerified &&
-          session.providerData &&
-          session.providerData[0].providerId === "password")
-      ) {
-        return false;
-      }
-      if (session) {
-        localStorage.setItem(
-          this.config.authLocalStorageKey,
-          JSON.stringify(session)
-        );
-        localStorage.setItem(
-          this.config.tokenLocalStorageKey,
-          await firebase.auth().currentUser.getIdToken(true)
-        );
-      }
-      if (callback && typeof callback === "function") {
-        callback(session);
-      }
-    });
+  // onAuthChanged(callback) {
+  //   firebase.auth().onAuthStateChanged(async session => {
+  //     if (
+  //       !session ||
+  //       (!session.emailVerified &&
+  //         session.providerData &&
+  //         session.providerData[0].providerId === "password")
+  //     ) {
+  //       return false;
+  //     }
+  //     if (session) {
+  //       localStorage.setItem(
+  //         this.config.authLocalStorageKey,
+  //         JSON.stringify(session)
+  //       );
+  //       localStorage.setItem(
+  //         this.config.tokenLocalStorageKey,
+  //         await firebase.auth().currentUser.getIdToken(true)
+  //       );
+  //     }
+  //     if (callback && typeof callback === "function") {
+  //       callback(session);
+  //     }
+  //   });
 
-    if (!localStorage.getItem(this.config.authLocalStorageKey)) {
-      callback(null);
-    }
-  }
+  //   if (!localStorage.getItem(this.config.authLocalStorageKey)) {
+  //     callback(null);
+  //   }
+  // }
 
   getFromStorage() {
     return localStorage.getItem(this.config.authLocalStorageKey)

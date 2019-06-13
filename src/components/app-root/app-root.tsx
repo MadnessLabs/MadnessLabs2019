@@ -17,7 +17,6 @@ export class AppRoot {
   @State()
   defaultProps: {
     auth: AuthService;
-    session?: any;
     api: APIService;
     db: DatabaseService;
     config?: ConfigService;
@@ -28,15 +27,15 @@ export class AppRoot {
     // const app = this.config.get("app");
     this.auth = new AuthService({
       ...this.config.get(),
-      tokenLocalStorageKey: "tmg:token",
-      authLocalStorageKey: "tmg:session"
+      // tokenLocalStorageKey: "tmg:token",
+      // authLocalStorageKey: "tmg:session"
     });
     this.db = new DatabaseService();
 
     this.defaultProps = {
       config: this.config,
       auth: this.auth,
-      session: this.auth.isLoggedIn(),
+      // session: this.auth.isLoggedIn(),
       api: this.api,
       db: this.db,
     };
