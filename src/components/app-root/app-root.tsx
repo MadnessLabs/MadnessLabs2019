@@ -16,17 +16,17 @@ export class AppRoot {
     api: APIService;
   };
 
-  componentWillLoad() {
+  async componentWillLoad() {
 
     this.api = new APIService({
-      host: app.apiUrl,
-      token: await this.auth.getToken()
+      // host: app.apiUrl,
+      // token: await this.auth.getToken()
     });
 
-    this.defaulProps = {
-      auth: this.auth,
-      api: this.api
-    }
+    // this.defaulProps = {
+    //   auth: this.auth,
+    //   api: this.api
+    // }
 
   }
 
@@ -35,7 +35,7 @@ export class AppRoot {
     return (
       <ion-app>
         <ion-router useHash={false}>
-          <ion-route url="/"               componentProps={this.defaultProps}component="app-home" />
+          <ion-route url="/" componentProps={this.defaultProps}component="app-home" />
           <ion-route url="/profile/:name" component="app-profile" />
         </ion-router>
         <ion-nav />
