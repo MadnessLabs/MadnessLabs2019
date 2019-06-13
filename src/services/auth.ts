@@ -36,6 +36,7 @@ export class AuthService {
     }
   };
   session: any;
+  withSocial: any;
   // private facebook: any = Facebook;
   // private googlePlus: any = GooglePlus;
   // private twitter: any = TwitterConnect;

@@ -1,14 +1,15 @@
 import { Component, h, Prop } from '@stencil/core';
 import { AuthService } from "../../services/auth";
 import { DatabaseService} from '../../services/database';
+
 // import firebase from 'firebase/app';
-import 'firebase/firestore';
+// import 'firebase/firestore';
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css'
 })
 export class AppHome {
-  auth: AuthService;
+  
   @Prop() auth: AuthService;
   @Prop() db: DatabaseService;
   @Prop() session: any;

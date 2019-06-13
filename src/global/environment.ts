@@ -13,6 +13,7 @@ export default {
       nonprofit: "test_nonprofits"
     }
   },
+
   firebase: {
     apiKey: "AIzaSyC96LTwG8KVKETQIebGN_eMjNcdY2x0Y3Q",
     authDomain: "madness-labs.firebaseapp.com",
@@ -20,6 +21,6 @@ export default {
     projectId: "madness-labs",
     storageBucket: "madness-labs.appspot.com",
     messagingSenderId: "406636537314",
-    appId: "1:406636537314:web:d9e14b91316ec220"
+    appId: "1:406636537314:web:d9e14b91316ec220"  
   }
 };

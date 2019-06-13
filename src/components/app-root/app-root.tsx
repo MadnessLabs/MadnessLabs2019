@@ -1,5 +1,5 @@
 import { Component, h, State } from '@stencil/core';
-import { ConfigService } from "../../services/config";
+import { ConfigService } from "../../services/Config";
 import { APIService } from "../../services/api";
 import { AuthService } from "../../services/auth";
 import { DatabaseService} from '../../services/database';
@@ -9,30 +9,38 @@ import { DatabaseService} from '../../services/database';
   styleUrl: 'app-root.css'
 })
 export class AppRoot {
+  api: APIService;
+  auth: AuthService;
+  db: DatabaseService;
+  router: HTMLIonRouterElement;
+  config: ConfigService;
   @State()
-    defaultProps:{
-      auth: AuthService;
-      db?: any;
-      session?: any;
-    } = {
-      auth: new AuthService({
-        firebase: {
-          apiKey: "AIzaSyC96LTwG8KVKETQIebGN_eMjNcdY2x0Y3Q",
-    authDomain: "madness-labs.firebaseapp.com",
-    databaseURL: "https://madness-labs.firebaseio.com",
-    projectId: "madness-labs",
-    storageBucket: "madness-labs.appspot.com",
-    messagingSenderId: "406636537314",
-    //appId: "1:406636537314:web:d9e14b91316ec220"
-        }
-      })
-    };
+  defaultProps: {
+    auth: AuthService;
+    db?: any;
+    session?: any;
+    api: APIService;
+    config?: ConfigService;
+  };
+
+  async componentWillLoad() {
+    this.config = new ConfigService();
+    const app = this.config.get("app");
+    this.auth = new AuthService({
+      ...this.config.get(),
+      tokenLocalStorageKey: "tmg:token",
+      authLocalStorageKey: "tmg:session"
+    });    
+    this.api = new APIService({
+      host: app.apiUrl,
+      token: await this.auth.getToken()
+    });
+  }
   
     componentDidLoad() {
-      console.log(this.defaultProps);
+
       this.defaultProps.db = new DatabaseService();
       this.defaultProps.auth.onAuthChanged(session => {
-        console.log(session);
         this.defaultProps.session = session;
         this.defaultProps = {...this.defaultProps};
       });
