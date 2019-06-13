@@ -36,9 +36,9 @@ export class AuthService {
     }
   };
   session: any;
-  private facebook: any = Facebook;
-  private googlePlus: any = GooglePlus;
-  private twitter: any = TwitterConnect;
+  // private facebook: any = Facebook;
+  // private googlePlus: any = GooglePlus;
+  // private twitter: any = TwitterConnect;
 
   constructor(config?: IFireEnjinAuthConfig) {
     let firstRun = false;
@@ -255,106 +255,106 @@ export class AuthService {
     });
   }
 
-  async facebookNative(): Promise<any> {
-    const result = await this.facebook.login(this.config.facebook.permissions);
+  // async facebookNative(): Promise<any> {
+  //   const result = await this.facebook.login(this.config.facebook.permissions);
 
-    return this.withCredential(
-      firebase.auth.FacebookAuthProvider.credential(
-        result.authResponse.accessToken
-      )
-    );
-  }
+  //   return this.withCredential(
+  //     firebase.auth.FacebookAuthProvider.credential(
+  //       result.authResponse.accessToken
+  //     )
+  //   );
+  // }
 
-  async googleNative(): Promise<any> {
-    let result;
-    try {
-      result = await this.googlePlus.login(this.config.googlePlus.options);
-    } catch (error) {
-      console.log("Error with Google Native Login...");
-      console.log(error);
-    }
+  // async googleNative(): Promise<any> {
+  //   let result;
+  //   try {
+  //     result = await this.googlePlus.login(this.config.googlePlus.options);
+  //   } catch (error) {
+  //     console.log("Error with Google Native Login...");
+  //     console.log(error);
+  //   }
 
-    return this.withCredential(
-      firebase.auth.GoogleAuthProvider.credential(result.idToken)
-    );
-  }
+  //   return this.withCredential(
+  //     firebase.auth.GoogleAuthProvider.credential(result.idToken)
+  //   );
+  // }
 
-  async twitterNative(): Promise<any> {
-    const result = await this.twitter.login();
+  // async twitterNative(): Promise<any> {
+  //   const result = await this.twitter.login();
 
-    return this.withCredential(
-      firebase.auth.TwitterAuthProvider.credential(result.token, result.secret)
-    );
-  }
+  //   return this.withCredential(
+  //     firebase.auth.TwitterAuthProvider.credential(result.token, result.secret)
+  //   );
+  // }
 
-  withSocial(network: string, redirect = false): Promise<any> {
-    let provider;
-    let shouldRedirect = redirect;
-    if (window.matchMedia("(display-mode: standalone)").matches) {
-      console.log("Running in PWA mode...");
-      shouldRedirect = true;
-    }
+  // withSocial(network: string, redirect = false): Promise<any> {
+  //   let provider;
+  //   let shouldRedirect = redirect;
+  //   if (window.matchMedia("(display-mode: standalone)").matches) {
+  //     console.log("Running in PWA mode...");
+  //     shouldRedirect = true;
+  //   }
 
-    return new Promise((resolve, reject) => {
-      if ((window as any).cordova) {
-        if (network === "google") {
-          this.googleNative()
-            .then((result: any) => {
-              this.emitLoggedInEvent(result);
-              resolve(result);
-            })
-            .catch(error => {
-              console.log(error);
-              reject(error);
-            });
-        } else if (network === "facebook") {
-          this.facebookNative()
-            .then((result: any) => {
-              this.emitLoggedInEvent(result);
-              resolve(result);
-            })
-            .catch(error => {
-              console.log(error);
-              reject(error);
-            });
-        } else if (network === "twitter") {
-          this.twitterNative()
-            .then(result => {
-              this.emitLoggedInEvent(result);
-              resolve(result);
-            })
-            .catch(error => {
-              console.log(error);
-              reject(error);
-            });
-        }
-      } else {
-        if (network === "facebook") {
-          provider = new firebase.auth.FacebookAuthProvider();
-        } else if (network === "google") {
-          provider = new firebase.auth.GoogleAuthProvider();
-        } else if (network === "twitter") {
-          provider = new firebase.auth.TwitterAuthProvider();
-        } else {
-          reject({
-            message:
-              "A social network is required or the one provided is not yet supported."
-          });
-        }
-        const authService: any = firebase.auth();
-        authService[shouldRedirect ? "signInWithRedirect" : "signInWithPopup"](
-          provider
-        )
-          .then(data => {
-            this.emitLoggedInEvent(data);
-            resolve(data);
-          })
-          .catch(error => {
-            reject(error);
-          });
-      }
-    });
-  }
+  //   return new Promise((resolve, reject) => {
+  //     if ((window as any).cordova) {
+  //       if (network === "google") {
+  //         this.googleNative()
+  //           .then((result: any) => {
+  //             this.emitLoggedInEvent(result);
+  //             resolve(result);
+  //           })
+  //           .catch(error => {
+  //             console.log(error);
+  //             reject(error);
+  //           });
+  //       } else if (network === "facebook") {
+  //         this.facebookNative()
+  //           .then((result: any) => {
+  //             this.emitLoggedInEvent(result);
+  //             resolve(result);
+  //           })
+  //           .catch(error => {
+  //             console.log(error);
+  //             reject(error);
+  //           });
+  //       } else if (network === "twitter") {
+  //         this.twitterNative()
+  //           .then(result => {
+  //             this.emitLoggedInEvent(result);
+  //             resolve(result);
+  //           })
+  //           .catch(error => {
+  //             console.log(error);
+  //             reject(error);
+  //           });
+  //       }
+  //     } else {
+  //       if (network === "facebook") {
+  //         provider = new firebase.auth.FacebookAuthProvider();
+  //       } else if (network === "google") {
+  //         provider = new firebase.auth.GoogleAuthProvider();
+  //       } else if (network === "twitter") {
+  //         provider = new firebase.auth.TwitterAuthProvider();
+  //       } else {
+  //         reject({
+  //           message:
+  //             "A social network is required or the one provided is not yet supported."
+  //         });
+  //       }
+  //       const authService: any = firebase.auth();
+  //       authService[shouldRedirect ? "signInWithRedirect" : "signInWithPopup"](
+  //         provider
+  //       )
+  //         .then(data => {
+  //           this.emitLoggedInEvent(data);
+  //           resolve(data);
+  //         })
+  //         .catch(error => {
+  //           reject(error);
+  //         });
+  //     }
+  //   });
+  // }
 
   logout() {
     this.emitLoggedOutEvent();

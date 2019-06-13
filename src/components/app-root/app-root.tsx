@@ -21,7 +21,7 @@ export class AppRoot {
   async componentWillLoad() {
     const app = this.config.get("app");
     this.api = new APIService({
-      // host: app.apiUrl,
+      host: app.apiUrl,
       // token: await this.auth.getToken()
     });
 
