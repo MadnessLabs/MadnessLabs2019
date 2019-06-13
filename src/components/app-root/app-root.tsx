@@ -1,8 +1,8 @@
 import { Component, h, State } from '@stencil/core';
-import { ConfigService } from "../../services/Config";
+import { ConfigService } from "../../services/config";
 import { APIService } from "../../services/api";
 import { AuthService } from "../../services/auth";
-import { DatabaseService} from '../../services/database';
+import { DatabaseService } from '../../services/database';
 
 @Component({
   tag: 'app-root',
@@ -17,36 +17,30 @@ export class AppRoot {
   @State()
   defaultProps: {
     auth: AuthService;
-    db?: any;
     session?: any;
     api: APIService;
+    db: DatabaseService;
     config?: ConfigService;
   };
 
   async componentWillLoad() {
     this.config = new ConfigService();
-    const app = this.config.get("app");
+    // const app = this.config.get("app");
     this.auth = new AuthService({
       ...this.config.get(),
       tokenLocalStorageKey: "tmg:token",
       authLocalStorageKey: "tmg:session"
-    });    
-    this.api = new APIService({
-      host: app.apiUrl,
-      token: await this.auth.getToken()
     });
+    this.db = new DatabaseService();
+
+    this.defaultProps = {
+      config: this.config,
+      auth: this.auth,
+      session: this.auth.isLoggedIn(),
+      api: this.api,
+      db: this.db,
+    };
   }
-  
-    componentDidLoad() {
-
-      this.defaultProps.db = new DatabaseService();
-      this.defaultProps.auth.onAuthChanged(session => {
-        this.defaultProps.session = session;
-        this.defaultProps = {...this.defaultProps};
-      });
-      this.defaultProps = {...this.defaultProps};
-    }
-
 
   render() {
     return (

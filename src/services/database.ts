@@ -61,7 +61,6 @@ export class DatabaseService {
   }
 
   async add(collectionName: string, data: any, id?: number | string) {
-    console.log(collectionName, data, id);
     let document = await this.collection(collectionName);
     document = id ? document.doc(id) : document.doc();
 
@@ -102,7 +101,7 @@ export class DatabaseService {
     this.watchers[`${collectionName}:${id}`] = this.document(
       collectionName,
       id
-    ).onSnapshot(doc => {
+    ).onSnapshot(async doc => {
       if (callback && typeof callback === "function") {
         callback({ data: doc.data() });
       }
