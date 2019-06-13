@@ -1,4 +1,5 @@
 import { Component, h, State } from '@stencil/core';
+import { ConfigService } from "../../services/config";
 import { APIService } from "../../services/api";
 import { AuthService } from "../../services/auth";
 
@@ -7,8 +8,9 @@ import { AuthService } from "../../services/auth";
   styleUrl: 'app-root.css'
 })
 export class AppRoot {
-  // starting auth servcies
+
   api: APIService;
+  config: ConfigService;
 
   @State()
   defaultProps: {
@@ -17,7 +19,7 @@ export class AppRoot {
   };
 
   async componentWillLoad() {
-
+    const app = this.config.get("app");
     this.api = new APIService({
       // host: app.apiUrl,
       // token: await this.auth.getToken()
