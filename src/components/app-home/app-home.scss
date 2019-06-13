@@ -1,0 +1,19 @@
+app-home {
+	ion-list {
+		display: flex;
+		border: none;
+		justify-content: center;
+		align-items: center;
+		ion-item {
+			width: 25%;
+			flex-wrap: nowrap;
+			display: flex;
+			border: none;
+			margin: 0 auto;
+			ion-icon {
+				margin: 0 auto;
+				font-size: 36px;
+			}
+		}
+	}
+}
