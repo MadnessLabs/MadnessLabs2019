@@ -7,7 +7,7 @@ import { AuthService } from "../../services/auth";
   styleUrl: 'app-root.css'
 })
 export class AppRoot {
-
+  // starting auth servcies
   api: APIService;
 
   @State()
