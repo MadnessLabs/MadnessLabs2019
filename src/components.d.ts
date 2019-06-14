@@ -15,11 +15,14 @@ import {
 
 export namespace Components {
   interface AppRoot {}
+  interface MlApps {}
+  interface MlContact {}
   interface MlHome {
     'auth': AuthService;
     'db': DatabaseService;
     'session': any;
   }
+  interface MlVideos {}
 }
 
 declare global {
@@ -31,28 +34,55 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLMlAppsElement extends Components.MlApps, HTMLStencilElement {}
+  var HTMLMlAppsElement: {
+    prototype: HTMLMlAppsElement;
+    new (): HTMLMlAppsElement;
+  };
+
+  interface HTMLMlContactElement extends Components.MlContact, HTMLStencilElement {}
+  var HTMLMlContactElement: {
+    prototype: HTMLMlContactElement;
+    new (): HTMLMlContactElement;
+  };
+
   interface HTMLMlHomeElement extends Components.MlHome, HTMLStencilElement {}
   var HTMLMlHomeElement: {
     prototype: HTMLMlHomeElement;
     new (): HTMLMlHomeElement;
   };
+
+  interface HTMLMlVideosElement extends Components.MlVideos, HTMLStencilElement {}
+  var HTMLMlVideosElement: {
+    prototype: HTMLMlVideosElement;
+    new (): HTMLMlVideosElement;
+  };
   interface HTMLElementTagNameMap {
     'app-root': HTMLAppRootElement;
+    'ml-apps': HTMLMlAppsElement;
+    'ml-contact': HTMLMlContactElement;
     'ml-home': HTMLMlHomeElement;
+    'ml-videos': HTMLMlVideosElement;
   }
 }
 
 declare namespace LocalJSX {
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
+  interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {}
+  interface MlContact extends JSXBase.HTMLAttributes<HTMLMlContactElement> {}
   interface MlHome extends JSXBase.HTMLAttributes<HTMLMlHomeElement> {
     'auth'?: AuthService;
     'db'?: DatabaseService;
     'session'?: any;
   }
+  interface MlVideos extends JSXBase.HTMLAttributes<HTMLMlVideosElement> {}
 
   interface IntrinsicElements {
     'app-root': AppRoot;
+    'ml-apps': MlApps;
+    'ml-contact': MlContact;
     'ml-home': MlHome;
+    'ml-videos': MlVideos;
   }
 }
 
