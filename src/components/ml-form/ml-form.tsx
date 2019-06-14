@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
+import { Component, Event, EventEmitter, Listen, Prop, h } from '@stencil/core';
 
 
 @Component({
@@ -24,6 +24,13 @@ export class MlForm {
      * Emitted when the user submits the form
      */
     @Event() mlSubmit: EventEmitter<{ event; data: any; name: string }>;
+
+    @Listen("mlChange")
+    onInput(event) {
+      if (event && event.detail && event.detail.name) {
+        this.formData[event.detail.name] = event.detail.value;
+      }
+    }    
 
     render() {
         return (
