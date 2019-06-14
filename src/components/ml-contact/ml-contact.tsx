@@ -12,6 +12,7 @@ export class MlContact {
         return (
             <div>
                 <p>Hello MlContact!</p>
+                <ml-form />
             </div>
         );
     }
