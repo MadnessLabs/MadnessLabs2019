@@ -12,6 +12,9 @@ import {
 import {
   DatabaseService,
 } from './services/database';
+import {
+  UserService,
+} from './services/user';
 
 export namespace Components {
   interface AppRoot {}
@@ -36,7 +39,32 @@ export namespace Components {
     'db': DatabaseService;
     'session': any;
   }
-  interface MlInput {}
+  interface MlInput {
+    'actionOptions': any;
+    'autocapitalize': string;
+    'autocomplete': "on" | "off";
+    'autocorrect': "on" | "off";
+    'autofocus': boolean;
+    'disabled': boolean;
+    'edit': boolean;
+    'iconLeft': string;
+    'iconRight': string;
+    'info': string;
+    'infoShow': boolean;
+    'label': string;
+    'max': string;
+    'maxlength': number;
+    'min': string;
+    'minlength': number;
+    'name': string;
+    'placeholder': any;
+    'required': any;
+    'silence': boolean;
+    'step': string;
+    'type': any;
+    'user': UserService;
+    'value': any;
+  }
   interface MlVideos {}
 }
 
@@ -122,7 +150,32 @@ declare namespace LocalJSX {
     'db'?: DatabaseService;
     'session'?: any;
   }
-  interface MlInput extends JSXBase.HTMLAttributes<HTMLMlInputElement> {}
+  interface MlInput extends JSXBase.HTMLAttributes<HTMLMlInputElement> {
+    'actionOptions'?: any;
+    'autocapitalize'?: string;
+    'autocomplete'?: "on" | "off";
+    'autocorrect'?: "on" | "off";
+    'autofocus'?: boolean;
+    'disabled'?: boolean;
+    'edit'?: boolean;
+    'iconLeft'?: string;
+    'iconRight'?: string;
+    'info'?: string;
+    'infoShow'?: boolean;
+    'label'?: string;
+    'max'?: string;
+    'maxlength'?: number;
+    'min'?: string;
+    'minlength'?: number;
+    'name'?: string;
+    'placeholder'?: any;
+    'required'?: any;
+    'silence'?: boolean;
+    'step'?: string;
+    'type'?: any;
+    'user'?: UserService;
+    'value'?: any;
+  }
   interface MlVideos extends JSXBase.HTMLAttributes<HTMLMlVideosElement> {}
 
   interface IntrinsicElements {
