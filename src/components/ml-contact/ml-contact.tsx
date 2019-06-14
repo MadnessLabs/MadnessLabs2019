@@ -9,7 +9,16 @@ export class MlContact {
     return (
       <div>
         <p>Hello MlContact!</p>
-        <ml-form />
+        <ml-form>
+          <ml-inputml
+            id="email-field"
+            name="email"
+            type="email"
+            label="Email Address"
+            placeholder="Where can we get back to you?"
+            required
+          />
+        </ml-form>
       </div>
     );
   }

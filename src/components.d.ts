@@ -59,6 +59,7 @@ export namespace Components {
     'name': string;
     'placeholder': any;
     'required': any;
+    'setFocus': () => Promise<void>;
     'silence': boolean;
     'step': string;
     'type': any;
@@ -168,6 +169,10 @@ declare namespace LocalJSX {
     'min'?: string;
     'minlength'?: number;
     'name'?: string;
+    'onMlBlur'?: (event: CustomEvent<any>) => void;
+    'onMlChange'?: (event: CustomEvent<any>) => void;
+    'onMlFocus'?: (event: CustomEvent<any>) => void;
+    'onMlInput'?: (event: CustomEvent<any>) => void;
     'placeholder'?: any;
     'required'?: any;
     'silence'?: boolean;
