@@ -14,59 +14,45 @@ import {
 } from './services/database';
 
 export namespace Components {
-  interface AppHome {
+  interface AppRoot {}
+  interface MlHome {
     'auth': AuthService;
     'db': DatabaseService;
     'session': any;
   }
-  interface AppProfile {
-    'name': string;
-  }
-  interface AppRoot {}
 }
 
 declare global {
 
-
-  interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {}
-  var HTMLAppHomeElement: {
-    prototype: HTMLAppHomeElement;
-    new (): HTMLAppHomeElement;
-  };
-
-  interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {}
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
-  };
 
   interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
   var HTMLAppRootElement: {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
   };
+
+  interface HTMLMlHomeElement extends Components.MlHome, HTMLStencilElement {}
+  var HTMLMlHomeElement: {
+    prototype: HTMLMlHomeElement;
+    new (): HTMLMlHomeElement;
+  };
   interface HTMLElementTagNameMap {
-    'app-home': HTMLAppHomeElement;
-    'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'ml-home': HTMLMlHomeElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {
+  interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
+  interface MlHome extends JSXBase.HTMLAttributes<HTMLMlHomeElement> {
     'auth'?: AuthService;
     'db'?: DatabaseService;
     'session'?: any;
   }
-  interface AppProfile extends JSXBase.HTMLAttributes<HTMLAppProfileElement> {
-    'name'?: string;
-  }
-  interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
 
   interface IntrinsicElements {
-    'app-home': AppHome;
-    'app-profile': AppProfile;
     'app-root': AppRoot;
+    'ml-home': MlHome;
   }
 }
 

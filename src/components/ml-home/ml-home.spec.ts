@@ -1,4 +1,4 @@
-import { AppHome } from './app-home';
+import { AppHome } from './ml-home';
 
 describe('app', () => {
   it('builds', () => {

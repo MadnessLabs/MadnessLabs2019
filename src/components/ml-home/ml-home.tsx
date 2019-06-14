@@ -6,8 +6,8 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 
 @Component({
-  tag: "app-home",
-  styleUrl: "app-home.scss"
+  tag: "ml-home",
+  styleUrl: "ml-home.scss"
 })
 export class AppHome {
   firebase;
