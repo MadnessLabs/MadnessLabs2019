@@ -7,9 +7,6 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
-  APIService,
-} from './services/api';
-import {
   AuthService,
 } from './services/auth';
 import {
@@ -22,9 +19,7 @@ import {
 export namespace Components {
   interface AppRoot {}
   interface MlApps {}
-  interface MlContact {
-    'api': APIService;
-  }
+  interface MlContact {}
   interface MlForm {
     /**
     * The data from the form being filled out
@@ -132,9 +127,7 @@ declare global {
 declare namespace LocalJSX {
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
   interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {}
-  interface MlContact extends JSXBase.HTMLAttributes<HTMLMlContactElement> {
-    'api'?: APIService;
-  }
+  interface MlContact extends JSXBase.HTMLAttributes<HTMLMlContactElement> {}
   interface MlForm extends JSXBase.HTMLAttributes<HTMLMlFormElement> {
     /**
     * The data from the form being filled out
