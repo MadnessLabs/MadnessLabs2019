@@ -17,6 +17,20 @@ export namespace Components {
   interface AppRoot {}
   interface MlApps {}
   interface MlContact {}
+  interface MlForm {
+    /**
+    * The data from the form being filled out
+    */
+    'formData': any;
+    /**
+    * The name of the form used for ID and name
+    */
+    'name': string;
+    /**
+    * Adds a padding around the inside of the form
+    */
+    'padding': boolean;
+  }
   interface MlHome {
     'auth': AuthService;
     'db': DatabaseService;
@@ -46,6 +60,12 @@ declare global {
     new (): HTMLMlContactElement;
   };
 
+  interface HTMLMlFormElement extends Components.MlForm, HTMLStencilElement {}
+  var HTMLMlFormElement: {
+    prototype: HTMLMlFormElement;
+    new (): HTMLMlFormElement;
+  };
+
   interface HTMLMlHomeElement extends Components.MlHome, HTMLStencilElement {}
   var HTMLMlHomeElement: {
     prototype: HTMLMlHomeElement;
@@ -61,6 +81,7 @@ declare global {
     'app-root': HTMLAppRootElement;
     'ml-apps': HTMLMlAppsElement;
     'ml-contact': HTMLMlContactElement;
+    'ml-form': HTMLMlFormElement;
     'ml-home': HTMLMlHomeElement;
     'ml-videos': HTMLMlVideosElement;
   }
@@ -70,6 +91,24 @@ declare namespace LocalJSX {
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
   interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {}
   interface MlContact extends JSXBase.HTMLAttributes<HTMLMlContactElement> {}
+  interface MlForm extends JSXBase.HTMLAttributes<HTMLMlFormElement> {
+    /**
+    * The data from the form being filled out
+    */
+    'formData'?: any;
+    /**
+    * The name of the form used for ID and name
+    */
+    'name'?: string;
+    /**
+    * Emitted when the user submits the form
+    */
+    'onMlSubmit'?: (event: CustomEvent<{ event; data: any; name: string }>) => void;
+    /**
+    * Adds a padding around the inside of the form
+    */
+    'padding'?: boolean;
+  }
   interface MlHome extends JSXBase.HTMLAttributes<HTMLMlHomeElement> {
     'auth'?: AuthService;
     'db'?: DatabaseService;
@@ -81,6 +120,7 @@ declare namespace LocalJSX {
     'app-root': AppRoot;
     'ml-apps': MlApps;
     'ml-contact': MlContact;
+    'ml-form': MlForm;
     'ml-home': MlHome;
     'ml-videos': MlVideos;
   }

@@ -1,6 +1,5 @@
 import { Component, h } from '@stencil/core';
 
-
 @Component({
     tag: 'ml-contact',
     styleUrl: 'ml-contact.scss'
