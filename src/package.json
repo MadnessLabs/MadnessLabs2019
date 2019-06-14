@@ -1,0 +1,26 @@
+{
+  "name": "madnesslabs2019",
+  "private": true,
+  "version": "0.0.1",
+  "description": "madnesslabs2019",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watch"
+  },
+  "dependencies": {
+    "@firebase/app": "^0.4.4",
+    "@ionic/core": "one",
+    "@stencil/sass": "^1.0.0",
+    "firebase": "^6.1.1",
+    "ionic-native": "^2.9.0"
+  },
+  "devDependencies": {
+    "@stencil/core": "1.0.2"
+  }
+}
