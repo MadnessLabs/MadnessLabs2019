@@ -36,6 +36,7 @@ export namespace Components {
     'db': DatabaseService;
     'session': any;
   }
+  interface MlInput {}
   interface MlVideos {}
 }
 
@@ -72,6 +73,12 @@ declare global {
     new (): HTMLMlHomeElement;
   };
 
+  interface HTMLMlInputElement extends Components.MlInput, HTMLStencilElement {}
+  var HTMLMlInputElement: {
+    prototype: HTMLMlInputElement;
+    new (): HTMLMlInputElement;
+  };
+
   interface HTMLMlVideosElement extends Components.MlVideos, HTMLStencilElement {}
   var HTMLMlVideosElement: {
     prototype: HTMLMlVideosElement;
@@ -83,6 +90,7 @@ declare global {
     'ml-contact': HTMLMlContactElement;
     'ml-form': HTMLMlFormElement;
     'ml-home': HTMLMlHomeElement;
+    'ml-input': HTMLMlInputElement;
     'ml-videos': HTMLMlVideosElement;
   }
 }
@@ -114,6 +122,7 @@ declare namespace LocalJSX {
     'db'?: DatabaseService;
     'session'?: any;
   }
+  interface MlInput extends JSXBase.HTMLAttributes<HTMLMlInputElement> {}
   interface MlVideos extends JSXBase.HTMLAttributes<HTMLMlVideosElement> {}
 
   interface IntrinsicElements {
@@ -122,6 +131,7 @@ declare namespace LocalJSX {
     'ml-contact': MlContact;
     'ml-form': MlForm;
     'ml-home': MlHome;
+    'ml-input': MlInput;
     'ml-videos': MlVideos;
   }
 }

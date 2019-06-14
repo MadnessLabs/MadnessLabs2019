@@ -1,19 +1,16 @@
-import { Component, h } from '@stencil/core';
+import { Component, h } from "@stencil/core";
 
 @Component({
-    tag: 'ml-contact',
-    styleUrl: 'ml-contact.scss'
+  tag: "ml-contact",
+  styleUrl: "ml-contact.scss"
 })
 export class MlContact {
-
-    
-
-    render() {
-        return (
-            <div>
-                <p>Hello MlContact!</p>
-                <ml-form />
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <p>Hello MlContact!</p>
+        <ml-form />
+      </div>
+    );
+  }
 }
