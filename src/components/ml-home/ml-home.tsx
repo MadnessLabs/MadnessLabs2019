@@ -1,9 +1,10 @@
-import { Component, h, Prop } from "@stencil/core";
+import { Component, h, Prop, State } from "@stencil/core";
 import { AuthService } from "../../services/auth";
 import { DatabaseService } from "../../services/database";
 
 import firebase from "firebase/app";
 import "firebase/firestore";
+//import { MlContact } from "../ml-contact/ml-contact";
 
 @Component({
   tag: "ml-home",
@@ -11,6 +12,14 @@ import "firebase/firestore";
 })
 export class AppHome {
   firebase;
+
+  @State() contact: any = ({
+    id: "",
+    name: "string",
+    type: "string",
+    label: "string",
+    placeholder: "string"
+  })
 
   @Prop() auth: AuthService;
   @Prop() db: DatabaseService;
@@ -41,6 +50,7 @@ export class AppHome {
     //const result = await firebase.auth().signInWithPopup(provider);
     //console.log(result);
   }
+
   //Google Login Button
   async loginWithGoogle(_event) {
     console.log(firebase);
@@ -161,7 +171,12 @@ export class AppHome {
             />
           </ion-item>
         </ion-list>
+
+        <ml-contact/>
       </ion-content>
+
+      //Form Componenet
+      
     ];
   }
 }

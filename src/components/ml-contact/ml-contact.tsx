@@ -1,4 +1,5 @@
 import { Component, h, Listen, Prop } from "@stencil/core";
+//import { type } from "os";
 
 @Component({
   tag: "ml-contact",
@@ -6,7 +7,18 @@ import { Component, h, Listen, Prop } from "@stencil/core";
 })
 export class MlContact {
   
-  // @Prop()
+  @Prop() contact: ({
+      id: string,
+      name: string,
+      type: string,
+      label: string,
+      placeholder: string
+  })
+
+
+
+
+
   // api: APIService;
 
   @Listen("mlSubmit")

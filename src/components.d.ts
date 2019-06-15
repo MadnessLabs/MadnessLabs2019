@@ -19,7 +19,15 @@ import {
 export namespace Components {
   interface AppRoot {}
   interface MlApps {}
-  interface MlContact {}
+  interface MlContact {
+    'contact': ({
+      id: string,
+      name: string,
+      type: string,
+      label: string,
+      placeholder: string
+    });
+  }
   interface MlForm {
     /**
     * The data from the form being filled out
@@ -127,7 +135,15 @@ declare global {
 declare namespace LocalJSX {
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
   interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {}
-  interface MlContact extends JSXBase.HTMLAttributes<HTMLMlContactElement> {}
+  interface MlContact extends JSXBase.HTMLAttributes<HTMLMlContactElement> {
+    'contact'?: ({
+      id: string,
+      name: string,
+      type: string,
+      label: string,
+      placeholder: string
+    });
+  }
   interface MlForm extends JSXBase.HTMLAttributes<HTMLMlFormElement> {
     /**
     * The data from the form being filled out
