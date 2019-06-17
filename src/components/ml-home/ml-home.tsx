@@ -75,33 +75,7 @@ export class AppHome {
   //     alert("There was an error logging in...");
   //     console.log(error);
   //   }
-  // }
-
-  //Github Login Button
-  // async loginWithGithub(_event) {
-  //   console.log(firebase);
-
-  //     // const docRef = this.user.update(result.user.uid, {
-  //     //  email: result.user.email,
-  //     //  oldUser: true
-  //     // });
-  //     // console.log(docRef);
-
-  //   try {
-  //     const result = await this.auth.withSocial("github");
-
-  //     await this.db.add(
-  //       "users",
-  //       { name: result.user.displayName },
-  //       result.user.uid
-  //     );
-
-  //     console.log(result);
-  //   } catch (error) {
-  //     alert("There was an error logging in...");
-  //     console.log(error);
-  //   }
-  // }  
+  // } 
 
   async login(event, type){
     console.log(event, 'event here');
@@ -145,18 +119,18 @@ export class AppHome {
               class="login-logo"              
             />
           </ion-item>
-          {/* <ion-item>
+          <ion-item>
             <ion-icon
-              onClick={event => this.loginWithGoogle(event)}
+              onClick={event => this.login(event, 'google')}
               name="logo-google"
             />
-          </ion-item> */}
-          {/* <ion-item>
+          </ion-item>
+          <ion-item>
             <ion-icon
-              onClick={event => this.loginWithFacebook(event)}
+              onClick={event => this.login(event, 'facebook')}
               name="logo-facebook"
             />
-          </ion-item> */}
+          </ion-item>
         </ion-list>
         <ion-button href="contact">Contact me bro</ion-button>
       </ion-content>
