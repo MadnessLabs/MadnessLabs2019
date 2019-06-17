@@ -7,11 +7,11 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
-  AuthService,
-} from './services/auth';
-import {
   DatabaseService,
 } from './services/database';
+import {
+  AuthService,
+} from './services/auth';
 import {
   UserService,
 } from './services/user';
@@ -20,13 +20,7 @@ export namespace Components {
   interface AppRoot {}
   interface MlApps {}
   interface MlContact {
-    'contact': ({
-      id: string,
-      name: string,
-      type: string,
-      label: string,
-      placeholder: string
-    });
+    'db': DatabaseService;
   }
   interface MlForm {
     /**
@@ -135,13 +129,7 @@ declare namespace LocalJSX {
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
   interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {}
   interface MlContact extends JSXBase.HTMLAttributes<HTMLMlContactElement> {
-    'contact'?: ({
-      id: string,
-      name: string,
-      type: string,
-      label: string,
-      placeholder: string
-    });
+    'db'?: DatabaseService;
   }
   interface MlForm extends JSXBase.HTMLAttributes<HTMLMlFormElement> {
     /**
