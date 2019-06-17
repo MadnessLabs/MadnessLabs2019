@@ -24,6 +24,8 @@ export class AppHome {
   async login(event, type){
     console.log(event, 'event here');
     console.log(type, 'type here');
+    console.log(firebase);
+    
     try {
       const result = await this.auth.withSocial(type);
       console.log(result);
