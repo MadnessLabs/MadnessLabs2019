@@ -1,7 +1,3 @@
-// import { Facebook } from "@ionic-native/facebook";
-// import { GooglePlus } from "@ionic-native/google-plus";
-// import { TwitterConnect } from "@ionic-native/twitter-connect";
-
 import firebase from "firebase/app";
 import "firebase/auth";
 
@@ -31,9 +27,6 @@ export class AuthService {
   private config: IFireEnjinAuthConfig = {
     authLocalStorageKey: "enjin:session",
     tokenLocalStorageKey: "enjin:token",
-    facebook: {
-      permissions: ["email", "public_profile", "user_friends"]
-    }
   };
   session: any;
 
