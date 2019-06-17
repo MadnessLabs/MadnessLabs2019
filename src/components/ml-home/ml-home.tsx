@@ -1,4 +1,4 @@
-import { Component, h, Prop, State } from "@stencil/core";
+import { Component, h, Prop } from "@stencil/core";
 import { AuthService } from "../../services/auth";
 import { DatabaseService } from "../../services/database";
 
@@ -151,8 +151,7 @@ export class AppHome {
             />
           </ion-item> */}
         </ion-list>
-
-        <ml-contact/>
+        <ion-button href="contact">Contact me bro</ion-button>
       </ion-content>
 
       //Form Componenet
