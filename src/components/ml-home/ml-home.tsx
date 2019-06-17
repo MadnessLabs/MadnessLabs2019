@@ -15,67 +15,11 @@ export class AppHome {
   @Prop() auth: AuthService;
   @Prop() db: DatabaseService;
 
-  async loginWithGoogle(_event) {
-
-    try {
-      const result = await this.auth.withSocial("google");
-      await this.db.add(
-        "users",
-        { name: result.user.displayName },
-        result.user.uid
-      );
-      
-    } catch (error) {
-      alert("There was an error logging in...");
-      console.log(error);
-    }
-  }
-
-  //Login with Facebook
-  async loginWithFacebook(_event) {
-    console.log(firebase);
-    try {
-      const result = await this.auth.withSocial("facebook");
-
-      await this.db.add(
-        "users",
-        { name: result.user.displayName },
-        result.user.uid
-      );
-      // const docRef = this.user.update(result.user.uid, {
-      //  email: result.user.email,
-      //  oldUser: true
-      // });
-      // console.log(docRef);
-      console.log(result);
-    } catch (error) {
-      alert("There was an error logging in...");
-      console.log(error);
-    }
-  }
-
-  //Login with Twitter
-  // async loginWithTwitter(_event) {
-  //   console.log(firebase);
-  //   try {
-  //     const result = await this.auth.withSocial("twitter");
-
-  //     await this.db.add(
-  //       "users",
-  //       { name: result.user.displayName },
-  //       result.user.uid
-  //     );
-  //     // const docRef = this.user.update(result.user.uid, {
-  //     //  email: result.user.email,
-  //     //  oldUser: true
-  //     // });
-  //     // console.log(docRef);
-  //     console.log(result);
-  //   } catch (error) {
-  //     alert("There was an error logging in...");
-  //     console.log(error);
-  //   }
-  // } 
+  // const docRef = this.user.update(result.user.uid, {
+  //  email: result.user.email,
+  //  oldUser: true
+  // });
+  // console.log(docRef);
 
   async login(event, type){
     console.log(event, 'event here');
@@ -92,7 +36,6 @@ export class AppHome {
       alert('There was an error logging in...');
       console.log(error);
     }
-    
   }
 
   render() {
@@ -134,8 +77,6 @@ export class AppHome {
         </ion-list>
         <ion-button href="contact">Contact me bro</ion-button>
       </ion-content>
-
-      //Form Componenet
       
     ];
   }
