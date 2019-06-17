@@ -1,5 +1,5 @@
 import { Component, h, Listen, Prop } from "@stencil/core";
-//import { type } from "os";
+import { DatabaseService } from "../../services/database";
 
 @Component({
   tag: "ml-contact",
@@ -7,25 +7,15 @@ import { Component, h, Listen, Prop } from "@stencil/core";
 })
 export class MlContact {
   
-  @Prop() contact: ({
-      id: string,
-      name: string,
-      type: string,
-      label: string,
-      placeholder: string
-  })
-
-
-
-
-
-  // api: APIService;
+  @Prop() db: DatabaseService;
 
   @Listen("mlSubmit")
   contactUs(event) {
     if (!event || !event.detail || !event.detail.data) {
       return false;
     }
+
+    this.db.add('contact', event.detail.data);
   }
 
   render() {
@@ -33,7 +23,7 @@ export class MlContact {
       <div>
         <p>Hello MlContact!</p>
         <ml-form>
-          <ml-inputml
+          <ml-input
             id="email-field"
             name="email"
             type="email"
