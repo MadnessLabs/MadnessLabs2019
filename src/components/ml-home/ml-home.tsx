@@ -1,11 +1,10 @@
-import { Component, h, Prop, State } from "@stencil/core";
+import { Component, h, Prop, State} from "@stencil/core";
 import { AuthService } from "../../services/auth";
 import { DatabaseService } from "../../services/database";
 
 import firebase from "firebase/app";
 import "firebase/firestore";
-//import { MlContact } from "../ml-contact/ml-contact";
-
+ 
 @Component({
   tag: "ml-home",
   styleUrl: "ml-home.scss"
@@ -14,7 +13,7 @@ export class AppHome {
   firebase;
 
   @State() contact: any = ({
-    id: "",
+    id: "string",
     name: "string",
     type: "string",
     label: "string",
@@ -172,7 +171,15 @@ export class AppHome {
           </ion-item>
         </ion-list>
 
-        <ml-contact/>
+        <ml-form>
+          <ml-input />
+          <ml-input name="this.name"/>
+          <ml-input/>
+          <ml-input/>
+            
+    
+          </ml-form>     
+
       </ion-content>
 
       //Form Componenet
