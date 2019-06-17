@@ -4,7 +4,6 @@ import { DatabaseService } from "../../services/database";
 
 import firebase from "firebase/app";
 import "firebase/firestore";
-//import { MlContact } from "../ml-contact/ml-contact";
 
 @Component({
   tag: "ml-home",
@@ -53,11 +52,11 @@ export class AppHome {
 
   //Google Login Button
   async loginWithGoogle(_event) {
-    console.log(firebase);
+
     try {
       const result = await this.auth.withSocial("google");
 
-      await this.db.add(
+      const answer = await this.db.add(
         "users",
         { name: result.user.displayName },
         result.user.uid
@@ -67,7 +66,9 @@ export class AppHome {
       //  oldUser: true
       // });
       // console.log(docRef);
-      console.log(result);
+      console.log(result, 'logging the result');
+      console.log(answer, 'logging the answer');
+      
     } catch (error) {
       alert("There was an error logging in...");
       console.log(error);
@@ -138,13 +139,6 @@ export class AppHome {
       </ion-header>,
 
       <ion-content class="ion-padding">
-        {/* <ion-button onClick={(event) => this.loginWithGithub(event)} expand="block">Login with Github</ion-button>
-
-<ion-button onClick={(event) => this.loginWithGoogle(event)} expand="block">Login with Google</ion-button>
-
-<ion-button onClick={(event) => this.loginWithFacebook(event)} expand="block">Login with Facebook</ion-button>
-
-<ion-button onClick={(event) => this.loginWithTwitter(event)} expand="block">Login with Twitter</ion-button> */}
         <ion-list>
           <ion-item>
             <ion-icon

@@ -15,10 +15,6 @@ export class MlContact {
       placeholder: string
   })
 
-
-
-
-
   // api: APIService;
 
   @Listen("mlSubmit")
@@ -33,7 +29,7 @@ export class MlContact {
       <div>
         <p>Hello MlContact!</p>
         <ml-form>
-          <ml-inputml
+          <ml-input
             id="email-field"
             name="email"
             type="email"
