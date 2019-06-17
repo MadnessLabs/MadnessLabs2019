@@ -31,7 +31,7 @@ export class AppRoot {
       // authLocalStorageKey: "tmg:session"
     });
 
-    // this.db = new DatabaseService();
+    this.db = new DatabaseService();
 
     this.defaultProps = {
       auth: this.auth,

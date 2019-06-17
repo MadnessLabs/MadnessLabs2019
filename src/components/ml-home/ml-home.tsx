@@ -104,11 +104,16 @@ export class AppHome {
   // }  
 
   async login(event, type){
-    console.log(event);
-    console.log(type);
+    console.log(event, 'event here');
+    console.log(type, 'type here');
     try {
       const result = await this.auth.withSocial(type);
       console.log(result);
+      await this.db.add(
+        "users",
+        { name: result.user.displayName },
+        result.user.uid
+      );      
     } catch(error) {
       alert('There was an error logging in...');
       console.log(error);
@@ -130,12 +135,14 @@ export class AppHome {
             <ion-icon
               onClick={event => this.login(event, 'github')}
               name="logo-github"
+              class="login-logo"
             />
           </ion-item>
           <ion-item>
             <ion-icon
               onClick={event => this.login(event, 'twitter')}
               name="logo-twitter"
+              class="login-logo"              
             />
           </ion-item>
           {/* <ion-item>
