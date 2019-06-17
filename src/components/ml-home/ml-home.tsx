@@ -15,32 +15,6 @@ export class AppHome {
   @Prop() auth: AuthService;
   @Prop() db: DatabaseService;
 
-  //Github Login Button
-  async loginWithGithub(_event) {
-    console.log(firebase);
-
-      // const docRef = this.user.update(result.user.uid, {
-      //  email: result.user.email,
-      //  oldUser: true
-      // });
-      // console.log(docRef);
-
-    try {
-      const result = await this.auth.withSocial("github");
-
-      await this.db.add(
-        "users",
-        { name: result.user.displayName },
-        result.user.uid
-      );
-
-      console.log(result);
-    } catch (error) {
-      alert("There was an error logging in...");
-      console.log(error);
-    }
-  }
-
   async loginWithGoogle(_event) {
 
     try {
@@ -103,10 +77,42 @@ export class AppHome {
   //   }
   // }
 
+  //Github Login Button
+  // async loginWithGithub(_event) {
+  //   console.log(firebase);
+
+  //     // const docRef = this.user.update(result.user.uid, {
+  //     //  email: result.user.email,
+  //     //  oldUser: true
+  //     // });
+  //     // console.log(docRef);
+
+  //   try {
+  //     const result = await this.auth.withSocial("github");
+
+  //     await this.db.add(
+  //       "users",
+  //       { name: result.user.displayName },
+  //       result.user.uid
+  //     );
+
+  //     console.log(result);
+  //   } catch (error) {
+  //     alert("There was an error logging in...");
+  //     console.log(error);
+  //   }
+  // }  
+
   async login(event, type){
     console.log(event);
     console.log(type);
-    
+    try {
+      const result = await this.auth.withSocial(type);
+      console.log(result);
+    } catch(error) {
+      alert('There was an error logging in...');
+      console.log(error);
+    }
     
   }
 
@@ -122,7 +128,7 @@ export class AppHome {
         <ion-list>
           <ion-item>
             <ion-icon
-              onClick={event => this.loginWithGithub(event)}
+              onClick={event => this.login(event, 'github')}
               name="logo-github"
             />
           </ion-item>
@@ -132,18 +138,18 @@ export class AppHome {
               name="logo-twitter"
             />
           </ion-item>
-          <ion-item>
+          {/* <ion-item>
             <ion-icon
               onClick={event => this.loginWithGoogle(event)}
               name="logo-google"
             />
-          </ion-item>
-          <ion-item>
+          </ion-item> */}
+          {/* <ion-item>
             <ion-icon
               onClick={event => this.loginWithFacebook(event)}
               name="logo-facebook"
             />
-          </ion-item>
+          </ion-item> */}
         </ion-list>
 
         <ml-contact/>
