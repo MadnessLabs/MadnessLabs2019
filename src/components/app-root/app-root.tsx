@@ -24,18 +24,17 @@ export class AppRoot {
 
   async componentWillLoad() {
     this.config = new ConfigService();
-    // const app = this.config.get("app");
+    // pass in the config options in order to initialize a new app
     this.auth = new AuthService({
       ...this.config.get(),
       // tokenLocalStorageKey: "tmg:token",
       // authLocalStorageKey: "tmg:session"
     });
+
     this.db = new DatabaseService();
 
     this.defaultProps = {
-      config: this.config,
       auth: this.auth,
-      // session: this.auth.isLoggedIn(),
       api: this.api,
       db: this.db,
     };
@@ -47,7 +46,6 @@ export class AppRoot {
         <ion-router useHash={false}>
           <ion-route url="/" componentProps={this.defaultProps}component="ml-home" />
           <ion-route url="/contact" componentProps={this.defaultProps} component="ml-contact" />
-          {/* <ion-route url="/profile/:name" component="app-profile" /> */}
         </ion-router>
         <ion-nav />
       </ion-app>

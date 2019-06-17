@@ -45,7 +45,6 @@ export namespace Components {
   interface MlHome {
     'auth': AuthService;
     'db': DatabaseService;
-    'session': any;
   }
   interface MlInput {
     'actionOptions': any;
@@ -165,7 +164,6 @@ declare namespace LocalJSX {
   interface MlHome extends JSXBase.HTMLAttributes<HTMLMlHomeElement> {
     'auth'?: AuthService;
     'db'?: DatabaseService;
-    'session'?: any;
   }
   interface MlInput extends JSXBase.HTMLAttributes<HTMLMlInputElement> {
     'actionOptions'?: any;
