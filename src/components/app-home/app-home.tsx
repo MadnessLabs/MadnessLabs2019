@@ -84,32 +84,32 @@ export class AppHome {
         </div>
         <div class="bottom-nav">
           <ion-list>
-            <ion-item>
-              Home
-              <ion-icon
-                onClick={event => this.login(event, "github")}
-                name="logo-github"
-                class="login-logo"
-              />              
 
- 
-            </ion-item>
-            <ion-item>
-              About
+         
+            <ion-item href="/">
               <ion-icon
-                onClick={event => this.login(event, "twitter")}
-                name="logo-twitter"
-                class="login-logo"
-              />
+              name="home"
+              />  
+              <h3>Home</h3>   
             </ion-item>
-            <ion-item>
-              Community
+            <ion-item href="/contact">
               <ion-icon
-                onClick={event => this.login(event, "google")}
-                name="logo-google"
+                name="alert"
               />
+                <h3>About</h3>
             </ion-item>
-            <ion-item />
+            <ion-item href="/community">
+                <ion-icon name="share" />
+                <h3>Community</h3>
+            </ion-item>
+            <ion-item href="/apps">
+              <ion-icon name="phone-portrait"></ion-icon>
+              <h3>Apps</h3>
+            </ion-item>
+            <ion-item href="/media">
+              <ion-icon name="headset"></ion-icon>
+              <h3>Media</h3>
+            </ion-item>
           </ion-list>
           <ml-floating-button buttonList={this.buttonList} />
         </div>

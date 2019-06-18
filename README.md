@@ -1,4 +1,4 @@
-# Ionic PWA Toolkit Beta
+`# Ionic PWA Toolkit Beta
 
 The PWA Toolkit is a starting point for building Progressive Web Apps using Ionic and Stencil.
 This combination of tools gives you the ability to build a fast, efficient PWA out of the box.

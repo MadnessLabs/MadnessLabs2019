@@ -4,7 +4,7 @@ import { Component, h, Listen, Prop } from "@stencil/core";
 
 @Component({
   tag: "ml-floating-button",
-  styleUrl: "ml-floating-button.css"
+  styleUrl: "ml-floating-button.scss"
 })
 export class MlFloatingButton {
     fabEl: HTMLIonFabElement;

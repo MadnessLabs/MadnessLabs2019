@@ -20,6 +20,7 @@ import {
 } from './services/user';
 
 export namespace Components {
+  interface AppAbout {}
   interface AppApps {}
   interface AppCommunity {}
   interface AppContact {
@@ -103,10 +104,17 @@ export namespace Components {
     'user': UserService;
     'value': any;
   }
+  interface MlVideos {}
 }
 
 declare global {
 
+
+  interface HTMLAppAboutElement extends Components.AppAbout, HTMLStencilElement {}
+  var HTMLAppAboutElement: {
+    prototype: HTMLAppAboutElement;
+    new (): HTMLAppAboutElement;
+  };
 
   interface HTMLAppAppsElement extends Components.AppApps, HTMLStencilElement {}
   var HTMLAppAppsElement: {
@@ -161,7 +169,14 @@ declare global {
     prototype: HTMLMlInputElement;
     new (): HTMLMlInputElement;
   };
+
+  interface HTMLMlVideosElement extends Components.MlVideos, HTMLStencilElement {}
+  var HTMLMlVideosElement: {
+    prototype: HTMLMlVideosElement;
+    new (): HTMLMlVideosElement;
+  };
   interface HTMLElementTagNameMap {
+    'app-about': HTMLAppAboutElement;
     'app-apps': HTMLAppAppsElement;
     'app-community': HTMLAppCommunityElement;
     'app-contact': HTMLAppContactElement;
@@ -171,10 +186,12 @@ declare global {
     'ml-floating-button': HTMLMlFloatingButtonElement;
     'ml-form': HTMLMlFormElement;
     'ml-input': HTMLMlInputElement;
+    'ml-videos': HTMLMlVideosElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface AppAbout extends JSXBase.HTMLAttributes<HTMLAppAboutElement> {}
   interface AppApps extends JSXBase.HTMLAttributes<HTMLAppAppsElement> {}
   interface AppCommunity extends JSXBase.HTMLAttributes<HTMLAppCommunityElement> {}
   interface AppContact extends JSXBase.HTMLAttributes<HTMLAppContactElement> {
@@ -265,8 +282,10 @@ declare namespace LocalJSX {
     'user'?: UserService;
     'value'?: any;
   }
+  interface MlVideos extends JSXBase.HTMLAttributes<HTMLMlVideosElement> {}
 
   interface IntrinsicElements {
+    'app-about': AppAbout;
     'app-apps': AppApps;
     'app-community': AppCommunity;
     'app-contact': AppContact;
@@ -276,6 +295,7 @@ declare namespace LocalJSX {
     'ml-floating-button': MlFloatingButton;
     'ml-form': MlForm;
     'ml-input': MlInput;
+    'ml-videos': MlVideos;
   }
 }
 

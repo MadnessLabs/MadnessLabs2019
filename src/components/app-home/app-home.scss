@@ -1,4 +1,11 @@
-ml-home {
+.inner-scroll {
+	--padding-start: 0;
+	--padding-end: 0;
+}
+.ion-padding{
+	--padding-start: 0;
+}
+app-home {
 	.video-container {
 		position: absolute;
 		top: 0;
@@ -34,18 +41,22 @@ ml-home {
 			justify-content: center;
 			align-items: center;
 			--ion-background-color: none;
+			width: 90%;
 			ion-item {
+				font-weight: bold;
+				font-size: 20px;
 				height: 100%;
-				width: 25%;
+				width: 20%;
 				flex-wrap: nowrap;
 				display: flex;
 				border: none;
 				margin: 0 auto;
 				color: var(--theme-sunflower);
+				--border-color: var(--theme-sunflower);
 				ion-icon {
-					margin: 0 auto;
+					margin-right: .5rem;
 					font-size: 36px;
-					color: black !important;
+				color: var(--theme-sunflower);
 				}
 				.login-logo {
 					cursor: pointer;

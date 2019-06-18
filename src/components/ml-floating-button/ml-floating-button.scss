@@ -1,0 +1,18 @@
+ml-floating-button {
+    ion-button {
+        --background: none;
+        --box-shadow: none;
+        --background-hover: none;
+        --background-focused: none;
+    }
+    // .fab-horizontal-end {
+    //     right: 11rem;
+    // }
+    ion-icon {
+        // font-size: 36px;
+        // margin-right: 25px;
+    }
+    .fab-label {
+        display: none;
+    }
+}
