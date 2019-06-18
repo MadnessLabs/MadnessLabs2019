@@ -6,8 +6,8 @@ import { DatabaseService } from "../../services/database";
 // import "firebase/firestore";
 
 @Component({
-  tag: "ml-home",
-  styleUrl: "ml-home.scss"
+  tag: "app-home",
+  styleUrl: "app-home.scss"
 })
 export class AppHome {
   firebase;
@@ -85,12 +85,13 @@ export class AppHome {
         <div class="bottom-nav">
           <ion-list>
             <ion-item>
+              Home
               <ion-icon
                 onClick={event => this.login(event, "github")}
                 name="logo-github"
                 class="login-logo"
               />              
-              Home
+
  
             </ion-item>
             <ion-item>

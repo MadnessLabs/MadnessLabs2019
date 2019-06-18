@@ -2,8 +2,8 @@ import { Component, h, Listen, Prop } from "@stencil/core";
 import { DatabaseService } from "../../services/database";
 
 @Component({
-  tag: "ml-contact",
-  styleUrl: "ml-contact.scss"
+  tag: "app-contact",
+  styleUrl: "app-contact.scss"
 })
 export class MlContact {
   

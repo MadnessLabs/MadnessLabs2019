@@ -29,3 +29,20 @@
   More info about color theming using Ionic:
   https://beta.ionicframework.com/docs/theming/color-generator
 */
+:root {
+  --theme-grey1: #EEEEEE;
+  --theme-grey2: #DDDDDD;
+  --theme-medium-grey1: #BBBBBB;
+  --theme-medium-grey2: #888888;
+  --theme-dark-grey1: #777777;
+  --theme-dark-grey2: #454545;
+
+  --theme-purple: #5F1E78;
+  --theme-berry: #984771;
+  --theme-moss-green: #A4E375;
+  --theme-seafoam: #2FB9AE;
+  --theme-mint: #53E0DB;
+  --theme-steel: #6897B1;
+  --theme-plum: #3059C9;
+  --theme-sunflower: #24B6F7;
+}
