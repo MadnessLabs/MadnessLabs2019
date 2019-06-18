@@ -1,4 +1,10 @@
 ml-floating-button {
+    .ion-color-dark {
+        --ion-color-base: var(--theme-sunflower) !important;
+    }
+    svg {
+        color:white !important;
+    }
     ion-button {
         --background: none;
         --box-shadow: none;
@@ -8,10 +14,14 @@ ml-floating-button {
     // .fab-horizontal-end {
     //     right: 11rem;
     // }
-    ion-icon {
-        // font-size: 36px;
-        // margin-right: 25px;
+    .button-wrapper {
+        ion-icon {
+            font-size: 36px;
+            position: absolute;
+            color: var(--theme-sunflower);
+        }
     }
+
     .fab-label {
         display: none;
     }
