@@ -104,6 +104,7 @@ export namespace Components {
     'user': UserService;
     'value': any;
   }
+  interface MlLatestPost {}
   interface MlVideos {}
 }
 
@@ -170,6 +171,12 @@ declare global {
     new (): HTMLMlInputElement;
   };
 
+  interface HTMLMlLatestPostElement extends Components.MlLatestPost, HTMLStencilElement {}
+  var HTMLMlLatestPostElement: {
+    prototype: HTMLMlLatestPostElement;
+    new (): HTMLMlLatestPostElement;
+  };
+
   interface HTMLMlVideosElement extends Components.MlVideos, HTMLStencilElement {}
   var HTMLMlVideosElement: {
     prototype: HTMLMlVideosElement;
@@ -186,6 +193,7 @@ declare global {
     'ml-floating-button': HTMLMlFloatingButtonElement;
     'ml-form': HTMLMlFormElement;
     'ml-input': HTMLMlInputElement;
+    'ml-latest-post': HTMLMlLatestPostElement;
     'ml-videos': HTMLMlVideosElement;
   }
 }
@@ -282,6 +290,7 @@ declare namespace LocalJSX {
     'user'?: UserService;
     'value'?: any;
   }
+  interface MlLatestPost extends JSXBase.HTMLAttributes<HTMLMlLatestPostElement> {}
   interface MlVideos extends JSXBase.HTMLAttributes<HTMLMlVideosElement> {}
 
   interface IntrinsicElements {
@@ -295,6 +304,7 @@ declare namespace LocalJSX {
     'ml-floating-button': MlFloatingButton;
     'ml-form': MlForm;
     'ml-input': MlInput;
+    'ml-latest-post': MlLatestPost;
     'ml-videos': MlVideos;
   }
 }

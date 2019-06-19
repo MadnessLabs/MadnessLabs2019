@@ -6,6 +6,36 @@
 	--padding-start: 0;
 }
 app-home {
+	.hp-main-content {
+		position: fixed;
+		z-index: 50;
+		width: 100%;
+		height: auto;
+		aside {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			border: 1px solid var(--theme-sunflower);
+			z-index: 100;
+			padding: 1rem;
+			width: 500px;
+			h1 {
+				color: var(--theme-sunflower);
+			}
+		}		
+		main {
+			position: relative;
+			top: 200px;
+			left: 1rem;
+			h1 {
+				font-size: 88px;
+				text-transform: uppercase;
+				font-weight: bold;
+			}
+		}
+
+	}
+
 	.video-container {
 		position: absolute;
 		top: 0;

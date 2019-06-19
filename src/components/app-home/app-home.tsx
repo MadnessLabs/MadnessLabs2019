@@ -32,6 +32,22 @@ export class AppHome {
       onClick: event => {
         this.login(event, "twitter");
       }
+    },
+    {
+      title: "Google",
+      icon: "logo-google",
+      color: "",
+      onClick: event => {
+        this.login(event, "google");
+      }
+    },
+    {
+      title: "Google",
+      icon: "logo-facebook",
+      color: "",
+      onClick: event => {
+        this.login(event, "facebook");
+      }
     }
   ];
 
@@ -57,23 +73,30 @@ export class AppHome {
       console.log(error);
     }
   }
+  
+  componentDidLoad(){
+    console.log(location.href, 'is this the current location?');
+    
+  }
 
   render() {
     return [
       <ion-content class="ion-padding">
-<aside>
-  
-</aside>
         <div class="hp-main-content">
-          <div class="hp-row1">
-            <h1>Madness Labs</h1>
-          </div>
-          <div class="hp-row2">
-            <h2>
-              Creativity with <span>love</span>
-            </h2>
-            <img src="" alt="" />
-          </div>
+          <aside>
+            <ml-latest-post />
+          </aside>
+          <main>
+            <div class="hp-row1">
+              <h1>Madness Labs</h1>
+            </div>
+            <div class="hp-row2">
+              <h2>
+                Creativity with <span>love</span>
+              </h2>
+              <img src="" alt="" />
+            </div>
+          </main>
         </div>
 
         <div class="video-container">
@@ -84,30 +107,24 @@ export class AppHome {
         </div>
         <div class="bottom-nav">
           <ion-list>
-
-         
             <ion-item href="/">
-              <ion-icon
-              name="home"
-              />  
-              <h3>Home</h3>   
+              <ion-icon name="home" />
+              <h3>Home</h3>
             </ion-item>
             <ion-item href="/contact">
-              <ion-icon
-                name="alert"
-              />
-                <h3>About</h3>
+              <ion-icon name="alert" />
+              <h3>About</h3>
             </ion-item>
             <ion-item href="/community">
-                <ion-icon name="share" />
-                <h3>Community</h3>
+              <ion-icon name="share" />
+              <h3>Community</h3>
             </ion-item>
             <ion-item href="/apps">
-              <ion-icon name="phone-portrait"></ion-icon>
+              <ion-icon name="phone-portrait" />
               <h3>Apps</h3>
             </ion-item>
             <ion-item href="/media">
-              <ion-icon name="headset"></ion-icon>
+              <ion-icon name="headset" />
               <h3>Media</h3>
             </ion-item>
           </ion-list>

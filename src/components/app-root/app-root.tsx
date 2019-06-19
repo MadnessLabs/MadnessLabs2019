@@ -48,7 +48,7 @@ export class AppRoot {
           <ion-route url="/contact" componentProps={this.defaultProps} component="app-contact" />
           <ion-route url="/community" componentProps={this.defaultProps} component="app-community" />
           <ion-route url="/apps" componentProps={this.defaultProps} component="app-apps" />
-          <ion-route url="/apps" componentProps={this.defaultProps} component="app-media" />          
+          <ion-route url="/media" componentProps={this.defaultProps} component="app-media" />          
         </ion-router>
         <ion-nav />
       </ion-app>
