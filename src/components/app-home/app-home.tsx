@@ -57,6 +57,8 @@ export class AppHome {
   // });
   // console.log(docRef);
 
+
+
   async login(event, type) {
     console.log(event, "event here");
     console.log(type, "type here");
@@ -73,14 +75,42 @@ export class AppHome {
       console.log(error);
     }
   }
+  isLoggedOut(){
+    console.log('what is going on');
+    
+    console.log(this.auth.isLoggedIn(), 'how does this work?');
+    this.auth.onAuthChanged(() => {console.log('asdf')});
+    
+  }
+  logOut() {
+    console.log('ok what also is up');
+    console.log(this.auth, 'what about this?');
+    
+    const isIt = this.auth.logout();
+    console.log(isIt);
+    
+  }
   
   componentDidLoad(){
     console.log(location.href, 'is this the current location?');
-    
   }
 
   render() {
     return [
+      <div>
+        <ion-button
+          onClick={() =>
+            this.logOut()
+          }        
+        >
+          log out
+        </ion-button>
+        <ion-button onClick={() =>
+          this.isLoggedOut()
+        }>
+          is Logged out?
+        </ion-button>
+      </div>,
       <ion-content class="ion-padding">
         <div class="hp-main-content">
           <aside>

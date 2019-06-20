@@ -39,11 +39,70 @@ export class AuthService {
     }
   }
 
+  getFromStorage() {
+    return localStorage.getItem(this.config.authLocalStorageKey)
+      ? JSON.parse(localStorage.getItem(this.config.authLocalStorageKey))
+      : null;
+  }  
+
   // isLoggedIn(): TMG.user.ISession {
   //   return firebase.auth().currentUser
   //     ? firebase.auth().currentUser
   //     : this.getFromStorage();
   // }
+
+  
+
+  emitLoggedOutEvent() {
+    document.body.dispatchEvent(
+      new CustomEvent("authLoggedOut", { detail: {} })
+    );
+  }  
+
+  logout() {
+    this.emitLoggedOutEvent();
+    firebase.auth().signOut().then(() => {
+      return 'signed out just fine'
+    }).catch(() => {
+      return 'there was an issue'
+    })
+  }
+
+  isLoggedIn() {
+    return firebase.auth().currentUser
+      ? firebase.auth().currentUser
+      : this.getFromStorage();
+  }  
+
+  onAuthChanged(callback) {
+    firebase.auth().onAuthStateChanged(async session => {
+      if (
+        !session ||
+        (!session.emailVerified &&
+          session.providerData &&
+          session.providerData[0].providerId === "password")
+      ) {
+        return false;
+      }
+      if (session) {
+        localStorage.setItem(
+          this.config.authLocalStorageKey,
+          JSON.stringify(session)
+        );
+        localStorage.setItem(
+          this.config.tokenLocalStorageKey,
+          await firebase.auth().currentUser.getIdToken(true)
+        );
+      }
+      if (callback && typeof callback === "function") {
+        callback(session);
+      }
+    });
+
+    if (!localStorage.getItem(this.config.authLocalStorageKey)) {
+      callback(null);
+    }
+  }
 
   withSocial(network: string, redirect = false): Promise<any> {
     let provider;
