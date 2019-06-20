@@ -33,7 +33,6 @@ app-home {
 				font-weight: bold;
 			}
 		}
-
 	}
 
 	.video-container {
@@ -91,7 +90,7 @@ app-home {
 		}		
 	}
 	@media (max-width: 1059px) {
-		.video-container {
+		ion-content {
 			position: fixed;
 			background: url('/assets/videos/video-bg.png') no-repeat center center fixed;
 			background-size: cover;
@@ -114,7 +113,44 @@ app-home {
 		}				
 	}
 	@media (max-width: 719px) {
-
+		.bottom-nav {
+			position: static;
+			ion-list {
+				ion-item {
+					width: 100%;
+					ion-icon {
+						margin-right: .5rem;
+						font-size: 36px;
+					}
+				}
+			}		
+		}	
+		.hp-main-content {
+			position: static;
+			z-index: 50;
+			width: 100%;
+			height: auto;
+			aside {
+				position: static;
+				top: 1rem;
+				right: 1rem;
+				border: 1px solid var(--theme-sunflower);
+				z-index: 100;
+				padding: 1rem;
+				width: 500px;
+				h1 {
+					color: var(--theme-sunflower);
+				}
+			}		
+			main {
+				position: static;
+				h1 {
+					font-size: 88px;
+					text-transform: uppercase;
+					font-weight: bold;
+				}
+			}
+		}		
 	}
 
 }

@@ -100,6 +100,7 @@ export class AppHome {
       //     is Logged out?
       //   </ion-button>
       // </div>,
+      
       <ion-content class="ion-padding">
         <div class="hp-main-content">
           <aside>
