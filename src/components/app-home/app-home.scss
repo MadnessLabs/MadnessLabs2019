@@ -67,20 +67,16 @@ app-home {
 		background: none;
 		ion-list {
 			display: flex;
-			border: none;
 			justify-content: center;
-			align-items: center;
 			--ion-background-color: none;
+			flex-wrap: nowrap;
 			width: 90%;
 			ion-item {
 				font-weight: bold;
 				font-size: 20px;
 				height: 100%;
 				width: 20%;
-				flex-wrap: nowrap;
 				display: flex;
-				border: none;
-				margin: 0 auto;
 				color: var(--theme-sunflower);
 				--border-color: var(--theme-sunflower);
 				ion-icon {
@@ -94,6 +90,86 @@ app-home {
 			}
 		}		
 	}
+	@media (max-width: 1059px) {
+		.video-container {
+			background: url('/assets/videos/video-bg.png') no-repeat;
+			background-size: cover;
+		}
+		.video-container video {
+			display: none;
+		}
+		.bottom-nav {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			background: none;
+			ion-list {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+				max-width: 80%;
+				ion-item {
+					font-weight: bold;
+					font-size: 20px;
+					height: 100%;
+					max-width: 25%;
+					flex-wrap: wrap;
+					display: flex;
+					margin: 0 auto;
+					color: var(--theme-sunflower);
+					--border-color: var(--theme-sunflower);
+					ion-icon {
+						margin-right: .5rem;
+						font-size: 36px;
+					color: var(--theme-sunflower);
+					}
+					.login-logo {
+						cursor: pointer;
+					}
+				}
+			}		
+		}		
+		// .bottom-nav {
+		// 	position: absolute;
+		// 	bottom: 0;
+		// 	right: 0;
+		// 	left: 0;
+		// 	background: none;
+		// 	ion-list {
+		// 		display: flex;
+		// 		border: none;
+		// 		justify-content: center;
+		// 		align-items: center;
+		// 		display: block;
+		// 		--ion-background-color: none;
+		// 		width: 90%;
+		// 		ion-item {
+		// 			font-weight: bold;
+		// 			font-size: 20px;
+		// 			height: 100%;
+		// 			width: 25%;
+		// 			flex-wrap: wrap;
+		// 			display: flex;
+		// 			border: none;
+		// 			margin: 0 auto;
+		// 			color: var(--theme-sunflower);
+		// 			--border-color: var(--theme-sunflower);
+		// 			ion-icon {
+		// 				margin-right: .5rem;
+		// 				font-size: 36px;
+		// 			color: var(--theme-sunflower);
+		// 			}
+		// 			.login-logo {
+		// 				cursor: pointer;
+		// 			}
+		// 		}
+		// 	}		
+		// }		
+	}
 
 }
+
+	
 
