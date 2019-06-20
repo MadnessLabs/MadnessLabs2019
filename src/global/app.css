@@ -29,3 +29,48 @@
   More info about color theming using Ionic:
   https://beta.ionicframework.com/docs/theming/color-generator
 */
+/* ion-item {
+  --inner-border-width: 0;
+} */
+:root {
+  --theme-grey1: #EEEEEE;
+  --theme-grey2: #DDDDDD;
+  --theme-medium-grey1: #BBBBBB;
+  --theme-medium-grey2: #888888;
+  --theme-dark-grey1: #777777;
+  --theme-dark-grey2: #454545;
+
+  --theme-purple: #5F1E78;
+  --theme-berry: #984771;
+  --theme-moss-green: #A4E375;
+  --theme-seafoam: #2FB9AE;
+  --theme-mint: #53E0DB;
+  --theme-steel: #6897B1;
+  --theme-plum: #3059C9;
+  --theme-sunflower: #24B6F7;
+
+  --theme-font-primary: "Open Sans", Arial, Helvetica, sans-serif;
+  --theme-font-secondary: "Rounded Elegance", Arial, Helvetica, sans-serif;
+
+}
+
+@font-face {
+  font-family: "Rounded Elegance";
+  src: url("/assets/fonts/Rounded_Elegance.ttf");
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("/assets/fonts/OpenSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2, h3, ion-item {
+  font-family: var(--theme-font-primary)
+}
+span {
+  font-family: var(--theme-font-secondary);
+}
+p {
+  font-family: var(--theme-font-secondary);
+}

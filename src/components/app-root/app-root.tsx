@@ -44,8 +44,11 @@ export class AppRoot {
     return (
       <ion-app>
         <ion-router useHash={false}>
-          <ion-route url="/" componentProps={this.defaultProps}component="ml-home" />
-          <ion-route url="/contact" componentProps={this.defaultProps} component="ml-contact" />
+          <ion-route url="/" componentProps={this.defaultProps}component="app-home" />
+          <ion-route url="/contact" componentProps={this.defaultProps} component="app-contact" />
+          <ion-route url="/community" componentProps={this.defaultProps} component="app-community" />
+          <ion-route url="/apps" componentProps={this.defaultProps} component="app-apps" />
+          <ion-route url="/media" componentProps={this.defaultProps} component="app-media" />          
         </ion-router>
         <ion-nav />
       </ion-app>

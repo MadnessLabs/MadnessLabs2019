@@ -13,14 +13,55 @@ import {
   AuthService,
 } from './services/auth';
 import {
+  Color,
+} from '@ionic/core';
+import {
   UserService,
 } from './services/user';
 
 export namespace Components {
-  interface AppRoot {}
-  interface MlApps {}
-  interface MlContact {
+  interface AppAbout {}
+  interface AppApps {}
+  interface AppCommunity {}
+  interface AppContact {
     'db': DatabaseService;
+  }
+  interface AppHome {
+    'auth': AuthService;
+    'db': DatabaseService;
+  }
+  interface AppMedia {}
+  interface AppRoot {}
+  interface MlFloatingButton {
+    /**
+    * The list of buttons to show when the material button is clicked
+    */
+    'buttonList': {
+      /**
+      * The title to show next to the button
+      */
+      title: string;
+      /**
+      * The icon to use in the button
+      */
+      icon: string;
+      /**
+      * The color from the theme to make the button
+      */
+      color: Color;
+      /**
+      * The functionality to run when the button is clicked
+      */
+      onClick: (event: any) => any;
+    }[];
+    /**
+    * The icon to use on the material button when it's closed
+    */
+    'openIcon': string;
+    /**
+    * The url to link the material button to
+    */
+    'url': string;
   }
   interface MlForm {
     /**
@@ -35,10 +76,6 @@ export namespace Components {
     * Adds a padding around the inside of the form
     */
     'padding': boolean;
-  }
-  interface MlHome {
-    'auth': AuthService;
-    'db': DatabaseService;
   }
   interface MlInput {
     'actionOptions': any;
@@ -67,11 +104,48 @@ export namespace Components {
     'user': UserService;
     'value': any;
   }
+  interface MlLatestPost {}
   interface MlVideos {}
 }
 
 declare global {
 
+
+  interface HTMLAppAboutElement extends Components.AppAbout, HTMLStencilElement {}
+  var HTMLAppAboutElement: {
+    prototype: HTMLAppAboutElement;
+    new (): HTMLAppAboutElement;
+  };
+
+  interface HTMLAppAppsElement extends Components.AppApps, HTMLStencilElement {}
+  var HTMLAppAppsElement: {
+    prototype: HTMLAppAppsElement;
+    new (): HTMLAppAppsElement;
+  };
+
+  interface HTMLAppCommunityElement extends Components.AppCommunity, HTMLStencilElement {}
+  var HTMLAppCommunityElement: {
+    prototype: HTMLAppCommunityElement;
+    new (): HTMLAppCommunityElement;
+  };
+
+  interface HTMLAppContactElement extends Components.AppContact, HTMLStencilElement {}
+  var HTMLAppContactElement: {
+    prototype: HTMLAppContactElement;
+    new (): HTMLAppContactElement;
+  };
+
+  interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {}
+  var HTMLAppHomeElement: {
+    prototype: HTMLAppHomeElement;
+    new (): HTMLAppHomeElement;
+  };
+
+  interface HTMLAppMediaElement extends Components.AppMedia, HTMLStencilElement {}
+  var HTMLAppMediaElement: {
+    prototype: HTMLAppMediaElement;
+    new (): HTMLAppMediaElement;
+  };
 
   interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
   var HTMLAppRootElement: {
@@ -79,16 +153,10 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
-  interface HTMLMlAppsElement extends Components.MlApps, HTMLStencilElement {}
-  var HTMLMlAppsElement: {
-    prototype: HTMLMlAppsElement;
-    new (): HTMLMlAppsElement;
-  };
-
-  interface HTMLMlContactElement extends Components.MlContact, HTMLStencilElement {}
-  var HTMLMlContactElement: {
-    prototype: HTMLMlContactElement;
-    new (): HTMLMlContactElement;
+  interface HTMLMlFloatingButtonElement extends Components.MlFloatingButton, HTMLStencilElement {}
+  var HTMLMlFloatingButtonElement: {
+    prototype: HTMLMlFloatingButtonElement;
+    new (): HTMLMlFloatingButtonElement;
   };
 
   interface HTMLMlFormElement extends Components.MlForm, HTMLStencilElement {}
@@ -97,16 +165,16 @@ declare global {
     new (): HTMLMlFormElement;
   };
 
-  interface HTMLMlHomeElement extends Components.MlHome, HTMLStencilElement {}
-  var HTMLMlHomeElement: {
-    prototype: HTMLMlHomeElement;
-    new (): HTMLMlHomeElement;
-  };
-
   interface HTMLMlInputElement extends Components.MlInput, HTMLStencilElement {}
   var HTMLMlInputElement: {
     prototype: HTMLMlInputElement;
     new (): HTMLMlInputElement;
+  };
+
+  interface HTMLMlLatestPostElement extends Components.MlLatestPost, HTMLStencilElement {}
+  var HTMLMlLatestPostElement: {
+    prototype: HTMLMlLatestPostElement;
+    new (): HTMLMlLatestPostElement;
   };
 
   interface HTMLMlVideosElement extends Components.MlVideos, HTMLStencilElement {}
@@ -115,21 +183,64 @@ declare global {
     new (): HTMLMlVideosElement;
   };
   interface HTMLElementTagNameMap {
+    'app-about': HTMLAppAboutElement;
+    'app-apps': HTMLAppAppsElement;
+    'app-community': HTMLAppCommunityElement;
+    'app-contact': HTMLAppContactElement;
+    'app-home': HTMLAppHomeElement;
+    'app-media': HTMLAppMediaElement;
     'app-root': HTMLAppRootElement;
-    'ml-apps': HTMLMlAppsElement;
-    'ml-contact': HTMLMlContactElement;
+    'ml-floating-button': HTMLMlFloatingButtonElement;
     'ml-form': HTMLMlFormElement;
-    'ml-home': HTMLMlHomeElement;
     'ml-input': HTMLMlInputElement;
+    'ml-latest-post': HTMLMlLatestPostElement;
     'ml-videos': HTMLMlVideosElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
-  interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {}
-  interface MlContact extends JSXBase.HTMLAttributes<HTMLMlContactElement> {
+  interface AppAbout extends JSXBase.HTMLAttributes<HTMLAppAboutElement> {}
+  interface AppApps extends JSXBase.HTMLAttributes<HTMLAppAppsElement> {}
+  interface AppCommunity extends JSXBase.HTMLAttributes<HTMLAppCommunityElement> {}
+  interface AppContact extends JSXBase.HTMLAttributes<HTMLAppContactElement> {
     'db'?: DatabaseService;
+  }
+  interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {
+    'auth'?: AuthService;
+    'db'?: DatabaseService;
+  }
+  interface AppMedia extends JSXBase.HTMLAttributes<HTMLAppMediaElement> {}
+  interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
+  interface MlFloatingButton extends JSXBase.HTMLAttributes<HTMLMlFloatingButtonElement> {
+    /**
+    * The list of buttons to show when the material button is clicked
+    */
+    'buttonList'?: {
+      /**
+      * The title to show next to the button
+      */
+      title: string;
+      /**
+      * The icon to use in the button
+      */
+      icon: string;
+      /**
+      * The color from the theme to make the button
+      */
+      color: Color;
+      /**
+      * The functionality to run when the button is clicked
+      */
+      onClick: (event: any) => any;
+    }[];
+    /**
+    * The icon to use on the material button when it's closed
+    */
+    'openIcon'?: string;
+    /**
+    * The url to link the material button to
+    */
+    'url'?: string;
   }
   interface MlForm extends JSXBase.HTMLAttributes<HTMLMlFormElement> {
     /**
@@ -148,10 +259,6 @@ declare namespace LocalJSX {
     * Adds a padding around the inside of the form
     */
     'padding'?: boolean;
-  }
-  interface MlHome extends JSXBase.HTMLAttributes<HTMLMlHomeElement> {
-    'auth'?: AuthService;
-    'db'?: DatabaseService;
   }
   interface MlInput extends JSXBase.HTMLAttributes<HTMLMlInputElement> {
     'actionOptions'?: any;
@@ -183,15 +290,21 @@ declare namespace LocalJSX {
     'user'?: UserService;
     'value'?: any;
   }
+  interface MlLatestPost extends JSXBase.HTMLAttributes<HTMLMlLatestPostElement> {}
   interface MlVideos extends JSXBase.HTMLAttributes<HTMLMlVideosElement> {}
 
   interface IntrinsicElements {
+    'app-about': AppAbout;
+    'app-apps': AppApps;
+    'app-community': AppCommunity;
+    'app-contact': AppContact;
+    'app-home': AppHome;
+    'app-media': AppMedia;
     'app-root': AppRoot;
-    'ml-apps': MlApps;
-    'ml-contact': MlContact;
+    'ml-floating-button': MlFloatingButton;
     'ml-form': MlForm;
-    'ml-home': MlHome;
     'ml-input': MlInput;
+    'ml-latest-post': MlLatestPost;
     'ml-videos': MlVideos;
   }
 }
