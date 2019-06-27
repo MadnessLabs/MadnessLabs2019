@@ -1,8 +1,8 @@
-import { Component, h, Prop, State} from "@stencil/core";
+import { Component, h, Prop} from "@stencil/core";
 import { AuthService } from "../../services/auth";
 import { DatabaseService } from "../../services/database";
 
-import firebase from "firebase/app";
+//import firebase from "firebase/app";
 import "firebase/firestore";
  
 

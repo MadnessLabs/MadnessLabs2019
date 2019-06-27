@@ -31,6 +31,16 @@ export class MlContact {
             placeholder="Where can we get back to you?"
             required
           />
+
+          <ml-input
+            id="message-field"
+            name="message"
+            type="message"
+            label="Message"
+            placeholder="What do you want say?"
+            required
+          />
+
         </ml-form>
       </div>
     );
