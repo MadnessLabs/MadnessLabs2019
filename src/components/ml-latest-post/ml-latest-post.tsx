@@ -6,12 +6,15 @@ import { Component, h} from '@stencil/core';
 })
 export class MlLatestPost{
 
+    componentDidMount(){
+        this.fetchData();
+    }
 
+    fetchData = () => {
+   
 
-const getPost = () => {
-    const fetch = require('node-fetch');
-
-        fetch('https://madnesslabs.net/api/v1/feed').then((res)=>{
+       let promise =  fetch('https://madnesslabs.net/api/v1/feed', {mode: 'no-cors'});
+        promise.then((res)=>{
                 return res.json();
         }).then((json)=>{
             console.log(json)
@@ -23,7 +26,13 @@ const getPost = () => {
         return (
             <div>
                 <ion-item>
-             
+                <ion-button
+          onClick={() =>
+            this.fetchData()
+          }        
+        >
+          Get post
+        </ion-button>
                 </ion-item>
             </div>
         );

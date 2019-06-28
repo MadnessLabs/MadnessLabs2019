@@ -1,6 +1,6 @@
-import { Facebook } from "@ionic-native/facebook";
-import { GooglePlus } from "@ionic-native/google-plus";
-import { TwitterConnect } from "@ionic-native/twitter-connect";
+// import { Facebook } from "@ionic-native/facebook";
+// import { GooglePlus } from "@ionic-native/google-plus";
+// import { TwitterConnect } from "@ionic-native/twitter-connect";
 
 // import firebase from "firebase/app";
 // import "firebase/auth";
@@ -37,9 +37,9 @@ export class AuthService {
     }
   };
   session: any;
-  private facebook: any = Facebook;
-  private googlePlus: any = GooglePlus;
-  private twitter: any = TwitterConnect;
+  // private facebook: any = Facebook;
+  // private googlePlus: any = GooglePlus;
+  // private twitter: any = TwitterConnect;
 
   constructor(config?: IFireEnjinAuthConfig) {
     let firstRun = false;
@@ -166,7 +166,7 @@ export class AuthService {
       : null;
   }
 
-  isLoggedIn(): TM.user.ISession {
+  isLoggedIn(): any {
     return firebase.auth().currentUser
       ? firebase.auth().currentUser
       : this.getFromStorage();
@@ -256,37 +256,37 @@ export class AuthService {
     });
   }
 
-  async facebookNative(): Promise<any> {
-    const result = await this.facebook.login(this.config.facebook.permissions);
+  // async facebookNative(): Promise<any> {
+  //   const result = await this.facebook.login(this.config.facebook.permissions);
 
-    return this.withCredential(
-      firebase.auth.FacebookAuthProvider.credential(
-        result.authResponse.accessToken
-      )
-    );
-  }
+  //   return this.withCredential(
+  //     firebase.auth.FacebookAuthProvider.credential(
+  //       result.authResponse.accessToken
+  //     )
+  //   );
+  // }
 
-  async googleNative(): Promise<any> {
-    let result;
-    try {
-      result = await this.googlePlus.login(this.config.googlePlus.options);
-    } catch (error) {
-      console.log("Error with Google Native Login...");
-      console.log(error);
-    }
+  // async googleNative(): Promise<any> {
+  //   let result;
+  //   try {
+  //     result = await this.googlePlus.login(this.config.googlePlus.options);
+  //   } catch (error) {
+  //     console.log("Error with Google Native Login...");
+  //     console.log(error);
+  //   }
 
-    return this.withCredential(
-      firebase.auth.GoogleAuthProvider.credential(result.idToken)
-    );
-  }
+  //   return this.withCredential(
+  //     firebase.auth.GoogleAuthProvider.credential(result.idToken)
+  //   );
+  // }
 
-  async twitterNative(): Promise<any> {
-    const result = await this.twitter.login();
+  // async twitterNative(): Promise<any> {
+  //   const result = await this.twitter.login();
 
-    return this.withCredential(
-      firebase.auth.TwitterAuthProvider.credential(result.token, result.secret)
-    );
-  }
+  //   return this.withCredential(
+  //     firebase.auth.TwitterAuthProvider.credential(result.token, result.secret)
+  //   );
+  // }
 
   withSocial(network: string, redirect = false): Promise<any> {
     let provider;
@@ -298,37 +298,37 @@ export class AuthService {
 
     return new Promise((resolve, reject) => {
       if ((window as any).cordova) {
-        if (network === "google") {
-          this.googleNative()
-            .then((result: any) => {
-              this.emitLoggedInEvent(result);
-              resolve(result);
-            })
-            .catch(error => {
-              console.log(error);
-              reject(error);
-            });
-        } else if (network === "facebook") {
-          this.facebookNative()
-            .then((result: any) => {
-              this.emitLoggedInEvent(result);
-              resolve(result);
-            })
-            .catch(error => {
-              console.log(error);
-              reject(error);
-            });
-        } else if (network === "twitter") {
-          this.twitterNative()
-            .then(result => {
-              this.emitLoggedInEvent(result);
-              resolve(result);
-            })
-            .catch(error => {
-              console.log(error);
-              reject(error);
-            });
-        }
+        // if (network === "google") {
+        //   this.googleNative()
+        //     .then((result: any) => {
+        //       this.emitLoggedInEvent(result);
+        //       resolve(result);
+        //     })
+        //     .catch(error => {
+        //       console.log(error);
+        //       reject(error);
+        //     });
+        // } else if (network === "facebook") {
+        //   this.facebookNative()
+        //     .then((result: any) => {
+        //       this.emitLoggedInEvent(result);
+        //       resolve(result);
+        //     })
+        //     .catch(error => {
+        //       console.log(error);
+        //       reject(error);
+        //     });
+        // } else if (network === "twitter") {
+        //   this.twitterNative()
+        //     .then(result => {
+        //       this.emitLoggedInEvent(result);
+        //       resolve(result);
+        //     })
+        //     .catch(error => {
+        //       console.log(error);
+        //       reject(error);
+        //     });
+        // }
       } else {
         if (network === "facebook") {
           provider = new firebase.auth.FacebookAuthProvider();
