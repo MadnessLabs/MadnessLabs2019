@@ -1,4 +1,4 @@
-import { Component, h} from '@stencil/core';
+import { Component, h, State} from '@stencil/core';
 
 @Component({
     tag: 'ml-latest-post',
@@ -6,8 +6,8 @@ import { Component, h} from '@stencil/core';
 })
 export class MlLatestPost{
 
-  state ={
-    title: null
+  @State() feed = {
+    title: ''
   };
     
     componentDidMount(){
@@ -34,17 +34,19 @@ export class MlLatestPost{
 
     fetchData(){
         fetch('https://madnesslabs.net/api/v1/feed').then(function(response) {
-        console.log(response.headers.get('author'));
-    console.log(response.headers.get('title'));
-   this.setState( {title: response.headers.get('title')});
-    console.log(response.headers.get('link'));
-    console.log(response.headers.get('post'));
-    console.log(response.headers.get('date'));
+          console.log(response);
+          
+    //     console.log(response.headers.get('author'));
+    // console.log(response.headers.get('title'));
+   this.feed = ( {title: response.headers.get('title')});
+    // console.log(response.headers.get('link'));
+    // console.log(response.headers.get('post'));
+    // console.log(response.headers.get('date'));
 
-    console.log(response.status);
-    console.log(response.statusText);
-    console.log(response.type);
-    console.log(response.url);
+    // console.log(response.status);
+    // console.log(response.statusText);
+    // console.log(response.type);
+    // console.log(response.url);
 
       if (response.status !== 200) {
         console.log('Looks like there was a problem. Status Code: ' +
@@ -71,18 +73,7 @@ export class MlLatestPost{
         return (
             <div>
                 <h1>Cool post</h1>
-                <p>
-
-{!this.state.feed ? (
-<div>loading... </div> 
-) : (
-<div>
-    <div>{this.state.post}</div>
-</div>
-)}
-
-
-                    
+                <p> fetch this ok?                    
                 </p>
             </div>
         );
