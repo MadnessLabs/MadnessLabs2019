@@ -70,16 +70,24 @@ export class MlLatestPost{
     render() {
         return (
             <div>
-<h1>
-    Title
-    </h1>
+                <h1>Cool post</h1>
+                <p>
 
-    <p>
-Post
-    </p>
+{!this.state.feed ? (
+<div>loading... </div> 
+) : (
+<div>
+    <div>{this.state.post}</div>
+</div>
+)}
 
+
+                    
+                </p>
             </div>
         );
-      }
+    }
+
+
     
 }
