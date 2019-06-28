@@ -166,7 +166,7 @@ export class AuthService {
       : null;
   }
 
-  isLoggedIn(): TMG.user.ISession {
+  isLoggedIn(): TM.user.ISession {
     return firebase.auth().currentUser
       ? firebase.auth().currentUser
       : this.getFromStorage();
