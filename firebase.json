@@ -11,6 +11,21 @@
         "source": "!/build/**",
         "destination": "/index.html"
       }
+    ],
+    "headers": [
+      {
+        "source": "/sw.js",
+        "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      },
+      {
+        "source": "/build/p-*",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=365000000, immutable"
+          }
+        ]
+      }
     ]
   }
 }
