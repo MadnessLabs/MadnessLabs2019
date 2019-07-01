@@ -14,6 +14,7 @@ log.txt
 
 .stencil/
 .idea/
+.firebase/
 .vscode/
 .sass-cache/
 .versions/

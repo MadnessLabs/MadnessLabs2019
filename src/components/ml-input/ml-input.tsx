@@ -15,8 +15,7 @@ import { UserService } from "../../services/user";
 
 @Component({
   tag: "ml-input",
-  styleUrl: "ml-input.css",
-  scoped: true
+  styleUrl: "ml-input.css"
 })
 export class MlInput {
   modal: HTMLIonModalElement;

@@ -5,8 +5,7 @@ import { DatabaseService } from "../../services/database";
 
 @Component({
   tag: "ml-navigation",
-  styleUrl: "ml-navigation.css",
-  scoped: true
+  styleUrl: "ml-navigation.css"
 })
 export class MlNavigation {
   @Prop() auth: AuthService;

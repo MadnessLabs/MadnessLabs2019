@@ -2,8 +2,7 @@ import { Component, h } from "@stencil/core";
 
 @Component({
   tag: "ml-latest-post",
-  styleUrl: "ml-latest-post.css",
-  scoped: true
+  styleUrl: "ml-latest-post.css"
 })
 export class MlLatestPost {
   state = {

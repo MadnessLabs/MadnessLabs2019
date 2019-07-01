@@ -2,8 +2,7 @@ import { Component, Event, EventEmitter, Listen, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "ml-form",
-  styleUrl: "ml-form.css",
-  scoped: true
+  styleUrl: "ml-form.css"
 })
 export class MlForm {
   formEl: HTMLFormElement;
