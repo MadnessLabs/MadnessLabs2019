@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "todo-tree.flat": true,
+    "todo-tree.expanded": true,
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#192B5A",
+      "titleBar.activeBackground": "#233D7D",
+      "titleBar.activeForeground": "#F8FAFD"
+    }
+  }
+}

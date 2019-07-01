@@ -1,0 +1,20 @@
+.ion-color-dark {
+  --ion-color-base: var(--ion-color-primary) !important;
+}
+svg {
+  color: white !important;
+}
+ion-button {
+  --background: none;
+  --box-shadow: none;
+  --background-hover: none;
+  --background-focused: none;
+}
+.button-wrapper ion-icon {
+  font-size: 36px;
+  position: absolute;
+  color: var(--ion-color-primary);
+}
+.fab-label {
+  display: none;
+}

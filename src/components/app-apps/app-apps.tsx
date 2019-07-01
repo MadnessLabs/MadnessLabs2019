@@ -1,19 +1,16 @@
-import { Component, h } from '@stencil/core';
-
+import { Component, h } from "@stencil/core";
 
 @Component({
-    tag: 'app-apps',
-    styleUrl: 'app-apps.scss'
+  tag: "app-apps",
+  styleUrl: "app-apps.css",
+  scoped: true
 })
 export class MlApps {
-
-    
-
-    render() {
-        return (
-            <div>
-                <p>Hello MlApps!</p>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <p>Hello MlApps!</p>
+      </div>
+    );
+  }
 }

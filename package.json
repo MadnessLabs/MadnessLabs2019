@@ -14,14 +14,11 @@
     "test.watch": "stencil test --spec --e2e --watch"
   },
   "dependencies": {
-    "@firebase/app": "^0.4.5",
-    "@ionic/core": "^4.6.0-dev.201906131724.645b9a9",
-    "@stencil/sass": "^1.0.0",
+    "@ionic/core": "one",
     "@types/jest": "^24.0.14",
-    "firebase": "^6.2.0",
-    "ionic-native": "^2.9.0"
+    "firebase": "~6.2.0"
   },
   "devDependencies": {
-    "@stencil/core": "1.0.2"
+    "@stencil/core": "~1.1.3"
   }
 }

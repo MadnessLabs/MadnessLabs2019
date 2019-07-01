@@ -1,10 +1,22 @@
-import { Component, Prop, Element, Event, EventEmitter, h, Listen, Method, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  Element,
+  Event,
+  EventEmitter,
+  Listen,
+  Method,
+  State,
+  Watch,
+  h
+} from "@stencil/core";
 declare var Cleave;
 import { UserService } from "../../services/user";
 
 @Component({
   tag: "ml-input",
-  styleUrl: "ml-input.scss"
+  styleUrl: "ml-input.css",
+  scoped: true
 })
 export class MlInput {
   modal: HTMLIonModalElement;
@@ -58,9 +70,9 @@ export class MlInput {
   @Prop()
   user: UserService;
   @Prop({ connect: "ion-modal-controller" })
-	modalCtrl: HTMLIonModalControllerElement;	
-	
-	@State()
+  modalCtrl: HTMLIonModalControllerElement;
+
+  @State()
   showInfo: boolean;
   @State()
   passwordVisible = false;
@@ -69,8 +81,8 @@ export class MlInput {
   @State()
   input: HTMLInputElement;
   @State()
-	inputType: string;
-	
+  inputType: string;
+
   @Event()
   mlChange: EventEmitter;
   @Event()
@@ -81,8 +93,8 @@ export class MlInput {
   mlBlur: EventEmitter;
 
   @Element()
-	inputEl: HTMLMlInputElement;
-	
+  inputEl: HTMLMlInputElement;
+
   @Listen("ionInput")
   onInput(event) {
     setTimeout(() => {
@@ -92,8 +104,8 @@ export class MlInput {
         value: this.input ? this.input.value : event.detail.value
       });
     }, 100);
-	}
-	
+  }
+
   @Listen("ionFocus")
   onFocus(event) {
     this.mlFocus.emit({
@@ -101,8 +113,8 @@ export class MlInput {
       name: this.name,
       value: this.input ? this.input.value : event.detail.value
     });
-	}	
-	
+  }
+
   @Listen("ionBlur")
   onBlur(event) {
     this.mlBlur.emit({
@@ -110,8 +122,8 @@ export class MlInput {
       name: this.name,
       value: this.input ? this.input.value : event.detail.value
     });
-	}	
-	
+  }
+
   @Listen("ionChange")
   onChange(event: UIEvent) {
     if (
@@ -128,21 +140,21 @@ export class MlInput {
       name: this.name,
       value: this.input.value
     });
-	}	
+  }
 
   @Method()
   async setFocus() {
     this.input.focus();
-  }		
-	
-	@Watch("value")
+  }
+
+  @Watch("value")
   onValueChange() {
     if (!this.cleave) {
       return false;
     }
     this.cleave.setRawValue(this.value ? this.value : null);
-	}
-	
+  }
+
   dateToYearMonthDay(date: any): string {
     const d = new Date(date);
     let month = "" + (d.getMonth() + 1);
@@ -153,7 +165,7 @@ export class MlInput {
     if (day.length < 2) day = "0" + day;
 
     return [year, month, day].join("-");
-	}	
+  }
 
   togglePassword(event: UIEvent) {
     event.stopPropagation();
@@ -187,8 +199,8 @@ export class MlInput {
       .catch(error => {
         console.error(error.message);
       });
-  }	
-	
+  }
+
   componentDidLoad() {
     this.showInfo = this.infoShow ? this.infoShow : false;
     this.input = this.inputEl.querySelector("input");
@@ -269,8 +281,8 @@ export class MlInput {
         delimiter: "-"
       });
     }
-	}	
-	
+  }
+
   renderInput() {
     if (this.type === "card") {
       return <div id="card-number" />;
@@ -313,8 +325,8 @@ export class MlInput {
         />
       );
     }
-	}	
-	
+  }
+
   renderEdit() {
     return (
       <div class="edit">
@@ -330,7 +342,7 @@ export class MlInput {
         </ion-button>
       </div>
     );
-  }	
+  }
 
   render() {
     return (

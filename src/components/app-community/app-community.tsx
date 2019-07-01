@@ -3,7 +3,8 @@ import { Component, h } from '@stencil/core';
 
 @Component({
     tag: 'app-community',
-    styleUrl: 'app-community.scss'
+    styleUrl: 'app-community.css',
+    scoped: true
 })
 export class AppCommunity {
 
