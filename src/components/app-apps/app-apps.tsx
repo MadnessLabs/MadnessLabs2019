@@ -7,9 +7,9 @@ import { Component, h } from "@stencil/core";
 export class MlApps {
   render() {
     return (
-      <div>
+      <ion-content class="ion-padding">
         <p>Hello MlApps!</p>
-      </div>
+      </ion-content>
     );
   }
 }

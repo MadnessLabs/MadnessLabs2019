@@ -7,9 +7,9 @@ import { Component, h } from "@stencil/core";
 export class AppMedia {
   render() {
     return (
-      <div>
+      <ion-content class="ion-padding">
         <p>Hello AppMedia!</p>
-      </div>
+      </ion-content>
     );
   }
 }
