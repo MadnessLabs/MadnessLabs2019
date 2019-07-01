@@ -2,9 +2,8 @@
 // import { GooglePlus } from "@ionic-native/google-plus";
 // import { TwitterConnect } from "@ionic-native/twitter-connect";
 
-// import firebase from "firebase/app";
-// import "firebase/auth";
-declare var firebase;
+import firebase from "firebase/app";
+import "firebase/auth";
 
 interface IFireEnjinAuthConfig {
   authLocalStorageKey?: string;
@@ -298,16 +297,16 @@ export class AuthService {
 
     return new Promise((resolve, reject) => {
       if ((window as any).cordova) {
-      //   if (network === "google") {
-      //     this.googleNative()
-      //       .then((result: any) => {
-      //         this.emitLoggedInEvent(result);
-      //         resolve(result);
-      //       })
-      //       .catch(error => {
-      //         console.log(error);
-      //         reject(error);
-      //       });
+        //   if (network === "google") {
+        //     this.googleNative()
+        //       .then((result: any) => {
+        //         this.emitLoggedInEvent(result);
+        //         resolve(result);
+        //       })
+        //       .catch(error => {
+        //         console.log(error);
+        //         reject(error);
+        //       });
         // } else if (network === "facebook") {
         //   this.facebookNative()
         //     .then((result: any) => {
@@ -358,14 +357,9 @@ export class AuthService {
   }
 
   logout() {
-    // this.emitLoggedOutEvent();
+    this.emitLoggedOutEvent();
 
-    // return firebase.auth().signOut();
-
-    // wont logout
-
-    console.log(firebase.auth.sighout());
-    
+    return firebase.auth().signOut();
   }
 
   async updatePassword(newPassword: string, credential) {
