@@ -11,7 +11,8 @@ import {
 
 @Component({
   tag: "ml-process-wheel",
-  styleUrl: "ml-process-wheel.css"
+  styleUrl: "ml-process-wheel.css",
+  scoped: true
 })
 export class MlProcessWheel {
   @Element() wheelEl: any;

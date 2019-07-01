@@ -1,20 +1,20 @@
-.ion-color-dark {
+ml-floating-button .ion-color-dark {
   --ion-color-base: var(--ion-color-primary) !important;
 }
-svg {
+ml-floating-button svg {
   color: white !important;
 }
-ion-button {
+ml-floating-button ion-button {
   --background: none;
   --box-shadow: none;
   --background-hover: none;
   --background-focused: none;
 }
-.button-wrapper ion-icon {
+ml-floating-button .button-wrapper ion-icon {
   font-size: 36px;
   position: absolute;
   color: var(--ion-color-primary);
 }
-.fab-label {
+ml-floating-button .fab-label {
   display: none;
 }
