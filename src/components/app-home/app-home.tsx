@@ -2,8 +2,7 @@ import { Component, h } from "@stencil/core";
 
 @Component({
   tag: "app-home",
-  styleUrl: "app-home.css",
-  scoped: true
+  styleUrl: "app-home.css"
 })
 export class AppHome {
   render() {
