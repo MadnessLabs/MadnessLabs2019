@@ -1,4 +1,4 @@
-import { Component, State, h } from "@stencil/core";
+import { Component, Listen, Prop, State, h } from "@stencil/core";
 
 import { APIService } from "../../services/api";
 import { AuthService } from "../../services/auth";
@@ -16,6 +16,9 @@ export class AppRoot {
   db: DatabaseService;
   router: HTMLIonRouterElement;
 
+  @Prop({ connect: "ion-toast-controller" })
+  toastCtrl: HTMLIonToastControllerElement;
+
   @State()
   defaultProps: {
     auth: AuthService;
@@ -23,6 +26,39 @@ export class AppRoot {
     db: DatabaseService;
     config?: ConfigService;
   };
+
+  @Listen("swUpdate", { target: "window" })
+  async onSWUpdate() {
+    console.log("Application update available...");
+    try {
+      if (localStorage.getItem("madnesslabs:lastVisit")) {
+        const registration = await navigator.serviceWorker.getRegistration();
+
+        if (!registration || !registration.waiting) {
+          // If there is no registration, this is the first service
+          // worker to be installed. registration.waiting is the one
+          // waiting to be activiated.
+          return;
+        }
+
+        const toast = await this.toastCtrl.create({
+          message: "New version available",
+          showCloseButton: true,
+          closeButtonText: "Reload"
+        });
+
+        await toast.present();
+        await toast.onWillDismiss();
+
+        registration.waiting.postMessage("skipWaiting");
+        window.location.reload(true);
+      } else {
+        localStorage.setItem("madnesslabs:lastVisit", new Date().toISOString());
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   async componentWillLoad() {
     this.config = new ConfigService();
