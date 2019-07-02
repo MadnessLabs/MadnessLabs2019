@@ -20,7 +20,7 @@
   padding: 1rem;
   width: 500px;
   /* animation: slideinLeftBlog 2s; */
-  animation: slideinLeftBlog 3.6s;
+  animation: slideinLeftBlog 18.2s;
 }
 .hp-main-content aside h1 {
   color: var(--ion-color-primary);
@@ -152,9 +152,19 @@
   }
 }
 
-/* 3.6
 
- 8.33 == .3 / 3.6 * 100
- 16.66
 
+/*
+total time = (animation time + animation pause) * number of iteration
+1 + .3 * 7 = 18.2 
+1.3 * 2
+
+(1 / 18.2) 5.5
+
+animation time (%) = (animation time / total time) * 100
+7 / 18.2 = 5.49 38.5
+5.5 * 7
+.3 / 18.2 = 
+1.64
+1.65
 */
