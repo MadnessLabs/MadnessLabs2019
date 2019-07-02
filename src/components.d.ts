@@ -10,26 +10,22 @@ import {
   DatabaseService,
 } from './services/database';
 import {
-  AuthService,
-} from './services/auth';
-import {
   Color,
 } from '@ionic/core';
 import {
   UserService,
 } from './services/user';
+import {
+  AuthService,
+} from './services/auth';
 
 export namespace Components {
-  interface AppAbout {}
+  interface AppAbout {
+    'db': DatabaseService;
+  }
   interface AppApps {}
   interface AppCommunity {}
-  interface AppContact {
-    'db': DatabaseService;
-  }
-  interface AppHome {
-    'auth': AuthService;
-    'db': DatabaseService;
-  }
+  interface AppHome {}
   interface AppMedia {}
   interface AppRoot {}
   interface MlFloatingButton {
@@ -105,7 +101,18 @@ export namespace Components {
     'value': any;
   }
   interface MlLatestPost {}
+  interface MlNavigation {
+    'auth': AuthService;
+    'db': DatabaseService;
+  }
+  interface MlProcessWheel {
+    /**
+    * The index of the pie piece that should have the active class
+    */
+    'currentIndex': number;
+  }
   interface MlVideos {}
+  interface MlWhatWeDo {}
 }
 
 declare global {
@@ -127,12 +134,6 @@ declare global {
   var HTMLAppCommunityElement: {
     prototype: HTMLAppCommunityElement;
     new (): HTMLAppCommunityElement;
-  };
-
-  interface HTMLAppContactElement extends Components.AppContact, HTMLStencilElement {}
-  var HTMLAppContactElement: {
-    prototype: HTMLAppContactElement;
-    new (): HTMLAppContactElement;
   };
 
   interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {}
@@ -177,16 +178,33 @@ declare global {
     new (): HTMLMlLatestPostElement;
   };
 
+  interface HTMLMlNavigationElement extends Components.MlNavigation, HTMLStencilElement {}
+  var HTMLMlNavigationElement: {
+    prototype: HTMLMlNavigationElement;
+    new (): HTMLMlNavigationElement;
+  };
+
+  interface HTMLMlProcessWheelElement extends Components.MlProcessWheel, HTMLStencilElement {}
+  var HTMLMlProcessWheelElement: {
+    prototype: HTMLMlProcessWheelElement;
+    new (): HTMLMlProcessWheelElement;
+  };
+
   interface HTMLMlVideosElement extends Components.MlVideos, HTMLStencilElement {}
   var HTMLMlVideosElement: {
     prototype: HTMLMlVideosElement;
     new (): HTMLMlVideosElement;
   };
+
+  interface HTMLMlWhatWeDoElement extends Components.MlWhatWeDo, HTMLStencilElement {}
+  var HTMLMlWhatWeDoElement: {
+    prototype: HTMLMlWhatWeDoElement;
+    new (): HTMLMlWhatWeDoElement;
+  };
   interface HTMLElementTagNameMap {
     'app-about': HTMLAppAboutElement;
     'app-apps': HTMLAppAppsElement;
     'app-community': HTMLAppCommunityElement;
-    'app-contact': HTMLAppContactElement;
     'app-home': HTMLAppHomeElement;
     'app-media': HTMLAppMediaElement;
     'app-root': HTMLAppRootElement;
@@ -194,21 +212,20 @@ declare global {
     'ml-form': HTMLMlFormElement;
     'ml-input': HTMLMlInputElement;
     'ml-latest-post': HTMLMlLatestPostElement;
+    'ml-navigation': HTMLMlNavigationElement;
+    'ml-process-wheel': HTMLMlProcessWheelElement;
     'ml-videos': HTMLMlVideosElement;
+    'ml-what-we-do': HTMLMlWhatWeDoElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface AppAbout extends JSXBase.HTMLAttributes<HTMLAppAboutElement> {}
+  interface AppAbout extends JSXBase.HTMLAttributes<HTMLAppAboutElement> {
+    'db'?: DatabaseService;
+  }
   interface AppApps extends JSXBase.HTMLAttributes<HTMLAppAppsElement> {}
   interface AppCommunity extends JSXBase.HTMLAttributes<HTMLAppCommunityElement> {}
-  interface AppContact extends JSXBase.HTMLAttributes<HTMLAppContactElement> {
-    'db'?: DatabaseService;
-  }
-  interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {
-    'auth'?: AuthService;
-    'db'?: DatabaseService;
-  }
+  interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {}
   interface AppMedia extends JSXBase.HTMLAttributes<HTMLAppMediaElement> {}
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
   interface MlFloatingButton extends JSXBase.HTMLAttributes<HTMLMlFloatingButtonElement> {
@@ -291,13 +308,27 @@ declare namespace LocalJSX {
     'value'?: any;
   }
   interface MlLatestPost extends JSXBase.HTMLAttributes<HTMLMlLatestPostElement> {}
+  interface MlNavigation extends JSXBase.HTMLAttributes<HTMLMlNavigationElement> {
+    'auth'?: AuthService;
+    'db'?: DatabaseService;
+  }
+  interface MlProcessWheel extends JSXBase.HTMLAttributes<HTMLMlProcessWheelElement> {
+    /**
+    * The index of the pie piece that should have the active class
+    */
+    'currentIndex'?: number;
+    /**
+    * Fired when a section of the wheel is clicked and should pass the following {    index: number; }
+    */
+    'onMadWheelClick'?: (event: CustomEvent<any>) => void;
+  }
   interface MlVideos extends JSXBase.HTMLAttributes<HTMLMlVideosElement> {}
+  interface MlWhatWeDo extends JSXBase.HTMLAttributes<HTMLMlWhatWeDoElement> {}
 
   interface IntrinsicElements {
     'app-about': AppAbout;
     'app-apps': AppApps;
     'app-community': AppCommunity;
-    'app-contact': AppContact;
     'app-home': AppHome;
     'app-media': AppMedia;
     'app-root': AppRoot;
@@ -305,7 +336,10 @@ declare namespace LocalJSX {
     'ml-form': MlForm;
     'ml-input': MlInput;
     'ml-latest-post': MlLatestPost;
+    'ml-navigation': MlNavigation;
+    'ml-process-wheel': MlProcessWheel;
     'ml-videos': MlVideos;
+    'ml-what-we-do': MlWhatWeDo;
   }
 }
 

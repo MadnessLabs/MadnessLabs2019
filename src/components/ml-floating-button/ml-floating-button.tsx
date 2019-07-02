@@ -1,57 +1,56 @@
-
 import { Color } from "@ionic/core";
-import { Component, h, Listen, Prop } from "@stencil/core";
+import { Component, Listen, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "ml-floating-button",
-  styleUrl: "ml-floating-button.scss"
+  styleUrl: "ml-floating-button.css"
 })
 export class MlFloatingButton {
-    fabEl: HTMLIonFabElement;
+  fabEl: HTMLIonFabElement;
 
+  /**
+   * The list of buttons to show when the material button is clicked
+   */
+  @Prop()
+  buttonList: {
     /**
-     * The list of buttons to show when the material button is clicked
+     * The title to show next to the button
      */
-    @Prop()
-    buttonList: {
-      /**
-       * The title to show next to the button
-       */
-      title: string;
-      /**
-       * The icon to use in the button
-       */
-      icon: string;
-      /**
-       * The color from the theme to make the button
-       */
-      color: Color;
-      /**
-       * The functionality to run when the button is clicked
-       */
-      onClick: (event: any) => any;
-    }[] = [];
+    title: string;
     /**
-     * The url to link the material button to
+     * The icon to use in the button
      */
-    @Prop()
-    url: string;
+    icon: string;
     /**
-     * The icon to use on the material button when it's closed
+     * The color from the theme to make the button
      */
-    @Prop()
-    openIcon = "md-add";
+    color: Color;
+    /**
+     * The functionality to run when the button is clicked
+     */
+    onClick: (event: any) => any;
+  }[] = [];
+  /**
+   * The url to link the material button to
+   */
+  @Prop()
+  url: string;
+  /**
+   * The icon to use on the material button when it's closed
+   */
+  @Prop()
+  openIcon = "md-add";
 
-    @Listen("body:click")
-    outterFabClick(event) {
-        if (
-        this.fabEl &&
-        this.fabEl.activated &&
-        !event.target.closest("ion-fab")
-        ) {
-        this.fabEl.close();
-        }
-    }    
+  @Listen("click", { target: "body" })
+  outterFabClick(event) {
+    if (
+      this.fabEl &&
+      this.fabEl.activated &&
+      !event.target.closest("ion-fab")
+    ) {
+      this.fabEl.close();
+    }
+  }
 
   componentDidLoad() {
     // Set the size of the close icon since there
@@ -60,11 +59,11 @@ export class MlFloatingButton {
       .querySelector("ion-fab-button")
       .shadowRoot.querySelector("ion-icon");
     fabIconEl.style.setProperty("font-size", "40px");
-  }    
+  }
 
   render() {
     return (
-        <div class="ion-fab-wrapper">
+      <div class="ion-fab-wrapper">
         <ion-fab
           horizontal="end"
           vertical="bottom"
