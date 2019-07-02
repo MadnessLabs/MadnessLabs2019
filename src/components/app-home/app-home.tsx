@@ -18,7 +18,10 @@ export class AppHome {
             </div>
             <div class="hp-row2">
               <h2>
-                Creativity with <span>Heart</span>
+                Creativity with
+                <span>
+                  <img src="/assets/icon/ml-logo-bold-1.png" />
+                </span>
               </h2>
               <img src="" alt="" />
             </div>
