@@ -123,16 +123,38 @@
   100% {
     left: 40%;
 	} */
-  from {
-    transform: scale(1);
-    opacity: 1;
+  0% {
+    transform: rotate(0deg);
+  }
+  8.33% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  33.33% {
+    transform: rotate(180deg);
   }
   50% {
-    transform: scale(0.75);
-    opacity: 0.25;
+    transform: rotate(180deg);
   }
-  to {
-    transform: scale(1);
-    opacity: 1;
+  58.33% {
+    transform: rotate(270deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  83.33% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
+
+/* 3.6
+
+ 8.33 == .3 / 3.6 * 100
+ 16.66
+
+*/
