@@ -15,7 +15,8 @@
         width: 500px;
         animation: easeDownFadeIn 2s;
         animation-timing-function: ease-out;
-      
+        height: 100px;
+        width: 350px;
       }
       .nav-main-content aside h1 {
         color: var(--ion-color-primary);
@@ -70,19 +71,23 @@
         overflow: hidden;
       }
       .video-container video {
-        /* Make video to at least 100% wide and tall */
         min-width: 100%;
         min-height: 100%;
-        /* Setting width & height to auto prevents the browser from stretching or squishing the video */
         width: auto;
         height: auto;
-        /* Center the video */
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
-      @media (max-width: 1059px) {
+      .video-container .bottom-bar {
+          background-color: var(--ion-background-color); 
+          top:0;
+          right:0;
+          left:0;
+          height: 100px;
+      }
+      /* @media (max-width: 1059px) {
         ion-content {
           position: fixed;
           background: url("/assets/videos/video-bg.png") no-repeat center center fixed;
@@ -119,6 +124,27 @@
           text-transform: uppercase;
           font-weight: bold;
         }
+      } */
+
+      .nav-main-wrapper.upper-nav {
+          position: relative;
+          height: 240px;
+      }
+
+      .upper-nav video-container {
+          position: static;
+          height: auto;
+          overflow: none;
+      }
+      .upper-nav .nav-main-content {
+          position: static;
+          display: flex;
+      }
+      .upper-nav .nav-main-content aside {
+          position: static;
+      }
+      .upper-nav .nav-main-content main {
+          position: static;
       }
       
       @keyframes easeDownFadeIn {

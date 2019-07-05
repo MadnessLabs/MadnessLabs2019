@@ -11,7 +11,7 @@ export class MalMainNav {
 
     render() {
         return (
-            <div class="nav-main-wrapper">
+            <div class="nav-main-wrapper upper-nav">
             <div class="nav-main-content">
               <aside>
                 <ml-latest-post />
@@ -32,10 +32,6 @@ export class MalMainNav {
                   <img src="" alt="" />
                 </div>
               </main>
-            </div>
-  
-            <div>
-              <p>test content.</p>
             </div>
   
             <div class="video-container">
