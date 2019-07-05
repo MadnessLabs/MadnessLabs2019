@@ -78,6 +78,8 @@ export class MlNavigation {
 
   render() {
     return (
+      <div class="nav-wrapper">
+       <mal-main-nav></mal-main-nav>
       <div class="bottom-nav">
         <ion-list>
           <ion-item href="/">
@@ -102,6 +104,7 @@ export class MlNavigation {
           </ion-item>
         </ion-list>
         <ml-floating-button buttonList={this.buttonList} />
+      </div>
       </div>
     );
   }
