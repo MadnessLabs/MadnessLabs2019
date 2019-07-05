@@ -1,0 +1,14 @@
+.bottom-nav {
+	animation: easeUpFadeIn 2s;
+  animation-timing-function: ease-out;
+}
+@keyframes easeUpFadeIn {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 100%;
+  }
+}

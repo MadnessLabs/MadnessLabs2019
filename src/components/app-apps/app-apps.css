@@ -1,1 +1,36 @@
-/* Component styles go here */
+.inner-scroll {
+  --padding-start: 0;
+  --padding-end: 0;
+}
+.ion-padding {
+	--padding-start: 0 !important;
+	--padding-end: 0 !important;
+	--padding-top: 0 !important;
+	--padding-bottom: 0 !important;
+}
+app-apps .apps-wrapper {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 100%;
+	position: relative;
+	z-index: 100;
+}
+app-apps .apps-wrapper:before {
+	position: absolute;
+	background: url("/assets/images/1E5B1781@2x.png") no-repeat center;
+	background-size: cover;
+	content: ' ';
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	opacity: 0.6;
+}
+
+app-apps .col {
+	width: 50%;
+	padding-left: 15px;
+}

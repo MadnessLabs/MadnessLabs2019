@@ -28,6 +28,7 @@ export namespace Components {
   interface AppHome {}
   interface AppMedia {}
   interface AppRoot {}
+  interface MalMainNav {}
   interface MlFloatingButton {
     /**
     * The list of buttons to show when the material button is clicked
@@ -154,6 +155,12 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLMalMainNavElement extends Components.MalMainNav, HTMLStencilElement {}
+  var HTMLMalMainNavElement: {
+    prototype: HTMLMalMainNavElement;
+    new (): HTMLMalMainNavElement;
+  };
+
   interface HTMLMlFloatingButtonElement extends Components.MlFloatingButton, HTMLStencilElement {}
   var HTMLMlFloatingButtonElement: {
     prototype: HTMLMlFloatingButtonElement;
@@ -208,6 +215,7 @@ declare global {
     'app-home': HTMLAppHomeElement;
     'app-media': HTMLAppMediaElement;
     'app-root': HTMLAppRootElement;
+    'mal-main-nav': HTMLMalMainNavElement;
     'ml-floating-button': HTMLMlFloatingButtonElement;
     'ml-form': HTMLMlFormElement;
     'ml-input': HTMLMlInputElement;
@@ -228,6 +236,7 @@ declare namespace LocalJSX {
   interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {}
   interface AppMedia extends JSXBase.HTMLAttributes<HTMLAppMediaElement> {}
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
+  interface MalMainNav extends JSXBase.HTMLAttributes<HTMLMalMainNavElement> {}
   interface MlFloatingButton extends JSXBase.HTMLAttributes<HTMLMlFloatingButtonElement> {
     /**
     * The list of buttons to show when the material button is clicked
@@ -332,6 +341,7 @@ declare namespace LocalJSX {
     'app-home': AppHome;
     'app-media': AppMedia;
     'app-root': AppRoot;
+    'mal-main-nav': MalMainNav;
     'ml-floating-button': MlFloatingButton;
     'ml-form': MlForm;
     'ml-input': MlInput;
