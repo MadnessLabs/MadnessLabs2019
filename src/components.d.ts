@@ -114,6 +114,9 @@ export namespace Components {
   }
   interface MlVideos {}
   interface MlWhatWeDo {}
+  interface RafApps {
+    'apps': any;
+  }
 }
 
 declare global {
@@ -208,6 +211,12 @@ declare global {
     prototype: HTMLMlWhatWeDoElement;
     new (): HTMLMlWhatWeDoElement;
   };
+
+  interface HTMLRafAppsElement extends Components.RafApps, HTMLStencilElement {}
+  var HTMLRafAppsElement: {
+    prototype: HTMLRafAppsElement;
+    new (): HTMLRafAppsElement;
+  };
   interface HTMLElementTagNameMap {
     'app-about': HTMLAppAboutElement;
     'app-apps': HTMLAppAppsElement;
@@ -224,6 +233,7 @@ declare global {
     'ml-process-wheel': HTMLMlProcessWheelElement;
     'ml-videos': HTMLMlVideosElement;
     'ml-what-we-do': HTMLMlWhatWeDoElement;
+    'raf-apps': HTMLRafAppsElement;
   }
 }
 
@@ -333,6 +343,9 @@ declare namespace LocalJSX {
   }
   interface MlVideos extends JSXBase.HTMLAttributes<HTMLMlVideosElement> {}
   interface MlWhatWeDo extends JSXBase.HTMLAttributes<HTMLMlWhatWeDoElement> {}
+  interface RafApps extends JSXBase.HTMLAttributes<HTMLRafAppsElement> {
+    'apps'?: any;
+  }
 
   interface IntrinsicElements {
     'app-about': AppAbout;
@@ -350,6 +363,7 @@ declare namespace LocalJSX {
     'ml-process-wheel': MlProcessWheel;
     'ml-videos': MlVideos;
     'ml-what-we-do': MlWhatWeDo;
+    'raf-apps': RafApps;
   }
 }
 

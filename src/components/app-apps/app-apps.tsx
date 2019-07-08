@@ -9,41 +9,46 @@ export class MlApps {
   @Element()
   homeEl: any;
 
+  apps = [
+    {
+      name: 'asdf',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis volutpat semper dolor, non porta justo sollicitudin nec. Sed sodales nec lectus quis vestibulum. Nullam malesuada nibh erat, quis laoreet magna gravida vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum mollis lorem et nulla tristique fringilla. Nulla rutrum sapien eu lorem viverra tincidunt',
+      background: '/assets/images/raf/1E5B1781@2x.png',
+      views: [
+        {
+          name: 'view1',
+          image: '/assets/images/raf/views/referAFloodIcon@2x.png'
+        }
+      ]
+    }
+  ]
+
   componentDidLoad(){
-    // const waypoint = new Waypoints
-    const ionContent = this.homeEl.querySelector('ion-content');
+    // // const waypoint = new Waypoints
+    // const ionContent = this.homeEl.querySelector('ion-content');
 
-    // ionContent.addEventListener('ionScrollStart', () => console.log('scroll start'));
+    // // ionContent.addEventListener('ionScrollStart', () => console.log('scroll start'));
 
-    ionContent.addEventListener('ionScroll', () => console.log('scroll start'));
+    // ionContent.addEventListener('ionScroll', () => console.log('scroll start'));
 
-    console.log('wow this is scrolling!');
+    // console.log('wow this is scrolling!');
     
 
-    window.onscroll = () => {
-      console.log('this is detecting a scroll');
+    // window.onscroll = () => {
+    //   console.log('this is detecting a scroll');
       
-    }
+    // }
 
   }
 
   render() {
+
+    console.log(this.apps, 'thisDotApps in app.apps.tsx');
+    
     return (
       <ion-content class="ion-padding">
-        <div class="apps-wrapper">
-        <div class="col col1">
-        <h2>Refer a flood</h2>
-        <p>Mandness legabs is a software company that kicks butt from St. Louis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta diam vel felis pharetra gravida. Vestibulum interdum sapien id enim tincidunt auctor. Ut nec mi posuere, laoreet ligula non, dictum nisl. Suspendisse mattis varius sagittis.</p>
-        <p>
-        In hac habitasse platea dictumst. Ut vitae turpis semper, lacinia tortor quis, efficitur lorem. Praesent porta vehicula metus quis posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque molestie orci id justo ornare suscipit vitae eget leo. Nulla facilisi. Integer sollicitudin gravida suscipit. In tincidunt cursus tortor, a imperdiet metus vestibulum hendrerit. Cras vehicula eleifend quam, sit amet dictum nisi sagittis non. Curabitur eget tortor at nisl vestibulum mattis.
-        </p>
-        <p>Hello MlApps!</p>
-        </div>
-        <div class="col col2">
-          <img src="/assets/images/ios-phone-portrait.svg" />
-          </div>
-        </div>
 
+        <raf-apps apps={this.apps}></raf-apps>
 
       </ion-content>
     );
