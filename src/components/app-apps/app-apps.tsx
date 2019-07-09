@@ -18,7 +18,12 @@ export class MlApps {
         {
           name: 'view1',
           image: '/assets/images/raf/views/referAFloodIcon@2x.png'
-        }
+        },
+        {
+          name: 'view2',
+          image: '/assets/images/raf/views/ReferAFlood-login@2x.png'
+        },        
+        
       ]
     },
     {

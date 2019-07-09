@@ -21,14 +21,45 @@ raf-apps .background-image {
     right: 0;
     bottom: 0;
     z-index: 1;
-}
-raf-apps .swiper-pagination-bullet {
-    background: pink;
+    opacity: .3;
 }
 raf-apps ion-slides {
-    height: 120%;
+    margin-top: 30px !important;
 }
-raf-apps .swiper-wrapper {
-    height: 70%;
+raf-apps ion-slide {
+    height: 350px !important;
 }
+raf-apps .move-slider {
+    cursor: pointer;
+}
+raf-apps .move-slider ion-icon {
+    font-size: 48px;
+}
+raf-apps .swiper-pagination {
+    display: none;
+}
+raf-apps ion-slides .phone {
+    position: absolute;
+    z-index: 10;
+    width: 200px;
+    height: 350px;
+}
+raf-apps ion-slides .view-image {
+    position: relative;
+    z-index: 5;
+    max-width: 160px;
+}
+raf-apps .custom-pager-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    cursor: pointer;
+}
+raf-apps .custom-pager-wrapper .custom-pager img {
+    width: 50px;
+    height: auto;
+    margin: 10px;
+}
+/* ios-phone-portrait */
 /* --bullet-background */
