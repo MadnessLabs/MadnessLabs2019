@@ -16,10 +16,18 @@ export class RafApps {
 
   @Prop() apps: any;
   @State() appViews: any;
+  tempInfo = [
+    {
+      name: "view1",
+      image: "/assets/images/raf/views/referAFloodIcon@2x.png";
+    }
+  ];
 
   componentDidLoad() {
     this.slider = this.appsEl.querySelector("ion-slides");
     console.log(this.apps, "in here doing");
+    console.log(this.tempInfo, 'temp info?');
+    
   }
 
   render() {
@@ -33,22 +41,27 @@ export class RafApps {
                   <p>{app.text}</p>
                 </div>
                 <div class="col2 col">
-                    <h2>{app.views}</h2>
+                  <h2>{this.tempInfo}</h2>
+                  {console.log(this, 'this ShOULD be what I Think it is')}
                   <ion-slides options={this.sliderOptions} pager={true}>
-                    {app.views.map(view => {
-                        <div class="extra-class">
-                      <ion-slide>
-                        <img src={view.image} />
-                      </ion-slide>
-                      </div>
+                    {this.tempInfo.map(view => {
+                        <h2>{view.name}</h2>
                     })}
+                    {/* {app.views.map(view => {
+                      <div class="extra-class">
+                          {view.image}
+                        <ion-slide>
+                          <img src={view.image} />
+                        </ion-slide>
+                      </div>
+                    })} */}
                   </ion-slides>
-                  <div class="pagination-wrapper">
-                    {app.views.map(view => {
+                  <div class="pag-wrapper">
+                    {/* {app.views.map(view => {
                       <span>
                         <img src={view.image} />
-                      </span>
-                    })}
+                      </span>;
+                    })} */}
                   </div>
                 </div>
                 <img class="background-image" src={app.background} />
