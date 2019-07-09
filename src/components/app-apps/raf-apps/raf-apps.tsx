@@ -38,14 +38,14 @@ export class RafApps {
 
                     {
                         
-                        this.currentApp.views.map(view => {
-                    //   <div class="extra-class">
-                    //       {view.image}
+                        this.currentApp.views.map(view => 
+                      <div class="extra-class">
+                          {view.image}
                         <ion-slide>
                           <img src={view.image} />
                         </ion-slide>
-                      {/* </div> */}
-                    })}
+                      </div> 
+                    )}
                   </ion-slides>
                   <div class="pag-wrapper">
                     {/* {app.views.map(view => {
