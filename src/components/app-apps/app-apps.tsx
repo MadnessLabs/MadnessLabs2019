@@ -11,7 +11,7 @@ export class MlApps {
 
   apps = [
     {
-      name: 'asdf',
+      name: 'Refer a Flood',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis volutpat semper dolor, non porta justo sollicitudin nec. Sed sodales nec lectus quis vestibulum. Nullam malesuada nibh erat, quis laoreet magna gravida vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum mollis lorem et nulla tristique fringilla. Nulla rutrum sapien eu lorem viverra tincidunt',
       background: '/assets/images/raf/1E5B1781@2x.png',
       views: [
@@ -20,7 +20,18 @@ export class MlApps {
           image: '/assets/images/raf/views/referAFloodIcon@2x.png'
         }
       ]
-    }
+    },
+    {
+      name: 'Track My giving',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis volutpat semper dolor, non porta justo sollicitudin nec. Sed sodales nec lectus quis vestibulum. Nullam malesuada nibh erat, quis laoreet magna gravida vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum mollis lorem et nulla tristique fringilla. Nulla rutrum sapien eu lorem viverra tincidunt',
+      background: '/assets/images/raf/1E5B1781@2x.png',
+      views: [
+        {
+          name: 'view1',
+          image: '/assets/images/raf/views/referAFloodIcon@2x.png'
+        }
+      ]
+    },
   ]
 
   componentDidLoad(){

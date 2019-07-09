@@ -15,47 +15,37 @@ export class RafApps {
   };
 
   @Prop() apps: any;
-  @State() appViews: any;
-  tempInfo = [
-    {
-      name: "view1",
-      image: "/assets/images/raf/views/referAFloodIcon@2x.png";
-    }
-  ];
+  @State() currentApp: any = {views: []};
 
   componentDidLoad() {
+      this.currentApp = this.apps[0];
+      console.log(this.currentApp, 'thisDOTcurrentApp');
+      
     this.slider = this.appsEl.querySelector("ion-slides");
-    console.log(this.apps, "in here doing");
-    console.log(this.tempInfo, 'temp info?');
-    
   }
 
   render() {
+
     return (
       <div class="apps-wrapper">
-        {this.apps
-          ? this.apps.map(app => (
               <div class="apps">
                 <div class="col1 col">
-                  <h2>{app.name}</h2>
-                  <p>{app.text}</p>
+                  <h2>{this.currentApp.name}</h2>
+                  <p>{this.currentApp.text}</p>
                 </div>
                 <div class="col2 col">
-                  <h2>{this.tempInfo}</h2>
-                  {console.log(this, 'this ShOULD be what I Think it is')}
-                  {this.tempInfo.map(view => {
-                        <h2>{view.name}</h2>
-                    })}
                   <ion-slides options={this.sliderOptions} pager={true}>
 
-                    {/* {app.views.map(view => {
-                      <div class="extra-class">
-                          {view.image}
+                    {
+                        
+                        this.currentApp.views.map(view => {
+                    //   <div class="extra-class">
+                    //       {view.image}
                         <ion-slide>
                           <img src={view.image} />
                         </ion-slide>
-                      </div>
-                    })} */}
+                      {/* </div> */}
+                    })}
                   </ion-slides>
                   <div class="pag-wrapper">
                     {/* {app.views.map(view => {
@@ -65,10 +55,8 @@ export class RafApps {
                     })} */}
                   </div>
                 </div>
-                <img class="background-image" src={app.background} />
+                <img class="background-image" src={this.currentApp.background} />
               </div>
-            ))
-          : null}
       </div>
     );
   }
