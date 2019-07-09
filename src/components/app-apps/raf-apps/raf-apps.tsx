@@ -43,10 +43,11 @@ export class RafApps {
                 <div class="col2 col">
                   <h2>{this.tempInfo}</h2>
                   {console.log(this, 'this ShOULD be what I Think it is')}
-                  <ion-slides options={this.sliderOptions} pager={true}>
-                    {this.tempInfo.map(view => {
+                  {this.tempInfo.map(view => {
                         <h2>{view.name}</h2>
                     })}
+                  <ion-slides options={this.sliderOptions} pager={true}>
+
                     {/* {app.views.map(view => {
                       <div class="extra-class">
                           {view.image}
