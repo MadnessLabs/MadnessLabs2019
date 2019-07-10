@@ -1,10 +1,10 @@
 import { Component, Element, h, Prop, State } from "@stencil/core";
 
 @Component({
-  tag: "raf-apps",
-  styleUrl: "raf-apps.css"
+  tag: "ml-apps",
+  styleUrl: "ml-apps.css"
 })
-export class RafApps {
+export class MlApps {
   @Element() appsEl: any;
   slider: any;
   sliderOptions: any = {
@@ -44,6 +44,9 @@ export class RafApps {
     }
     this.slider.slideTo(this.slideIndex);
   }
+  handleApps(_events, index){
+    this.currentApp = this.apps[index];
+  }
 
   componentDidLoad() {
     this.slideIndex = 0;
@@ -60,6 +63,16 @@ export class RafApps {
           <div class="col1 col">
             <h2>{this.currentApp.name}</h2>
             <p>{this.currentApp.text}</p>
+            <div class="apps-pager">
+            {this.apps.map((app, index) => (
+                <span
+                  class="custom-pager"
+                  onClick={event => this.handleApps(event, index)}
+                >
+                  <img src={app.imageThumb} />
+                </span>
+              ))}
+            </div>
           </div>
           <div class="col2 col">
             <ion-slides options={this.sliderOptions} pager={true}>
@@ -69,7 +82,7 @@ export class RafApps {
                     class="phone"
                     src="/assets/images/ios-phone-portrait.svg"
                   />
-                  <img class="view-image" src={view.image} />
+                  <img class="view-image" src={view.imageMain} />
                 </ion-slide>
               ))}
             </ion-slides>
@@ -85,7 +98,7 @@ export class RafApps {
                   class="custom-pager"
                   onClick={event => this.handleSlide(event, index)}
                 >
-                  <img src={view.image} />
+                  <img src={view.imageThumb} />
                 </span>
               ))}
               <span

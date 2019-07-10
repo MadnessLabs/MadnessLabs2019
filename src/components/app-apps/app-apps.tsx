@@ -13,28 +13,57 @@ export class MlApps {
     {
       name: 'Refer a Flood',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis volutpat semper dolor, non porta justo sollicitudin nec. Sed sodales nec lectus quis vestibulum. Nullam malesuada nibh erat, quis laoreet magna gravida vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum mollis lorem et nulla tristique fringilla. Nulla rutrum sapien eu lorem viverra tincidunt',
-      background: '/assets/images/raf/1E5B1781@2x.png',
+      background: '/assets/images/raf2/1E5B1781@2x.png',
+      imageThumb: '/assets/images/raf.jpg',
       views: [
         {
           name: 'view1',
-          image: '/assets/images/raf/views/referAFloodIcon@2x.png'
+          imageMain: '/assets/images/raf2/views/1a.jpg',
+          imageThumb: '/assets/images/raf2/views/1.jpg'
         },
         {
           name: 'view2',
-          image: '/assets/images/raf/views/ReferAFlood-login@2x.png'
+          imageMain: '/assets/images/raf2/views/2a.jpg',
+          imageThumb: '/assets/images/raf2/views/2.jpg'
         },        
-        
+        {
+          name: 'view3',
+          imageMain: '/assets/images/raf2/views/3a.jpg',
+          imageThumb: '/assets/images/raf2/views/3.jpg'
+        },    
+        {
+          name: 'view4',
+          imageMain: '/assets/images/raf2/views/4a.jpg',
+          imageThumb: '/assets/images/raf2/views/4.jpg'
+        },                  
       ]
     },
     {
-      name: 'Track My giving',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis volutpat semper dolor, non porta justo sollicitudin nec. Sed sodales nec lectus quis vestibulum. Nullam malesuada nibh erat, quis laoreet magna gravida vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum mollis lorem et nulla tristique fringilla. Nulla rutrum sapien eu lorem viverra tincidunt',
-      background: '/assets/images/raf/1E5B1781@2x.png',
+      name: 'Track My Giving',
+      text: 'a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. Its also called placeholdertext. a convenient tool for mock-ups. It helps to outline the visual elements',
+      background: '/assets/images/raf2/1E5B1781@2x.png',
+      imageThumb: '/assets/images/tmg.jpg',
       views: [
         {
           name: 'view1',
-          image: '/assets/images/raf/views/referAFloodIcon@2x.png'
-        }
+          imageMain: '/assets/images/raf2/views/1a.jpg',
+          imageThumb: '/assets/images/raf2/views/1.jpg'
+        },
+        {
+          name: 'view2',
+          imageMain: '/assets/images/raf2/views/2a.jpg',
+          imageThumb: '/assets/images/raf2/views/2.jpg'
+        },        
+        {
+          name: 'view3',
+          imageMain: '/assets/images/raf2/views/3a.jpg',
+          imageThumb: '/assets/images/raf2/views/3.jpg'
+        },    
+        {
+          name: 'view4',
+          imageMain: '/assets/images/raf2/views/4a.jpg',
+          imageThumb: '/assets/images/raf2/views/4.jpg'
+        },                  
       ]
     },
   ]
@@ -64,7 +93,7 @@ export class MlApps {
     return (
       <ion-content class="ion-padding">
 
-        <raf-apps apps={this.apps}></raf-apps>
+        <ml-apps apps={this.apps}></ml-apps>
 
       </ion-content>
     );

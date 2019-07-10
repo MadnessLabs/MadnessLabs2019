@@ -29,6 +29,9 @@ export namespace Components {
   interface AppMedia {}
   interface AppRoot {}
   interface MalMainNav {}
+  interface MlApps {
+    'apps': any;
+  }
   interface MlFloatingButton {
     /**
     * The list of buttons to show when the material button is clicked
@@ -114,9 +117,6 @@ export namespace Components {
   }
   interface MlVideos {}
   interface MlWhatWeDo {}
-  interface RafApps {
-    'apps': any;
-  }
 }
 
 declare global {
@@ -162,6 +162,12 @@ declare global {
   var HTMLMalMainNavElement: {
     prototype: HTMLMalMainNavElement;
     new (): HTMLMalMainNavElement;
+  };
+
+  interface HTMLMlAppsElement extends Components.MlApps, HTMLStencilElement {}
+  var HTMLMlAppsElement: {
+    prototype: HTMLMlAppsElement;
+    new (): HTMLMlAppsElement;
   };
 
   interface HTMLMlFloatingButtonElement extends Components.MlFloatingButton, HTMLStencilElement {}
@@ -211,12 +217,6 @@ declare global {
     prototype: HTMLMlWhatWeDoElement;
     new (): HTMLMlWhatWeDoElement;
   };
-
-  interface HTMLRafAppsElement extends Components.RafApps, HTMLStencilElement {}
-  var HTMLRafAppsElement: {
-    prototype: HTMLRafAppsElement;
-    new (): HTMLRafAppsElement;
-  };
   interface HTMLElementTagNameMap {
     'app-about': HTMLAppAboutElement;
     'app-apps': HTMLAppAppsElement;
@@ -225,6 +225,7 @@ declare global {
     'app-media': HTMLAppMediaElement;
     'app-root': HTMLAppRootElement;
     'mal-main-nav': HTMLMalMainNavElement;
+    'ml-apps': HTMLMlAppsElement;
     'ml-floating-button': HTMLMlFloatingButtonElement;
     'ml-form': HTMLMlFormElement;
     'ml-input': HTMLMlInputElement;
@@ -233,7 +234,6 @@ declare global {
     'ml-process-wheel': HTMLMlProcessWheelElement;
     'ml-videos': HTMLMlVideosElement;
     'ml-what-we-do': HTMLMlWhatWeDoElement;
-    'raf-apps': HTMLRafAppsElement;
   }
 }
 
@@ -247,6 +247,9 @@ declare namespace LocalJSX {
   interface AppMedia extends JSXBase.HTMLAttributes<HTMLAppMediaElement> {}
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
   interface MalMainNav extends JSXBase.HTMLAttributes<HTMLMalMainNavElement> {}
+  interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {
+    'apps'?: any;
+  }
   interface MlFloatingButton extends JSXBase.HTMLAttributes<HTMLMlFloatingButtonElement> {
     /**
     * The list of buttons to show when the material button is clicked
@@ -343,9 +346,6 @@ declare namespace LocalJSX {
   }
   interface MlVideos extends JSXBase.HTMLAttributes<HTMLMlVideosElement> {}
   interface MlWhatWeDo extends JSXBase.HTMLAttributes<HTMLMlWhatWeDoElement> {}
-  interface RafApps extends JSXBase.HTMLAttributes<HTMLRafAppsElement> {
-    'apps'?: any;
-  }
 
   interface IntrinsicElements {
     'app-about': AppAbout;
@@ -355,6 +355,7 @@ declare namespace LocalJSX {
     'app-media': AppMedia;
     'app-root': AppRoot;
     'mal-main-nav': MalMainNav;
+    'ml-apps': MlApps;
     'ml-floating-button': MlFloatingButton;
     'ml-form': MlForm;
     'ml-input': MlInput;
@@ -363,7 +364,6 @@ declare namespace LocalJSX {
     'ml-process-wheel': MlProcessWheel;
     'ml-videos': MlVideos;
     'ml-what-we-do': MlWhatWeDo;
-    'raf-apps': RafApps;
   }
 }
 

@@ -1,18 +1,18 @@
-raf-apps .apps {
+ml-apps .apps { 
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
     position: relative;
 }
 
-raf-apps .col {
+ml-apps .col {
     width: 50%;
     padding-left: 15px;
     position: relative;
     z-index: 10;
 }
 
-raf-apps .background-image {
+ml-apps .background-image {
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -23,40 +23,40 @@ raf-apps .background-image {
     z-index: 1;
     opacity: .3;
 }
-raf-apps ion-slides {
+ml-apps ion-slides {
     margin-top: 30px !important;
 }
-raf-apps ion-slide {
+ml-apps ion-slide {
     height: 350px !important;
 }
-raf-apps .move-slider {
+ml-apps .move-slider {
     cursor: pointer;
 }
-raf-apps .move-slider ion-icon {
+ml-apps .move-slider ion-icon {
     font-size: 48px;
 }
-raf-apps .swiper-pagination {
+ml-apps .swiper-pagination {
     display: none;
 }
-raf-apps ion-slides .phone {
+ml-apps ion-slides .phone {
     position: absolute;
     z-index: 10;
     width: 200px;
     height: 350px;
 }
-raf-apps ion-slides .view-image {
+ml-apps ion-slides .view-image {
     position: relative;
     z-index: 5;
     max-width: 160px;
 }
-raf-apps .custom-pager-wrapper {
+ml-apps .custom-pager-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 15px;
     cursor: pointer;
 }
-raf-apps .custom-pager-wrapper .custom-pager img {
+ml-apps .custom-pager-wrapper .custom-pager img {
     width: 50px;
     height: auto;
     margin: 10px;
