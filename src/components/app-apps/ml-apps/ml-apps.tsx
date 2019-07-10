@@ -64,6 +64,7 @@ export class MlApps {
             <h2>{this.currentApp.name}</h2>
             <p>{this.currentApp.text}</p>
             <div class="apps-pager">
+            <h3>choose from our apps: </h3>
             {this.apps.map((app, index) => (
                 <span
                   class="custom-pager"
@@ -75,6 +76,7 @@ export class MlApps {
             </div>
           </div>
           <div class="col2 col">
+          <h2>{this.currentApp.name}</h2>
             <ion-slides options={this.sliderOptions} pager={true}>
               {this.currentApp.views.map(view => (
                 <ion-slide>

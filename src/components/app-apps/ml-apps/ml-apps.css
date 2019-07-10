@@ -12,6 +12,14 @@ ml-apps .col {
     z-index: 10;
 }
 
+ml-apps .col1 h2 {
+    display: block;
+}
+ml-apps .col2 h2 {
+    display: none;
+    text-align: center;
+}    
+
 ml-apps .background-image {
     position: absolute;
     width: 100vw;
@@ -60,6 +68,27 @@ ml-apps .custom-pager-wrapper .custom-pager img {
     width: 50px;
     height: auto;
     margin: 10px;
+}
+@media (max-width: 760px){
+    ml-apps .apps {
+        flex-direction: column;
+        justify-content: center;
+    }
+    ml-apps .col {
+        margin: 0 auto;
+    }
+    ml-apps .col1 {
+        order: 2;
+    }
+    ml-apps .col2 {
+        order: 1;
+    }
+    ml-apps .col1 h2 {
+        display: none;
+    }
+    ml-apps .col2 h2 {
+        display: block;
+    }    
 }
 /* ios-phone-portrait */
 /* --bullet-background */
