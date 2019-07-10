@@ -11,22 +11,20 @@ export class AppHome {
   @Element()
   homeEl: any;
   Waypionts: any;
+
+  scrollStart(){
+
+  }
   
   componentDidLoad(){
     // const waypoint = new Waypoints
     const ionContent = this.homeEl.querySelector('ion-content');
 
-    // ionContent.addEventListener('ionScrollStart', () => console.log('scroll start'));
+    ionContent.scrollEvents = true;
 
-    ionContent.addEventListener('ionScroll', () => console.log('scroll start'));
+    ionContent.addEventListener('ionScrollStart', () => this.scrollStart());
 
-    console.log('wow this is scrolling!');
-    
-
-    window.onscroll = () => {
-      console.log('this is detecting a scroll');
-      
-    }
+    ionContent.addEventListener('ionScroll', () => console.log('ion scroll'));
 
   }
 
