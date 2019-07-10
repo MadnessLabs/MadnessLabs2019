@@ -1,6 +1,4 @@
 import { Component, Element, h } from "@stencil/core";
-// insue importing waypoints
-// import Waypoints from "waypoints";
 
 @Component({
   tag: "app-home",
@@ -11,15 +9,18 @@ export class AppHome {
   @Element()
   homeEl: any;
   Waypionts: any;
+  videoObject: any;
+  videoContainer: any;
 
   scrollStart(){
-
+    this.videoObject.classList.add('hide-video');
+    this.videoContainer.classList.add('background-header');
   }
   
   componentDidLoad(){
-    // const waypoint = new Waypoints
     const ionContent = this.homeEl.querySelector('ion-content');
-
+    this.videoObject = ionContent.querySelector('.video-container video');
+    this.videoContainer = ionContent.querySelector('.video-container');
     ionContent.scrollEvents = true;
 
     ionContent.addEventListener('ionScrollStart', () => this.scrollStart());
@@ -32,6 +33,12 @@ export class AppHome {
     return [
       <ion-content>
         <div class="nav-main-wrapper">
+          <div class="video-container">
+            <video autoplay loop width="960" height="540">
+              <source src="/assets/videos/starry-ocean.mov" />
+              <source src="/assets/videos/starry-ocean.mp4" />
+            </video>
+          </div>          
           <div class="nav-main-content">
             <aside>
               <ml-latest-post />
@@ -53,17 +60,7 @@ export class AppHome {
               </div>
             </main>
           </div>
-
-          <div>
-            <p>test content.</p>
-          </div>
-
-          <div class="video-container">
-            <video autoplay loop width="960" height="540">
-              <source src="/assets/videos/starry-ocean.mov" />
-              <source src="/assets/videos/starry-ocean.mp4" />
-            </video>
-          </div>
+          <ml-navigation />
         </div>
       </ion-content>
     ];

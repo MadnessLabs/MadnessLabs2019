@@ -88,10 +88,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.video-container video.hide-video {
+  display: none;
+}
+.background-header {
+  background: url("/assets/videos/video-bg.png") no-repeat center center fixed;
+}
 @media (max-width: 1059px) {
   ion-content {
     position: fixed;
-    /* background: url("/assets/videos/video-bg.png") no-repeat center center fixed; */
+    /*  */
     background-size: cover;
   }
   .video-container video {
