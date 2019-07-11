@@ -20,7 +20,7 @@ export class AppAbout {
 
   render() {
     return (
-      <ion-content class="ion-padding">
+      <div>
         <ml-what-we-do />
         <ml-form>
           <ml-input
@@ -32,7 +32,8 @@ export class AppAbout {
             required
           />
         </ml-form>
-      </ion-content>
+      </div>
+
     );
   }
 }

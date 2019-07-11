@@ -61,6 +61,8 @@ export class AppHome {
           </div>
           <ml-navigation />
         </div>
+        <div class="nav-placeholder"></div>
+        <app-about></app-about>
       </ion-content>
     ];
   }
