@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop, State } from "@stencil/core";
+import { Component, Element, Prop, State, h } from "@stencil/core";
 
 @Component({
   tag: "ml-apps",
@@ -26,17 +26,16 @@ export class MlApps {
   }
 
   handleSlideNext(_event, direction) {
-
     if (direction === "forward") {
-        console.log("widthin forward");
-        
+      console.log("widthin forward");
+
       this.slideIndex =
         this.slideIndex === this.currentApp.views.length - 1
           ? 0
           : this.slideIndex + 1;
     } else if (direction === "back") {
-        console.log("within back");
-        
+      console.log("within back");
+
       this.slideIndex =
         this.slideIndex === 0
           ? this.currentApp.views.length - 1
@@ -44,7 +43,7 @@ export class MlApps {
     }
     this.slider.slideTo(this.slideIndex);
   }
-  handleApps(_events, index){
+  handleApps(_events, index) {
     this.currentApp = this.apps[index];
   }
 
@@ -64,8 +63,8 @@ export class MlApps {
             <h2>{this.currentApp.name}</h2>
             <p>{this.currentApp.text}</p>
             <div class="apps-pager">
-            <h3>choose from our apps: </h3>
-            {this.apps.map((app, index) => (
+              <h3>choose from our apps: </h3>
+              {this.apps.map((app, index) => (
                 <span
                   class="custom-pager"
                   onClick={event => this.handleApps(event, index)}
@@ -76,7 +75,7 @@ export class MlApps {
             </div>
           </div>
           <div class="col2 col">
-          <h2>{this.currentApp.name}</h2>
+            <h2>{this.currentApp.name}</h2>
             <ion-slides options={this.sliderOptions} pager={true}>
               {this.currentApp.views.map(view => (
                 <ion-slide>
