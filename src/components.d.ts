@@ -32,6 +32,7 @@ export namespace Components {
   interface MlApps {
     'apps': any;
   }
+  interface MlDivider {}
   interface MlFloatingButton {
     /**
     * The list of buttons to show when the material button is clicked
@@ -170,6 +171,12 @@ declare global {
     new (): HTMLMlAppsElement;
   };
 
+  interface HTMLMlDividerElement extends Components.MlDivider, HTMLStencilElement {}
+  var HTMLMlDividerElement: {
+    prototype: HTMLMlDividerElement;
+    new (): HTMLMlDividerElement;
+  };
+
   interface HTMLMlFloatingButtonElement extends Components.MlFloatingButton, HTMLStencilElement {}
   var HTMLMlFloatingButtonElement: {
     prototype: HTMLMlFloatingButtonElement;
@@ -226,6 +233,7 @@ declare global {
     'app-root': HTMLAppRootElement;
     'mal-main-nav': HTMLMalMainNavElement;
     'ml-apps': HTMLMlAppsElement;
+    'ml-divider': HTMLMlDividerElement;
     'ml-floating-button': HTMLMlFloatingButtonElement;
     'ml-form': HTMLMlFormElement;
     'ml-input': HTMLMlInputElement;
@@ -250,6 +258,7 @@ declare namespace LocalJSX {
   interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {
     'apps'?: any;
   }
+  interface MlDivider extends JSXBase.HTMLAttributes<HTMLMlDividerElement> {}
   interface MlFloatingButton extends JSXBase.HTMLAttributes<HTMLMlFloatingButtonElement> {
     /**
     * The list of buttons to show when the material button is clicked
@@ -356,6 +365,7 @@ declare namespace LocalJSX {
     'app-root': AppRoot;
     'mal-main-nav': MalMainNav;
     'ml-apps': MlApps;
+    'ml-divider': MlDivider;
     'ml-floating-button': MlFloatingButton;
     'ml-form': MlForm;
     'ml-input': MlInput;

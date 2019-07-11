@@ -95,6 +95,7 @@ export class MlApps {
       <ion-content class="ion-padding">
 
         <ml-apps apps={this.apps}></ml-apps>
+        <ml-divider></ml-divider>
 
       </ion-content>
     );
