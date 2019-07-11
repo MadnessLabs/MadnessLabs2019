@@ -31,6 +31,15 @@ ml-apps .background-image {
     z-index: 1;
     opacity: .3;
 }
+
+ml-apps .apps-pager h3 {
+    padding-bottom: 10px;
+}
+
+ml-apps .apps-pager span {
+    margin-right: 20px;
+}
+
 ml-apps ion-slides {
     margin-top: 30px !important;
 }

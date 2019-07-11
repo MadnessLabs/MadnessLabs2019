@@ -9,18 +9,17 @@ export class AppHome {
   @Element()
   homeEl: any;
   Waypionts: any;
-  videoObject: any;
-  videoContainer: any;
+  navWrapper: any;
 
   scrollStart(){
-    this.videoObject.classList.add('hide-video');
-    this.videoContainer.classList.add('background-header');
+    console.log('Hello?');
+    
+    this.navWrapper.classList.add('header-nav');
   }
   
   componentDidLoad(){
     const ionContent = this.homeEl.querySelector('ion-content');
-    this.videoObject = ionContent.querySelector('.video-container video');
-    this.videoContainer = ionContent.querySelector('.video-container');
+    this.navWrapper = ionContent.querySelector('.nav-main-wrapper');
     ionContent.scrollEvents = true;
 
     ionContent.addEventListener('ionScrollStart', () => this.scrollStart());
