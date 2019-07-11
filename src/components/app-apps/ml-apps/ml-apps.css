@@ -69,7 +69,8 @@ ion-slide {
     width: 200px;
     height: 350px;
     top: 40px;
-    left:152px;
+    left:50%;
+    margin-left: -96px;
 }
 ion-slides .view-image {
     position: relative;
@@ -102,6 +103,12 @@ ion-slides .view-image {
     .apps {
         flex-direction: column;
         justify-content: center;
+    }
+    ion-slide.sc-ml-apps {
+        height: 310px !important;
+    }
+    .phone.sc-ml-apps {
+        top: 65px;
     }
     .col {
         margin: 0 auto;
