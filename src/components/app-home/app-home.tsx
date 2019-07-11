@@ -31,7 +31,7 @@ export class AppHome {
   render() {
     return [
       <ion-content>
-        <div class="nav-main-wrapper">
+        <div class="nav-main-wrapper header-nav">
           <div class="video-container">
             <video autoplay loop width="960" height="540">
               <source src="/assets/videos/starry-ocean.mov" />
@@ -59,7 +59,6 @@ export class AppHome {
               </div>
             </main>
           </div>
-          <ml-navigation />
         </div>
         <div class="nav-placeholder"></div>
         <app-about></app-about>

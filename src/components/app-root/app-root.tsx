@@ -106,6 +106,7 @@ export class AppRoot {
             component="app-media"
           />
         </ion-router>
+        <ml-navigation />
         <ion-nav />
       </ion-app>
     );
