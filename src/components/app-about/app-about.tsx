@@ -4,8 +4,7 @@ import { DatabaseService } from "../../services/database";
 
 @Component({
   tag: "app-about",
-  styleUrl: "app-about.css",
-  scoped: true
+  styleUrl: "app-about.css"
 })
 export class AppAbout {
   @Prop() db: DatabaseService;

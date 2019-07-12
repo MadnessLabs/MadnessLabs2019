@@ -123,6 +123,12 @@ p {
   color: var(--ion-color-light);
 }
 
+.page-wrapper {
+  padding: 30px;
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
 @keyframes easeDownFadeIn {
   0% {
     transform: translateY(-20px);
