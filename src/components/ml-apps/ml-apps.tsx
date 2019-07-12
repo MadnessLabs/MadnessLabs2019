@@ -90,7 +90,7 @@ export class MlApps {
             <ion-slides
               class="top-slider"
               options={this.sliderTopOptions}
-              pager={true}
+              pager={false}
             >
               {this.currentApp.views.map(view => (
                 <ion-slide>
