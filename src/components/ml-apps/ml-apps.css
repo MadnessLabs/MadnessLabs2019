@@ -1,8 +1,36 @@
-ml-apps .apps {
+ml-apps .apps-wrapper {
+  margin-top: 60px;
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
   position: relative;
+}
+
+ml-apps .apps-wrapper::before {
+  content: "";
+  height: 200px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: block;
+  position: absolute;
+  z-index: 3;
+  background: -moz-linear-gradient(
+    top,
+    rgba(var(--ion-color-dark-rgb), 1) 0%,
+    rgba(var(--ion-color-dark-rgb), 0) 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(var(--ion-color-dark-rgb), 1) 0%,
+    rgba(var(--ion-color-dark-rgb), 0) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--ion-color-dark-rgb), 1) 0%,
+    rgba(var(--ion-color-dark-rgb), 0) 100%
+  );
 }
 
 ml-apps .col {
@@ -30,6 +58,12 @@ ml-apps .background-image {
   bottom: 0;
   z-index: 1;
   opacity: 0.3;
+}
+
+ml-apps .background-image::after {
+  content: "wee";
+  display: block;
+  float: right;
 }
 
 ml-apps .apps-pager h3 {
@@ -100,7 +134,7 @@ ml-apps .custom-pager .custom-pager-icon img {
   margin: 10px;
 }
 @media (max-width: 760px) {
-  ml-apps .apps {
+  ml-apps .apps-wrapper {
     flex-direction: column;
     justify-content: center;
   }

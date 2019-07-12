@@ -67,68 +67,63 @@ export class MlApps {
   render() {
     return (
       <div class="apps-wrapper">
-        <div class="apps">
-          <div class="col1 col">
-            <h2>{this.currentApp.name}</h2>
-            <p>{this.currentApp.text}</p>
-            <div class="apps-pager">
-              <h3>choose from our apps: </h3>
-              {this.apps.map((app, index) => (
-                <span
-                  class="apps-custom-pager"
-                  onClick={event => this.handleApps(event, index)}
-                >
-                  <img src={app.imageThumb} />
-                </span>
-              ))}
-            </div>
+        <div class="col1 col">
+          <h2>{this.currentApp.name}</h2>
+          <p>{this.currentApp.text}</p>
+          <div class="apps-pager">
+            <h3>choose from our apps: </h3>
+            {this.apps.map((app, index) => (
+              <span
+                class="apps-custom-pager"
+                onClick={event => this.handleApps(event, index)}
+              >
+                <img src={app.imageThumb} />
+              </span>
+            ))}
           </div>
-          <div class="col2 col">
-            <h2>{this.currentApp.name}</h2>
-            <img class="phone" src="/assets/images/ios-phone-portrait.svg" />
-            <ion-slides
-              class="top-slider"
-              options={this.sliderTopOptions}
-              pager={false}
+        </div>
+        <div class="col2 col">
+          <h2>{this.currentApp.name}</h2>
+          <img class="phone" src="/assets/images/ios-phone-portrait.svg" />
+          <ion-slides
+            class="top-slider"
+            options={this.sliderTopOptions}
+            pager={false}
+          >
+            {this.currentApp.views.map(view => (
+              <ion-slide>
+                <img class="view-image" src={view.imageMain} />
+              </ion-slide>
+            ))}
+          </ion-slides>
+          <div class="custom-pager-wrapper">
+            <div
+              class="move-slider back"
+              onClick={event => this.handleSlideNext(event, "back")}
             >
-              {this.currentApp.views.map(view => (
-                <ion-slide>
-                  <img class="view-image" src={view.imageMain} />
+              <ion-icon name="arrow-round-back" />
+            </div>
+            <ion-slides options={this.sliderBottomOptions} class="custom-pager">
+              {this.currentApp.views.map((view, index) => (
+                <ion-slide
+                  class="custom-pager-icon"
+                  onClick={event => this.handleSlide(event, index)}
+                >
+                  <img src={view.imageThumb} />
                 </ion-slide>
               ))}
             </ion-slides>
-            <div class="custom-pager-wrapper">
-              <div
-                class="move-slider back"
-                onClick={event => this.handleSlideNext(event, "back")}
-              >
-                <ion-icon name="arrow-round-back" />
-              </div>
-              <ion-slides
-                options={this.sliderBottomOptions}
-                class="custom-pager"
-              >
-                {this.currentApp.views.map((view, index) => (
-                  <ion-slide
-                    class="custom-pager-icon"
-                    onClick={event => this.handleSlide(event, index)}
-                  >
-                    <img src={view.imageThumb} />
-                  </ion-slide>
-                ))}
-              </ion-slides>
-              <div
-                class="move-slider forward"
-                onClick={event => this.handleSlideNext(event, "forward")}
-              >
-                <ion-icon name="arrow-round-forward" />
-              </div>
+            <div
+              class="move-slider forward"
+              onClick={event => this.handleSlideNext(event, "forward")}
+            >
+              <ion-icon name="arrow-round-forward" />
             </div>
           </div>
-          <div class="background-div">
-            <img class="background-image" src={this.currentApp.background} />
-            <div class="background-overlay" />
-          </div>
+        </div>
+        <div class="background-div">
+          <img class="background-image" src={this.currentApp.background} />
+          <div class="background-overlay" />
         </div>
       </div>
     );
