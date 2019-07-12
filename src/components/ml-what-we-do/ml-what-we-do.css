@@ -1,4 +1,12 @@
 /* Component styles go here */
-#how-we-do ion-slides ion-slide {
+ion-slides ion-slide {
   text-align: left;
+}
+
+ml-divider {
+  width: 90%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.5;
 }

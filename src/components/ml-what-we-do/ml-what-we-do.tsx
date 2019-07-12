@@ -2,7 +2,8 @@ import { Component, Element, Listen, State, h } from "@stencil/core";
 
 @Component({
   tag: "ml-what-we-do",
-  styleUrl: "ml-what-we-do.css"
+  styleUrl: "ml-what-we-do.css",
+  scoped: true
 })
 export class MlWhatWeDo {
   slider: HTMLIonSlidesElement;
@@ -67,7 +68,7 @@ export class MlWhatWeDo {
           (UX) and simplicity in our designs make our apps as easy on your eyes
           as they are to use.
         </p>
-
+        <ml-divider />
         <h2>WHY WE DO</h2>
         <p>
           We do this in dreams of making the world a better place by developing
@@ -76,7 +77,7 @@ export class MlWhatWeDo {
           development, and our general philosophy. It’s an ambitious goal, we
           can’t do it alone, and some might call it madness…we agree!
         </p>
-
+        <ml-divider />
         <h2>HOW WE DO</h2>
         <ion-grid>
           <ion-row>
@@ -121,7 +122,6 @@ export class MlWhatWeDo {
                       </p>
                     </div>
                   </ion-slide>
-
                   <ion-slide>
                     <div class="align-left-slide slide-padding">
                       <h3>Plan</h3>
@@ -149,7 +149,6 @@ export class MlWhatWeDo {
                       </p>
                     </div>
                   </ion-slide>
-
                   <ion-slide>
                     <div class="align-left-slide slide-padding">
                       <h3>Develop</h3>
@@ -170,7 +169,6 @@ export class MlWhatWeDo {
                       </p>
                     </div>
                   </ion-slide>
-
                   <ion-slide>
                     <div class="align-left-slide slide-padding">
                       <h3>Release</h3>

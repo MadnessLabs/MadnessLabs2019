@@ -1,23 +1,22 @@
 .wrapper {
-    width: 100%;
-    margin-top:50px;
+  width: 100%;
+  margin-top: 50px;
 }
 .line {
-    border-bottom: 3px solid white;
-    width: 45%;
-    position: relative;
-    bottom: 23px;
+  border-bottom: 3px solid white;
+  width: 40%;
+  position: relative;
+  bottom: 23px;
 }
 img {
-    display: block;
-    width: 5%;
-    margin: 0 auto;
-
+  display: block;
+  width: 45px;
+  margin: 0 auto;
 }
 .line2 {
-    border-bottom: 3px solid white;
-    width: 45%;
-    margin-left: 55%;
-    position: relative;
-    bottom:26px;
+  border-bottom: 3px solid white;
+  width: 40%;
+  margin-left: 60%;
+  position: relative;
+  bottom: 26px;
 }
