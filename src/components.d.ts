@@ -15,9 +15,6 @@ import {
 import {
   UserService,
 } from './services/user';
-import {
-  AuthService,
-} from './services/auth';
 
 export namespace Components {
   interface AppAbout {
@@ -28,7 +25,6 @@ export namespace Components {
   interface AppHome {}
   interface AppMedia {}
   interface AppRoot {}
-  interface MalMainNav {}
   interface MlApps {
     'apps': any;
   }
@@ -78,6 +74,7 @@ export namespace Components {
     */
     'padding': boolean;
   }
+  interface MlHowWeDo {}
   interface MlInput {
     'actionOptions': any;
     'autocapitalize': string;
@@ -107,8 +104,14 @@ export namespace Components {
   }
   interface MlLatestPost {}
   interface MlNavigation {
-    'auth': AuthService;
-    'db': DatabaseService;
+    /**
+    * Is the navigation expanded?
+    */
+    'expanded': boolean;
+    /**
+    * A list of links to put in the navigation
+    */
+    'links': { label: string; url: string; icon: string; }[];
   }
   interface MlProcessWheel {
     /**
@@ -117,7 +120,6 @@ export namespace Components {
     'currentIndex': number;
   }
   interface MlVideos {}
-  interface MlWhatWeDo {}
 }
 
 declare global {
@@ -159,12 +161,6 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
-  interface HTMLMalMainNavElement extends Components.MalMainNav, HTMLStencilElement {}
-  var HTMLMalMainNavElement: {
-    prototype: HTMLMalMainNavElement;
-    new (): HTMLMalMainNavElement;
-  };
-
   interface HTMLMlAppsElement extends Components.MlApps, HTMLStencilElement {}
   var HTMLMlAppsElement: {
     prototype: HTMLMlAppsElement;
@@ -187,6 +183,12 @@ declare global {
   var HTMLMlFormElement: {
     prototype: HTMLMlFormElement;
     new (): HTMLMlFormElement;
+  };
+
+  interface HTMLMlHowWeDoElement extends Components.MlHowWeDo, HTMLStencilElement {}
+  var HTMLMlHowWeDoElement: {
+    prototype: HTMLMlHowWeDoElement;
+    new (): HTMLMlHowWeDoElement;
   };
 
   interface HTMLMlInputElement extends Components.MlInput, HTMLStencilElement {}
@@ -218,12 +220,6 @@ declare global {
     prototype: HTMLMlVideosElement;
     new (): HTMLMlVideosElement;
   };
-
-  interface HTMLMlWhatWeDoElement extends Components.MlWhatWeDo, HTMLStencilElement {}
-  var HTMLMlWhatWeDoElement: {
-    prototype: HTMLMlWhatWeDoElement;
-    new (): HTMLMlWhatWeDoElement;
-  };
   interface HTMLElementTagNameMap {
     'app-about': HTMLAppAboutElement;
     'app-apps': HTMLAppAppsElement;
@@ -231,17 +227,16 @@ declare global {
     'app-home': HTMLAppHomeElement;
     'app-media': HTMLAppMediaElement;
     'app-root': HTMLAppRootElement;
-    'mal-main-nav': HTMLMalMainNavElement;
     'ml-apps': HTMLMlAppsElement;
     'ml-divider': HTMLMlDividerElement;
     'ml-floating-button': HTMLMlFloatingButtonElement;
     'ml-form': HTMLMlFormElement;
+    'ml-how-we-do': HTMLMlHowWeDoElement;
     'ml-input': HTMLMlInputElement;
     'ml-latest-post': HTMLMlLatestPostElement;
     'ml-navigation': HTMLMlNavigationElement;
     'ml-process-wheel': HTMLMlProcessWheelElement;
     'ml-videos': HTMLMlVideosElement;
-    'ml-what-we-do': HTMLMlWhatWeDoElement;
   }
 }
 
@@ -254,7 +249,6 @@ declare namespace LocalJSX {
   interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {}
   interface AppMedia extends JSXBase.HTMLAttributes<HTMLAppMediaElement> {}
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
-  interface MalMainNav extends JSXBase.HTMLAttributes<HTMLMalMainNavElement> {}
   interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {
     'apps'?: any;
   }
@@ -308,6 +302,7 @@ declare namespace LocalJSX {
     */
     'padding'?: boolean;
   }
+  interface MlHowWeDo extends JSXBase.HTMLAttributes<HTMLMlHowWeDoElement> {}
   interface MlInput extends JSXBase.HTMLAttributes<HTMLMlInputElement> {
     'actionOptions'?: any;
     'autocapitalize'?: string;
@@ -340,8 +335,14 @@ declare namespace LocalJSX {
   }
   interface MlLatestPost extends JSXBase.HTMLAttributes<HTMLMlLatestPostElement> {}
   interface MlNavigation extends JSXBase.HTMLAttributes<HTMLMlNavigationElement> {
-    'auth'?: AuthService;
-    'db'?: DatabaseService;
+    /**
+    * Is the navigation expanded?
+    */
+    'expanded'?: boolean;
+    /**
+    * A list of links to put in the navigation
+    */
+    'links'?: { label: string; url: string; icon: string; }[];
   }
   interface MlProcessWheel extends JSXBase.HTMLAttributes<HTMLMlProcessWheelElement> {
     /**
@@ -354,7 +355,6 @@ declare namespace LocalJSX {
     'onMadWheelClick'?: (event: CustomEvent<any>) => void;
   }
   interface MlVideos extends JSXBase.HTMLAttributes<HTMLMlVideosElement> {}
-  interface MlWhatWeDo extends JSXBase.HTMLAttributes<HTMLMlWhatWeDoElement> {}
 
   interface IntrinsicElements {
     'app-about': AppAbout;
@@ -363,17 +363,16 @@ declare namespace LocalJSX {
     'app-home': AppHome;
     'app-media': AppMedia;
     'app-root': AppRoot;
-    'mal-main-nav': MalMainNav;
     'ml-apps': MlApps;
     'ml-divider': MlDivider;
     'ml-floating-button': MlFloatingButton;
     'ml-form': MlForm;
+    'ml-how-we-do': MlHowWeDo;
     'ml-input': MlInput;
     'ml-latest-post': MlLatestPost;
     'ml-navigation': MlNavigation;
     'ml-process-wheel': MlProcessWheel;
     'ml-videos': MlVideos;
-    'ml-what-we-do': MlWhatWeDo;
   }
 }
 

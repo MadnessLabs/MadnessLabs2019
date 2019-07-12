@@ -1,0 +1,152 @@
+ml-apps .apps-wrapper {
+  margin-top: 60px;
+  width: 100%;
+  position: relative;
+}
+
+ml-apps ion-grid {
+  width: 90%;
+  max-width: 1200px;
+  display: block;
+  margin: 0 auto;
+  z-index: 3;
+  position: relative;
+}
+
+ml-apps .left-col,
+ml-apps .right-col {
+  min-width: 300px;
+}
+
+ml-apps .left-col h2 {
+  display: block;
+}
+ml-apps .right-col h2 {
+  display: none;
+  text-align: center;
+}
+
+ml-apps .background-image {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+ml-apps .apps-wrapper::before {
+  content: "";
+  height: 200px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: block;
+  position: absolute;
+  z-index: 2;
+  background: -moz-linear-gradient(
+    top,
+    rgba(var(--ion-color-dark-rgb), 1) 0%,
+    rgba(var(--ion-color-dark-rgb), 0) 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(var(--ion-color-dark-rgb), 1) 0%,
+    rgba(var(--ion-color-dark-rgb), 0) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--ion-color-dark-rgb), 1) 0%,
+    rgba(var(--ion-color-dark-rgb), 0) 100%
+  );
+}
+
+ml-apps .apps-pager h3 {
+  padding-bottom: 10px;
+}
+
+ml-apps .apps-pager span {
+  margin-right: 20px;
+}
+
+ml-apps ion-slides {
+  margin-top: 30px !important;
+}
+ml-apps .top-slider {
+  width: 178px;
+  margin: 0 auto;
+}
+ml-apps ion-slide {
+  height: 350px !important;
+}
+ml-apps .move-slider {
+  cursor: pointer;
+}
+ml-apps .move-slider ion-icon {
+  font-size: 48px;
+  color: white;
+}
+ml-apps .swiper-pagination.swiper-pagination-bullets {
+  display: none !important;
+}
+ml-apps .swiper-pagination-bullets {
+  display: none !important;
+}
+ml-apps .phone {
+  position: absolute;
+  z-index: 10;
+  width: 200px;
+  height: 350px;
+  top: 40px;
+  left: 50%;
+  margin-left: -96px;
+}
+ml-apps ion-slides .view-image {
+  position: relative;
+  z-index: 5;
+  max-width: 160px;
+}
+ml-apps .custom-pager-wrapper {
+  display: flex;
+  margin-top: 50px !important;
+}
+ml-apps .custom-pager {
+  display: flex;
+  height: 50px;
+  margin-top: 0px !important;
+}
+ml-apps .custom-pager-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  max-width: 270px;
+  height: 50px !important;
+}
+ml-apps .custom-pager .custom-pager-icon img {
+  width: 50px;
+  height: auto;
+  margin: 10px;
+}
+@media (max-width: 760px) {
+  ml-apps .apps-wrapper {
+    flex-direction: column;
+    justify-content: center;
+  }
+  ml-apps ion-slide.sc-ml-apps {
+    height: 310px !important;
+  }
+  ml-apps .phone.sc-ml-apps {
+    top: 65px;
+  }
+  ml-apps .left-col h2 {
+    display: none;
+  }
+  ml-apps .right-col h2 {
+    display: block;
+  }
+}

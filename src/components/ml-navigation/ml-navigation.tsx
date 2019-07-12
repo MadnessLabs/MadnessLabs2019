@@ -1,107 +1,90 @@
-import { Component, Prop, State, h } from "@stencil/core";
-
-import { AuthService } from "../../services/auth";
-import { DatabaseService } from "../../services/database";
+import { Component, Listen, Prop, State, h } from "@stencil/core";
 
 @Component({
   tag: "ml-navigation",
-  styleUrl: "ml-navigation.css"
+  styleUrl: "ml-navigation.css",
+  shadow: true
 })
 export class MlNavigation {
-  @Prop() auth: AuthService;
-  @Prop() db: DatabaseService;
-
-  @State()
-  buttonList: any[] = [
+  /**
+   * Is the navigation expanded?
+   */
+  @Prop() expanded = false;
+  /**
+   * A list of links to put in the navigation
+   */
+  @Prop() links = [
     {
-      title: "Git Hub",
-      icon: "logo-github",
-      color: "",
-      onClick: event => {
-        this.login(event, "github");
-      }
+      label: "Home",
+      url: "/",
+      icon: "home"
     },
     {
-      title: "Twitter",
-      icon: "logo-twitter",
-      color: "",
-      onClick: event => {
-        this.login(event, "twitter");
-      }
+      label: "About",
+      url: "/about",
+      icon: "information-circle"
     },
     {
-      title: "Google",
-      icon: "logo-google",
-      color: "",
-      onClick: event => {
-        this.login(event, "google");
-      }
+      label: "Blog",
+      url: "https://blog.madnesslabs.net",
+      icon: "share"
     },
     {
-      title: "Google",
-      icon: "logo-facebook",
-      color: "",
-      onClick: event => {
-        this.login(event, "facebook");
-      }
+      label: "Apps",
+      url: "/apps",
+      icon: "phone-portrait"
+    },
+    {
+      label: "Media",
+      url: "/media",
+      icon: "headset"
     }
   ];
 
-  isLoggedOut() {
-    if (this.auth.isLoggedIn()) {
-      console.log("is logged in");
-    } else {
-      console.log("is not logged in");
-    }
+  /**
+   * The url of the current page
+   */
+  @State() currentUrl: string;
+
+  /**
+   * Update the current url when location changes
+   */
+  @Listen("ionRouteDidChange", { target: "body" })
+  onRouteChange() {
+    this.currentUrl = window.location.pathname;
   }
 
-  logOut() {
-    this.auth.logout();
-  }
-
-  async login(event, type) {
-    console.log(event, "event here");
-    console.log(type, "type here");
-    try {
-      const result = await this.auth.withSocial(type);
-      console.log(result);
-      await this.db.add(
-        "users",
-        { name: result.user.displayName },
-        result.user.uid
-      );
-    } catch (error) {
-      alert("There was an error logging in...");
-      console.log(error);
-    }
+  componentWillLoad() {
+    this.currentUrl = window.location.pathname;
   }
 
   render() {
     return (
-      <div class="bottom-nav">
-        <ion-list>
-          <ion-item href="/">
-            <ion-icon name="home" />
-            <h3>Home</h3>
-          </ion-item>
-          <ion-item href="/about">
-            <ion-icon name="information-circle" />
-            <h3>About</h3>
-          </ion-item>
-          <ion-item href="/community">
-            <ion-icon name="share" />
-            <h3>Community</h3>
-          </ion-item>
-          <ion-item href="/apps">
-            <ion-icon name="phone-portrait" />
-            <h3>Apps</h3>
-          </ion-item>
-          <ion-item href="/media">
-            <ion-icon name="headset" />
-            <h3>Media</h3>
-          </ion-item>
-        </ion-list>
-        <ml-floating-button buttonList={this.buttonList} />
+      <div class="nav-wrapper">
+        <video autoplay loop width="960" height="540">
+          <source src="/assets/videos/starry-ocean.mov" />
+          <source src="/assets/videos/starry-ocean.mp4" />
+        </video>
+        <ml-latest-post />
+        <h1>Madness Labs</h1>
+        <h2>Creativity with</h2>
+        <img src="/assets/icon/ml-logo-bold-1.png" />
+        <ion-grid>
+          <ion-row>
+            {this.links.map(link => (
+              <ion-col
+                class={{
+                  active: this.currentUrl === link.url
+                }}
+              >
+                <ion-item href={link.url} class="nav-link">
+                  <ion-icon name={link.icon} />
+                  <ion-label>{link.label}</ion-label>
+                </ion-item>
+              </ion-col>
+            ))}
+          </ion-row>
+        </ion-grid>
       </div>
     );
   }

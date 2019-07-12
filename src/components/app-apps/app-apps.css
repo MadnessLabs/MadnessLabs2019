@@ -1,10 +1,10 @@
-.inner-scroll {
+app-apps .inner-scroll {
   --padding-start: 0;
   --padding-end: 0;
 }
-.ion-padding {
-	--padding-start: 0 !important;
-	--padding-end: 0 !important;
-	--padding-top: 0 !important;
-	--padding-bottom: 0 !important;
+app-apps .ion-padding {
+  --padding-start: 0 !important;
+  --padding-end: 0 !important;
+  --padding-top: 0 !important;
+  --padding-bottom: 0 !important;
 }

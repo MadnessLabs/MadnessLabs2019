@@ -1,23 +1,29 @@
-.wrapper {
-    width: 100%;
-    margin-top:50px;
+ml-divider {
+  width: 90%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.5;
 }
-.line {
-    border-bottom: 3px solid white;
-    width: 45%;
-    position: relative;
-    bottom: 23px;
+ml-divider .wrapper {
+  width: 100%;
+  margin-top: 50px;
 }
-img {
-    display: block;
-    width: 5%;
-    margin: 0 auto;
-
+ml-divider .line {
+  border-bottom: 3px solid white;
+  width: 40%;
+  position: relative;
+  bottom: 23px;
 }
-.line2 {
-    border-bottom: 3px solid white;
-    width: 45%;
-    margin-left: 55%;
-    position: relative;
-    bottom:26px;
+ml-divider img {
+  display: block;
+  width: 45px;
+  margin: 0 auto;
+}
+ml-divider .line2 {
+  border-bottom: 3px solid white;
+  width: 40%;
+  margin-left: 60%;
+  position: relative;
+  bottom: 26px;
 }
