@@ -1,49 +1,27 @@
 ml-apps .apps-wrapper {
   margin-top: 60px;
-  display: flex;
-  flex-wrap: nowrap;
   width: 100%;
   position: relative;
 }
 
-ml-apps .apps-wrapper::before {
-  content: "";
-  height: 200px;
-  width: 100%;
-  left: 0;
-  right: 0;
-  top: 0;
+ml-apps ion-grid {
+  width: 90%;
+  max-width: 1200px;
   display: block;
-  position: absolute;
+  margin: 0 auto;
   z-index: 3;
-  background: -moz-linear-gradient(
-    top,
-    rgba(var(--ion-color-dark-rgb), 1) 0%,
-    rgba(var(--ion-color-dark-rgb), 0) 100%
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(var(--ion-color-dark-rgb), 1) 0%,
-    rgba(var(--ion-color-dark-rgb), 0) 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(var(--ion-color-dark-rgb), 1) 0%,
-    rgba(var(--ion-color-dark-rgb), 0) 100%
-  );
-}
-
-ml-apps .col {
-  width: 50%;
-  padding-left: 15px;
   position: relative;
-  z-index: 10;
 }
 
-ml-apps .col1 h2 {
+ml-apps .left-col,
+ml-apps .right-col {
+  min-width: 300px;
+}
+
+ml-apps .left-col h2 {
   display: block;
 }
-ml-apps .col2 h2 {
+ml-apps .right-col h2 {
   display: none;
   text-align: center;
 }
@@ -60,10 +38,31 @@ ml-apps .background-image {
   opacity: 0.3;
 }
 
-ml-apps .background-image::after {
-  content: "wee";
+ml-apps .apps-wrapper::before {
+  content: "";
+  height: 200px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
   display: block;
-  float: right;
+  position: absolute;
+  z-index: 2;
+  background: -moz-linear-gradient(
+    top,
+    rgba(var(--ion-color-dark-rgb), 1) 0%,
+    rgba(var(--ion-color-dark-rgb), 0) 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(var(--ion-color-dark-rgb), 1) 0%,
+    rgba(var(--ion-color-dark-rgb), 0) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--ion-color-dark-rgb), 1) 0%,
+    rgba(var(--ion-color-dark-rgb), 0) 100%
+  );
 }
 
 ml-apps .apps-pager h3 {
@@ -144,19 +143,10 @@ ml-apps .custom-pager .custom-pager-icon img {
   ml-apps .phone.sc-ml-apps {
     top: 65px;
   }
-  ml-apps .col {
-    margin: 0 auto;
-  }
-  ml-apps .col1 {
-    order: 2;
-  }
-  ml-apps .col2 {
-    order: 1;
-  }
-  ml-apps .col1 h2 {
+  ml-apps .left-col h2 {
     display: none;
   }
-  ml-apps .col2 h2 {
+  ml-apps .right-col h2 {
     display: block;
   }
 }
