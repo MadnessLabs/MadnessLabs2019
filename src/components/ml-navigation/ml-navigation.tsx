@@ -2,7 +2,8 @@ import { Component, Listen, Prop, State, h } from "@stencil/core";
 
 @Component({
   tag: "ml-navigation",
-  styleUrl: "ml-navigation.css"
+  styleUrl: "ml-navigation.css",
+  scoped: true
 })
 export class MlNavigation {
   /**
@@ -48,7 +49,7 @@ export class MlNavigation {
   /**
    * Update the current url when location changes
    */
-  @Listen("body:ionRouteDidChange")
+  @Listen("ionRouteDidChange", { target: "body" })
   onRouteChange() {
     this.currentUrl = window.location.pathname;
   }
@@ -76,7 +77,7 @@ export class MlNavigation {
                   active: this.currentUrl === link.url
                 }}
               >
-                <ion-item href={link.url}>
+                <ion-item href={link.url} class="nav-link">
                   <ion-icon name={link.icon} />
                   <ion-label>{link.label}</ion-label>
                 </ion-item>

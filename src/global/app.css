@@ -109,8 +109,7 @@ h1,
 h2,
 h3,
 h4,
-h5,
-ion-item {
+h5 {
   font-family: var(--theme-font-primary);
   color: var(--ion-color-light);
 }
