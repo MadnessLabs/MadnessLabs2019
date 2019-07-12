@@ -85,11 +85,11 @@ export class AppRoot {
             componentProps={this.defaultProps}
             component="app-home"
           />
-          {/* <ion-route
+          <ion-route
             url="/about"
             componentProps={this.defaultProps}
-            component="app-about"
-          /> */}
+            component="app-home"
+          />
           <ion-route
             url="/community"
             componentProps={this.defaultProps}

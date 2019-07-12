@@ -15,9 +15,6 @@ import {
 import {
   UserService,
 } from './services/user';
-import {
-  AuthService,
-} from './services/auth';
 
 export namespace Components {
   interface AppAbout {
@@ -28,7 +25,6 @@ export namespace Components {
   interface AppHome {}
   interface AppMedia {}
   interface AppRoot {}
-  interface MalMainNav {}
   interface MlApps {
     'apps': any;
   }
@@ -106,8 +102,10 @@ export namespace Components {
   }
   interface MlLatestPost {}
   interface MlNavigation {
-    'auth': AuthService;
-    'db': DatabaseService;
+    /**
+    * Is the navigation expanded
+    */
+    'expanded': boolean;
   }
   interface MlProcessWheel {
     /**
@@ -156,12 +154,6 @@ declare global {
   var HTMLAppRootElement: {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
-  };
-
-  interface HTMLMalMainNavElement extends Components.MalMainNav, HTMLStencilElement {}
-  var HTMLMalMainNavElement: {
-    prototype: HTMLMalMainNavElement;
-    new (): HTMLMalMainNavElement;
   };
 
   interface HTMLMlAppsElement extends Components.MlApps, HTMLStencilElement {}
@@ -224,7 +216,6 @@ declare global {
     'app-home': HTMLAppHomeElement;
     'app-media': HTMLAppMediaElement;
     'app-root': HTMLAppRootElement;
-    'mal-main-nav': HTMLMalMainNavElement;
     'ml-apps': HTMLMlAppsElement;
     'ml-floating-button': HTMLMlFloatingButtonElement;
     'ml-form': HTMLMlFormElement;
@@ -246,7 +237,6 @@ declare namespace LocalJSX {
   interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {}
   interface AppMedia extends JSXBase.HTMLAttributes<HTMLAppMediaElement> {}
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
-  interface MalMainNav extends JSXBase.HTMLAttributes<HTMLMalMainNavElement> {}
   interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {
     'apps'?: any;
   }
@@ -331,8 +321,10 @@ declare namespace LocalJSX {
   }
   interface MlLatestPost extends JSXBase.HTMLAttributes<HTMLMlLatestPostElement> {}
   interface MlNavigation extends JSXBase.HTMLAttributes<HTMLMlNavigationElement> {
-    'auth'?: AuthService;
-    'db'?: DatabaseService;
+    /**
+    * Is the navigation expanded
+    */
+    'expanded'?: boolean;
   }
   interface MlProcessWheel extends JSXBase.HTMLAttributes<HTMLMlProcessWheelElement> {
     /**
@@ -354,7 +346,6 @@ declare namespace LocalJSX {
     'app-home': AppHome;
     'app-media': AppMedia;
     'app-root': AppRoot;
-    'mal-main-nav': MalMainNav;
     'ml-apps': MlApps;
     'ml-floating-button': MlFloatingButton;
     'ml-form': MlForm;

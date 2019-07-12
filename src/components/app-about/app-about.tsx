@@ -4,7 +4,8 @@ import { DatabaseService } from "../../services/database";
 
 @Component({
   tag: "app-about",
-  styleUrl: "app-about.css"
+  styleUrl: "app-about.css",
+  scoped: true
 })
 export class AppAbout {
   @Prop() db: DatabaseService;
@@ -20,7 +21,7 @@ export class AppAbout {
 
   render() {
     return (
-      <div>
+      <div class="page-wrapper">
         <ml-what-we-do />
         <ml-form>
           <ml-input
@@ -33,7 +34,6 @@ export class AppAbout {
           />
         </ml-form>
       </div>
-
     );
   }
 }
