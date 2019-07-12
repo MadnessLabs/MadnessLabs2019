@@ -2,7 +2,8 @@ import { Component, Element, h } from "@stencil/core";
 
 @Component({
   tag: "app-apps",
-  styleUrl: "app-apps.css"
+  styleUrl: "app-apps.css",
+  scoped: true
 })
 export class MlApps {
 
@@ -35,7 +36,12 @@ export class MlApps {
           name: 'view4',
           imageMain: '/assets/images/raf2/views/4a.jpg',
           imageThumb: '/assets/images/raf2/views/4.jpg'
-        },                  
+        },    
+        {
+          name: 'view5',
+          imageMain: '/assets/images/raf2/views/5a.jpg',
+          imageThumb: '/assets/images/raf2/views/5.jpg'
+        },                       
       ]
     },
     {
@@ -58,12 +64,7 @@ export class MlApps {
           name: 'view3',
           imageMain: '/assets/images/raf2/views/3a.jpg',
           imageThumb: '/assets/images/raf2/views/3.jpg'
-        },    
-        {
-          name: 'view4',
-          imageMain: '/assets/images/raf2/views/4a.jpg',
-          imageThumb: '/assets/images/raf2/views/4.jpg'
-        },                  
+        }               
       ]
     },
   ]
@@ -94,6 +95,7 @@ export class MlApps {
       <ion-content class="ion-padding">
 
         <ml-apps apps={this.apps}></ml-apps>
+        <ml-divider></ml-divider>
 
       </ion-content>
     );

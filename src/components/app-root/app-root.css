@@ -1,6 +1,7 @@
 .bottom-nav {
 	animation: easeUpFadeIn 2s;
   animation-timing-function: ease-out;
+  z-index: 10;
 }
 @keyframes easeUpFadeIn {
   0% {
