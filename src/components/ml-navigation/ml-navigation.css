@@ -1,4 +1,4 @@
-:host,
+ml-navigation,
 .nav-warpper {
   position: relative;
   display: block;
@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-video {
+ml-navigation video {
   position: absolute;
   top: 60%;
   left: 50%;
@@ -20,13 +20,13 @@ video {
   transform: translate(-50%, -60%);
 }
 
-ml-latest-post {
+ml-navigation ml-latest-post {
   position: absolute;
   top: 30px;
   right: 30px;
 }
 
-ion-grid {
+ml-navigation ion-grid {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -49,12 +49,12 @@ ion-grid {
   );
 }
 
-ion-row {
+ml-navigation ion-row {
   margin: 0 auto;
   max-width: 1024px;
 }
 
-ion-item {
+ml-navigation ion-item {
   --background: transparent;
   background: transparent;
   --border-color: var(--ion-color-primary);
@@ -65,18 +65,18 @@ ion-item {
   transition: all ease-in 0.3s;
 }
 
-ion-item ion-label {
+ml-navigation ion-item ion-label {
   font-family: var(--theme-font-primary);
   letter-spacing: 2px;
   padding-left: 10px;
 }
 
-ion-item ion-icon {
+ml-navigation ion-item ion-icon {
   transition: all ease-in 0.3s;
   color: var(--ion-color-primary);
 }
 
-ion-item:hover {
+ml-navigation ion-item:hover {
   --border-color: var(--ion-color-secondary);
   text-shadow: 2px 2px rgba(var(--ion-color-primary), 0.4);
   color: var(--ion-color-light) !important;
@@ -97,21 +97,21 @@ ion-item:hover {
   );
 }
 
-ion-item:hover ion-icon {
+ml-navigation ion-item:hover ion-icon {
   color: var(--ion-color-light);
 }
 
-.active ion-item {
+ml-navigation .active ion-item {
   color: var(--ion-color-secondary);
   --border-color: var(--ion-color-secondary);
 }
 
-.active ion-item ion-icon {
+ml-navigation .active ion-item ion-icon {
   color: var(--ion-color-secondary);
 }
 
 @media only screen and (max-width: 800px) {
-  ion-item ion-label {
+  ml-navigation ion-item ion-label {
     font-size: 11px;
     width: 100%;
     display: block;
@@ -123,7 +123,7 @@ ion-item:hover ion-icon {
     text-align: center;
   }
 
-  ion-item ion-icon {
+  ml-navigation ion-item ion-icon {
     transition: all ease-in 0.3s;
     color: var(--ion-color-primary);
     display: block;
