@@ -1,10 +1,10 @@
 import { Component, Element, Listen, State, h } from "@stencil/core";
 
 @Component({
-  tag: "ml-what-we-do",
-  styleUrl: "ml-what-we-do.css"
+  tag: "ml-how-we-do",
+  styleUrl: "ml-how-we-do.css"
 })
-export class MlWhatWeDo {
+export class MlHowWeDo {
   slider: HTMLIonSlidesElement;
 
   /**
@@ -16,7 +16,7 @@ export class MlWhatWeDo {
     autoHeight: true
   };
 
-  @Element() whatWeDoEl: any;
+  @Element() howWeDoEl: any;
 
   @State() currentSlide: number;
 
@@ -35,12 +35,12 @@ export class MlWhatWeDo {
     setTimeout(() => {
       // Get the slider element
       // https://github.com/ionic-team/ionic/blob/master/core/src/components/slides/readme.md
-      this.slider = this.whatWeDoEl.querySelector("ion-slides");
+      this.slider = this.howWeDoEl.querySelector("ion-slides");
 
       // Get the pagination bullets and convert them to an array
       // https://davidwalsh.name/nodelist-array
       const bullets = [].slice.call(
-        this.whatWeDoEl.querySelectorAll(".swiper-pagination-bullet")
+        this.howWeDoEl.querySelectorAll(".swiper-pagination-bullet")
       );
 
       // Loop through element array and add click event listener
@@ -56,27 +56,6 @@ export class MlWhatWeDo {
   render() {
     return (
       <div>
-        <h2>WHAT WE DO</h2>
-        <p>
-          Madness Labs is a software engineering company from St. Louis,
-          Missouri aimed to make apps with heart. Whether you are looking for a
-          customer rewards app, a management tool for your business, or have an
-          idea for the next big start-up; we will help you align your vision
-          with cutting-edge, standard-compliant, technology to create magic on
-          the screen, big or small. Our intense focus on the user experience
-          (UX) and simplicity in our designs make our apps as easy on your eyes
-          as they are to use.
-        </p>
-        <ml-divider />
-        <h2>WHY WE DO</h2>
-        <p>
-          We do this in dreams of making the world a better place by developing
-          applications that make a real impact on peoples’ lives. Madness Labs
-          also aims to empower others to do the same by teaching design,
-          development, and our general philosophy. It’s an ambitious goal, we
-          can’t do it alone, and some might call it madness…we agree!
-        </p>
-        <ml-divider />
         <h2>HOW WE DO</h2>
         <ion-grid>
           <ion-row>

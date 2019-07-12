@@ -74,6 +74,7 @@ export namespace Components {
     */
     'padding': boolean;
   }
+  interface MlHowWeDo {}
   interface MlInput {
     'actionOptions': any;
     'autocapitalize': string;
@@ -119,7 +120,6 @@ export namespace Components {
     'currentIndex': number;
   }
   interface MlVideos {}
-  interface MlWhatWeDo {}
 }
 
 declare global {
@@ -185,6 +185,12 @@ declare global {
     new (): HTMLMlFormElement;
   };
 
+  interface HTMLMlHowWeDoElement extends Components.MlHowWeDo, HTMLStencilElement {}
+  var HTMLMlHowWeDoElement: {
+    prototype: HTMLMlHowWeDoElement;
+    new (): HTMLMlHowWeDoElement;
+  };
+
   interface HTMLMlInputElement extends Components.MlInput, HTMLStencilElement {}
   var HTMLMlInputElement: {
     prototype: HTMLMlInputElement;
@@ -214,12 +220,6 @@ declare global {
     prototype: HTMLMlVideosElement;
     new (): HTMLMlVideosElement;
   };
-
-  interface HTMLMlWhatWeDoElement extends Components.MlWhatWeDo, HTMLStencilElement {}
-  var HTMLMlWhatWeDoElement: {
-    prototype: HTMLMlWhatWeDoElement;
-    new (): HTMLMlWhatWeDoElement;
-  };
   interface HTMLElementTagNameMap {
     'app-about': HTMLAppAboutElement;
     'app-apps': HTMLAppAppsElement;
@@ -231,12 +231,12 @@ declare global {
     'ml-divider': HTMLMlDividerElement;
     'ml-floating-button': HTMLMlFloatingButtonElement;
     'ml-form': HTMLMlFormElement;
+    'ml-how-we-do': HTMLMlHowWeDoElement;
     'ml-input': HTMLMlInputElement;
     'ml-latest-post': HTMLMlLatestPostElement;
     'ml-navigation': HTMLMlNavigationElement;
     'ml-process-wheel': HTMLMlProcessWheelElement;
     'ml-videos': HTMLMlVideosElement;
-    'ml-what-we-do': HTMLMlWhatWeDoElement;
   }
 }
 
@@ -302,6 +302,7 @@ declare namespace LocalJSX {
     */
     'padding'?: boolean;
   }
+  interface MlHowWeDo extends JSXBase.HTMLAttributes<HTMLMlHowWeDoElement> {}
   interface MlInput extends JSXBase.HTMLAttributes<HTMLMlInputElement> {
     'actionOptions'?: any;
     'autocapitalize'?: string;
@@ -354,7 +355,6 @@ declare namespace LocalJSX {
     'onMadWheelClick'?: (event: CustomEvent<any>) => void;
   }
   interface MlVideos extends JSXBase.HTMLAttributes<HTMLMlVideosElement> {}
-  interface MlWhatWeDo extends JSXBase.HTMLAttributes<HTMLMlWhatWeDoElement> {}
 
   interface IntrinsicElements {
     'app-about': AppAbout;
@@ -367,12 +367,12 @@ declare namespace LocalJSX {
     'ml-divider': MlDivider;
     'ml-floating-button': MlFloatingButton;
     'ml-form': MlForm;
+    'ml-how-we-do': MlHowWeDo;
     'ml-input': MlInput;
     'ml-latest-post': MlLatestPost;
     'ml-navigation': MlNavigation;
     'ml-process-wheel': MlProcessWheel;
     'ml-videos': MlVideos;
-    'ml-what-we-do': MlWhatWeDo;
   }
 }
 
