@@ -1,130 +1,128 @@
-.apps { 
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    position: relative;
+ml-apps .apps {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  position: relative;
 }
 
-.col {
-    width: 50%;
-    padding-left: 15px;
-    position: relative;
-    z-index: 10;
+ml-apps .col {
+  width: 50%;
+  padding-left: 15px;
+  position: relative;
+  z-index: 10;
 }
 
-.col1 h2 {
-    display: block;
+ml-apps .col1 h2 {
+  display: block;
 }
-.col2 h2 {
-    display: none;
-    text-align: center;
-}    
-
-.background-image {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    opacity: .3;
+ml-apps .col2 h2 {
+  display: none;
+  text-align: center;
 }
 
-.apps-pager h3 {
-    padding-bottom: 10px;
+ml-apps .background-image {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.3;
 }
 
-.apps-pager span {
-    margin-right: 20px;
+ml-apps .apps-pager h3 {
+  padding-bottom: 10px;
 }
 
-ion-slides {
-    margin-top: 30px !important;
+ml-apps .apps-pager span {
+  margin-right: 20px;
 }
-.top-slider {
-    width: 178px;
-    margin: 0 auto;
+
+ml-apps ion-slides {
+  margin-top: 30px !important;
 }
-ion-slide {
-    height: 350px !important;
+ml-apps .top-slider {
+  width: 178px;
+  margin: 0 auto;
 }
-.move-slider {
-    cursor: pointer;
+ml-apps ion-slide {
+  height: 350px !important;
 }
-.move-slider ion-icon {
-    font-size: 48px;
-    color: white;
+ml-apps .move-slider {
+  cursor: pointer;
 }
-.swiper-pagination.swiper-pagination-bullets {
-    display: none !important;
+ml-apps .move-slider ion-icon {
+  font-size: 48px;
+  color: white;
 }
-.swiper-pagination-bullets {
-    display: none !important;
+ml-apps .swiper-pagination.swiper-pagination-bullets {
+  display: none !important;
 }
-.phone {
-    position: absolute;
-    z-index: 10;
-    width: 200px;
-    height: 350px;
-    top: 40px;
-    left:50%;
-    margin-left: -96px;
+ml-apps .swiper-pagination-bullets {
+  display: none !important;
 }
-ion-slides .view-image {
-    position: relative;
-    z-index: 5;
-    max-width: 160px;
+ml-apps .phone {
+  position: absolute;
+  z-index: 10;
+  width: 200px;
+  height: 350px;
+  top: 40px;
+  left: 50%;
+  margin-left: -96px;
 }
-.custom-pager-wrapper {
-    display: flex;
-    margin-top: 50px !important;
+ml-apps ion-slides .view-image {
+  position: relative;
+  z-index: 5;
+  max-width: 160px;
 }
-.custom-pager {
-    display: flex;
-    height: 50px;
-    margin-top: 0px !important;
+ml-apps .custom-pager-wrapper {
+  display: flex;
+  margin-top: 50px !important;
 }
-.custom-pager-icon {
-    display: flex;
+ml-apps .custom-pager {
+  display: flex;
+  height: 50px;
+  margin-top: 0px !important;
+}
+ml-apps .custom-pager-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  max-width: 270px;
+  height: 50px !important;
+}
+ml-apps .custom-pager .custom-pager-icon img {
+  width: 50px;
+  height: auto;
+  margin: 10px;
+}
+@media (max-width: 760px) {
+  ml-apps .apps {
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    max-width: 270px;
-    height: 50px !important;
+  }
+  ml-apps ion-slide.sc-ml-apps {
+    height: 310px !important;
+  }
+  ml-apps .phone.sc-ml-apps {
+    top: 65px;
+  }
+  ml-apps .col {
+    margin: 0 auto;
+  }
+  ml-apps .col1 {
+    order: 2;
+  }
+  ml-apps .col2 {
+    order: 1;
+  }
+  ml-apps .col1 h2 {
+    display: none;
+  }
+  ml-apps .col2 h2 {
+    display: block;
+  }
 }
-.custom-pager .custom-pager-icon img {
-    width: 50px;
-    height: auto;
-    margin: 10px;
-}
-@media (max-width: 760px){
-    .apps {
-        flex-direction: column;
-        justify-content: center;
-    }
-    ion-slide.sc-ml-apps {
-        height: 310px !important;
-    }
-    .phone.sc-ml-apps {
-        top: 65px;
-    }
-    .col {
-        margin: 0 auto;
-    }
-    .col1 {
-        order: 2;
-    }
-    .col2 {
-        order: 1;
-    }
-    .col1 h2 {
-        display: none;
-    }
-    .col2 h2 {
-        display: block;
-    }    
-}
-/* ios-phone-portrait */
-/* --bullet-background */

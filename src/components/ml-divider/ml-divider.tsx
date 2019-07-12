@@ -2,8 +2,7 @@ import { Component, h } from "@stencil/core";
 
 @Component({
   tag: "ml-divider",
-  styleUrl: "ml-divider.css",
-  scoped: true
+  styleUrl: "ml-divider.css"
 })
 export class MlDivider {
   render() {

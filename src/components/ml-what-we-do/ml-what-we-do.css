@@ -1,9 +1,8 @@
-/* Component styles go here */
-ion-slides ion-slide {
+ml-what-we-do ion-slides ion-slide {
   text-align: left;
 }
 
-ml-divider {
+ml-what-we-do ml-divider {
   width: 90%;
   max-width: 600px;
   display: block;

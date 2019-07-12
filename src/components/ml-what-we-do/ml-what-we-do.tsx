@@ -2,8 +2,7 @@ import { Component, Element, Listen, State, h } from "@stencil/core";
 
 @Component({
   tag: "ml-what-we-do",
-  styleUrl: "ml-what-we-do.css",
-  scoped: true
+  styleUrl: "ml-what-we-do.css"
 })
 export class MlWhatWeDo {
   slider: HTMLIonSlidesElement;

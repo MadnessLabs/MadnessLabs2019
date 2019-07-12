@@ -2,8 +2,7 @@ import { Component, Element, Prop, State, h } from "@stencil/core";
 
 @Component({
   tag: "ml-apps",
-  styleUrl: "ml-apps.css",
-  scoped: true
+  styleUrl: "ml-apps.css"
 })
 export class MlApps {
   @Element() appsEl: any;

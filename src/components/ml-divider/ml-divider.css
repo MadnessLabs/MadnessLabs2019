@@ -1,19 +1,19 @@
-.wrapper {
+ml-divider .wrapper {
   width: 100%;
   margin-top: 50px;
 }
-.line {
+ml-divider .line {
   border-bottom: 3px solid white;
   width: 40%;
   position: relative;
   bottom: 23px;
 }
-img {
+ml-divider img {
   display: block;
   width: 45px;
   margin: 0 auto;
 }
-.line2 {
+ml-divider .line2 {
   border-bottom: 3px solid white;
   width: 40%;
   margin-left: 60%;
