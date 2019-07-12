@@ -103,9 +103,13 @@ export namespace Components {
   interface MlLatestPost {}
   interface MlNavigation {
     /**
-    * Is the navigation expanded
+    * Is the navigation expanded?
     */
     'expanded': boolean;
+    /**
+    * A list of links to put in the navigation
+    */
+    'links': { label: string; url: string; icon: string; }[];
   }
   interface MlProcessWheel {
     /**
@@ -322,9 +326,13 @@ declare namespace LocalJSX {
   interface MlLatestPost extends JSXBase.HTMLAttributes<HTMLMlLatestPostElement> {}
   interface MlNavigation extends JSXBase.HTMLAttributes<HTMLMlNavigationElement> {
     /**
-    * Is the navigation expanded
+    * Is the navigation expanded?
     */
     'expanded'?: boolean;
+    /**
+    * A list of links to put in the navigation
+    */
+    'links'?: { label: string; url: string; icon: string; }[];
   }
   interface MlProcessWheel extends JSXBase.HTMLAttributes<HTMLMlProcessWheelElement> {
     /**

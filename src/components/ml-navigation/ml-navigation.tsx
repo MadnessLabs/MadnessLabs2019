@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Listen, Prop, State, h } from "@stencil/core";
 
 @Component({
   tag: "ml-navigation",
@@ -7,9 +7,56 @@ import { Component, Prop, h } from "@stencil/core";
 })
 export class MlNavigation {
   /**
-   * Is the navigation expanded
+   * Is the navigation expanded?
    */
   @Prop() expanded = false;
+  /**
+   * A list of links to put in the navigation
+   */
+  @Prop() links = [
+    {
+      label: "Home",
+      url: "/",
+      icon: "home"
+    },
+    {
+      label: "About",
+      url: "/about",
+      icon: "information-circle"
+    },
+    {
+      label: "Blog",
+      url: "https://blog.madnesslabs.net",
+      icon: "share"
+    },
+    {
+      label: "Apps",
+      url: "/apps",
+      icon: "phone-portrait"
+    },
+    {
+      label: "Media",
+      url: "/media",
+      icon: "headset"
+    }
+  ];
+
+  /**
+   * The url of the current page
+   */
+  @State() currentUrl: string;
+
+  /**
+   * Update the current url when location changes
+   */
+  @Listen("body:ionRouteDidChange")
+  onRouteChange() {
+    this.currentUrl = window.location.pathname;
+  }
+
+  componentWillLoad() {
+    this.currentUrl = window.location.pathname;
+  }
 
   render() {
     return (
@@ -24,36 +71,18 @@ export class MlNavigation {
         <img src="/assets/icon/ml-logo-bold-1.png" />
         <ion-grid>
           <ion-row>
-            <ion-col>
-              <ion-item href="/">
-                <ion-icon name="home" />
-                <ion-label>Home</ion-label>
-              </ion-item>
-            </ion-col>
-            <ion-col>
-              <ion-item href="/about">
-                <ion-icon name="information-circle" />
-                <ion-label>About</ion-label>
-              </ion-item>
-            </ion-col>
-            <ion-col>
-              <ion-item href="https://blog.madnesslabs.net">
-                <ion-icon name="share" />
-                <ion-label>Blog</ion-label>
-              </ion-item>
-            </ion-col>
-            <ion-col>
-              <ion-item href="/apps">
-                <ion-icon name="phone-portrait" />
-                <ion-label>Apps</ion-label>
-              </ion-item>
-            </ion-col>
-            <ion-col>
-              <ion-item href="/media">
-                <ion-icon name="headset" />
-                <ion-label>Media</ion-label>
-              </ion-item>
-            </ion-col>
+            {this.links.map(link => (
+              <ion-col
+                class={{
+                  active: this.currentUrl === link.url
+                }}
+              >
+                <ion-item href={link.url}>
+                  <ion-icon name={link.icon} />
+                  <ion-label>{link.label}</ion-label>
+                </ion-item>
+              </ion-col>
+            ))}
           </ion-row>
         </ion-grid>
       </div>

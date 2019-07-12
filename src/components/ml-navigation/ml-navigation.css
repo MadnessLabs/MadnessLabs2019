@@ -79,7 +79,7 @@ ion-item ion-icon {
 ion-item:hover {
   --border-color: var(--ion-color-secondary);
   text-shadow: 2px 2px rgba(var(--ion-color-primary), 0.4);
-  color: var(--ion-color-light);
+  color: var(--ion-color-light) !important;
   background: -moz-linear-gradient(
     top,
     rgba(var(--ion-color-secondary-rgb), 0) 50%,
@@ -99,6 +99,15 @@ ion-item:hover {
 
 ion-item:hover ion-icon {
   color: var(--ion-color-light);
+}
+
+.active ion-item {
+  color: var(--ion-color-secondary);
+  --border-color: var(--ion-color-secondary);
+}
+
+.active ion-item ion-icon {
+  color: var(--ion-color-secondary);
 }
 
 @media only screen and (max-width: 800px) {
