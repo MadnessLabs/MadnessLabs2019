@@ -3,7 +3,7 @@ import { Component, Listen, Prop, State, h } from "@stencil/core";
 @Component({
   tag: "ml-navigation",
   styleUrl: "ml-navigation.css",
-  scoped: true
+  shadow: true
 })
 export class MlNavigation {
   /**
