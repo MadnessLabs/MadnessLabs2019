@@ -60,15 +60,22 @@ export class MlNavigation {
 
   render() {
     return (
-      <div class="nav-wrapper">
+      <div
+        class={{
+          "nav-wrapper": true
+        }}
+      >
         <video autoplay muted loop width="960" height="540">
           <source src="/assets/videos/starry-ocean.mov" />
           <source src="/assets/videos/starry-ocean.mp4" />
         </video>
         <ml-latest-post />
-        <h1>Madness Labs</h1>
-        <h2>Creativity with</h2>
-        <img src="/assets/images/ml-logo.png" />
+        <h1 class="name">Madness Labs</h1>
+        <h2 class="tagline">
+          Creativity with
+          <img class="logo" src="/assets/images/ml-logo.png" />
+        </h2>
+
         <ion-grid>
           <ion-row>
             {this.links.map(link => (
