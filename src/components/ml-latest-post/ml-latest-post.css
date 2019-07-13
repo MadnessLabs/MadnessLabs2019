@@ -36,7 +36,7 @@ ml-latest-post .top-corners {
 ml-latest-post .top-corners::before {
   position: absolute;
   display: block;
-  top: 12px;
+  top: 11px;
   left: -4px;
   width: calc(var(--notchSize) + 8px);
   border-top: 1px solid var(--ion-color-primary);
