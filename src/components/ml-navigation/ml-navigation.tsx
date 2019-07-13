@@ -68,7 +68,7 @@ export class MlNavigation {
         <ml-latest-post />
         <h1>Madness Labs</h1>
         <h2>Creativity with</h2>
-        <img src="/assets/icon/ml-logo-bold-1.png" />
+        <img src="/assets/images/ml-logo.png" />
         <ion-grid>
           <ion-row>
             {this.links.map(link => (

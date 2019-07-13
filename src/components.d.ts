@@ -102,7 +102,11 @@ export namespace Components {
     'user': UserService;
     'value': any;
   }
-  interface MlLatestPost {}
+  interface MlLatestPost {
+    'description': string;
+    'image': string;
+    'title': string;
+  }
   interface MlNavigation {
     /**
     * Is the navigation expanded?
@@ -333,7 +337,11 @@ declare namespace LocalJSX {
     'user'?: UserService;
     'value'?: any;
   }
-  interface MlLatestPost extends JSXBase.HTMLAttributes<HTMLMlLatestPostElement> {}
+  interface MlLatestPost extends JSXBase.HTMLAttributes<HTMLMlLatestPostElement> {
+    'description'?: string;
+    'image'?: string;
+    'title'?: string;
+  }
   interface MlNavigation extends JSXBase.HTMLAttributes<HTMLMlNavigationElement> {
     /**
     * Is the navigation expanded?

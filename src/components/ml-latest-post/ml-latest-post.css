@@ -1,1 +1,127 @@
-/* Component styles go here */
+ml-latest-post {
+  width: 90%;
+  margin: 0 5%;
+  display: block;
+  max-width: 360px;
+  position: absolute;
+  --notchSize: 23px;
+}
+
+ml-latest-post .post-wrapper {
+  width: 100%;
+  border: 2px solid var(--ion-color-primary);
+  display: block;
+  max-width: 350px;
+  clip-path: polygon(
+    0% var(--notchSize),
+    var(--notchSize) 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize))
+  );
+  color: var(--ion-color-light);
+}
+
+ml-latest-post .top-corners {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--notchSize);
+}
+
+ml-latest-post .top-corners::before {
+  position: absolute;
+  display: block;
+  top: 12px;
+  left: -4px;
+  width: calc(var(--notchSize) + 8px);
+  border-top: 1px solid var(--ion-color-primary);
+  content: "";
+  transform: rotate(-45deg);
+}
+
+ml-latest-post .top-corners::after {
+  position: absolute;
+  display: block;
+  top: 12px;
+  right: 2px;
+  width: calc(var(--notchSize) + 8px);
+  border-top: 1px solid var(--ion-color-primary);
+  content: "";
+  transform: rotate(45deg);
+}
+
+ml-latest-post .bottom-corners {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--notchSize);
+}
+
+ml-latest-post .bottom-corners::before {
+  position: absolute;
+  display: block;
+  top: 11px;
+  left: -4px;
+  width: calc(var(--notchSize) + 8px);
+  border-top: 1px solid var(--ion-color-primary);
+  content: "";
+  transform: rotate(45deg);
+}
+
+ml-latest-post .bottom-corners::after {
+  position: absolute;
+  display: block;
+  top: 11px;
+  right: 3px;
+  width: calc(var(--notchSize) + 8px);
+  border-top: 1px solid var(--ion-color-primary);
+  content: "";
+  transform: rotate(-45deg);
+}
+
+ml-latest-post .post-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  top: 13px;
+  left: 25px;
+  background-size: cover;
+  background-color: var(--ion-color-light);
+  background-position: center;
+}
+
+ml-latest-post h2 {
+  text-indent: 90px;
+  margin: 0;
+  padding: 8px 30px 0 0;
+  font-family: var(--theme-font-primary);
+}
+
+ml-latest-post p {
+  margin: 0;
+  padding: 5px 15px 10px 0;
+  text-indent: 90px;
+  font-family: var(--theme-font-secondary);
+}
+
+ml-latest-post ion-icon {
+  position: absolute;
+  top: 24px;
+  right: 30px;
+  height: 30px;
+  width: 30px;
+}
+
+ml-latest-post:hover .post-wrapper {
+  cursor: pointer;
+  background: var(--ion-color-primary);
+}

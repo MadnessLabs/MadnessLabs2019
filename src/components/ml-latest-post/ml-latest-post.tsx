@@ -1,15 +1,13 @@
-import { Component, h } from "@stencil/core";
+import { Component, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "ml-latest-post",
   styleUrl: "ml-latest-post.css"
 })
 export class MlLatestPost {
-  state = {
-    title: null,
-    feed: null,
-    post: null
-  };
+  @Prop() title = "Latest Post";
+  @Prop() description = "Loading...";
+  @Prop() image = "./assets/icon/icon192.png";
 
   componentDidMount() {
     this.XMLHttpRequest();
@@ -67,19 +65,20 @@ export class MlLatestPost {
   }
 
   render() {
-    return (
-      <div>
-        <h1>Cool post</h1>
-        <p>
-          {!this.state.feed ? (
-            <div>loading... </div>
-          ) : (
-            <div>
-              <div>{this.state.post}</div>
-            </div>
-          )}
-        </p>
-      </div>
-    );
+    return [
+      <span class="top-corners" />,
+      <div class="post-wrapper">
+        <div
+          class="post-image"
+          style={{
+            backgroundImage: `url(${this.image})`
+          }}
+        />
+        <h2>{this.title}</h2>
+        <p>{this.description}</p>
+        <ion-icon name="play-circle" />
+      </div>,
+      <span class="bottom-corners" />
+    ];
   }
 }

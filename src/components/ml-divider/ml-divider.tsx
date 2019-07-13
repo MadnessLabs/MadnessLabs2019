@@ -8,7 +8,7 @@ export class MlDivider {
   render() {
     return (
       <div class="wrapper">
-        <img src="/assets/icon/ml-logo-bold-1.png" />
+        <img src="/assets/images/ml-logo.png" />
         <div class="line" />
         <div class="line2" />
       </div>
