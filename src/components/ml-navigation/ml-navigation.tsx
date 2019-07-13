@@ -61,7 +61,7 @@ export class MlNavigation {
   render() {
     return (
       <div class="nav-wrapper">
-        <video autoplay loop width="960" height="540">
+        <video autoplay muted loop width="960" height="540">
           <source src="/assets/videos/starry-ocean.mov" />
           <source src="/assets/videos/starry-ocean.mp4" />
         </video>
