@@ -1,5 +1,5 @@
 import { Component, Listen, Prop, State, h } from "@stencil/core";
-import * as ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
+import ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
 // import { TweenMax, TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
 // import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 
@@ -16,6 +16,10 @@ export class MlNavigation {
   // Parallax background
 
   controller = new ScrollMagic.Controller();
+  scrollMagic = new ScrollMagic.Scene({
+        triggerElement: "#parallax",
+        triggerHook: "onEnter",
+    })
 
   @Prop() expanded = false;
   /**
@@ -72,6 +76,10 @@ export class MlNavigation {
   // })
   // .duration('200%')
   // .addTo(this.controller);    
+  // console.log(this.scrollMagic);
+  console.log(this.controller, 'thisDotController');
+  
+  
   }
 
   render() {
