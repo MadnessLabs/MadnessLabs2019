@@ -1,12 +1,14 @@
-import { Component, Listen, Prop, State, h } from "@stencil/core";
+import { Component, Element, Listen, Prop, State, h } from "@stencil/core";
 import ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
 // import { TweenMax, TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
 // import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap";
+import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
+
 
 @Component({
   tag: "ml-navigation",
-  styleUrl: "ml-navigation.css",
-  shadow: true
+  styleUrl: "ml-navigation.css"
 })
 export class MlNavigation {
   /**
@@ -16,10 +18,9 @@ export class MlNavigation {
   // Parallax background
 
   controller = new ScrollMagic.Controller();
-  scrollMagic = new ScrollMagic.Scene({
-        triggerElement: "#parallax",
-        triggerHook: "onEnter",
-    })
+
+  @Element()
+  MlNavigationElement: HTMLMlNavigationElement;
 
   @Prop() expanded = false;
   /**
@@ -70,73 +71,75 @@ export class MlNavigation {
     this.currentUrl = window.location.pathname;
   }
   componentDidLoad() {
-  //   new ScrollMagic.Scene({
-  //     triggerElement: "#parallax",
-  //     triggerHook: "onEnter",
-  // })
-  // .duration('200%')
-  // .addTo(this.controller);    
-  // console.log(this.scrollMagic);
-  console.log(this.controller, 'thisDotController');
-  
-  
+    // Parallax background
+    new ScrollMagic.Scene({
+      triggerElement: "#parallax",
+      triggerHook: "onEnter"
+    })
+      .duration("200%")
+      .setTween("#parallax", {
+        backgroundPosition: "50% 100%",
+        // ease: Linear.easeNone
+      })
+      .addIndicators()
+      .addTo(this.controller);
   }
 
   render() {
     return (
-<div>
-<div class="parallax slide" id="parallax">
-    <div class="row">
-        <h1>Parallax background</h1>
-    </div>
-</div>
+      <div>
+        <div class="parallax slide" id="parallax">
+          <div class="row">
+            <h1>Parallax background</h1>
+          </div>
+        </div>
 
-<div class="slidein slide" id="slidein">
-    <div class="row">
-        <h1>Slide and pin</h1>
-    </div>
-</div>
+        <div class="slidein slide" id="slidein">
+          <div class="row">
+            <h1>Slide and pin</h1>
+          </div>
+        </div>
 
-<div class="slidein2 slide" id="slidein2">
-    <div class="row">
-        <div id="left">
-            <h1>From left</h1>
+        <div class="slidein2 slide" id="slidein2">
+          <div class="row">
+            <div id="left">
+              <h1>From left</h1>
+            </div>
+            <div id="opacity">
+              <h1>Fade in</h1>
+            </div>
+            <div id="bottom">
+              <h1>From bottom</h1>
+            </div>
+          </div>
         </div>
-        <div id="opacity">
-            <h1>Fade in</h1>
-        </div>
-        <div id="bottom">
-            <h1>From bottom</h1>
-        </div>
-    </div>
-</div>
 
-<div class="parallax slide" id="parallax">
-    <div class="row">
-        <h1>Parallax background</h1>
-    </div>
-</div>
- 
-<div class="slidein slide" id="slidein">
-    <div class="row">
-        <h1>Slide and pin</h1>
-    </div>
-</div>
- 
-<div class="slidein2 slide" id="slidein2">
-    <div class="row">
-        <div id="left">
-            <h1>From left</h1>
+        <div class="parallax slide" id="parallax">
+          <div class="row">
+            <h1>Parallax background</h1>
+          </div>
         </div>
-        <div id="opacity">
-            <h1>Fade in</h1>
+
+        <div class="slidein slide" id="slidein">
+          <div class="row">
+            <h1>Slide and pin</h1>
+          </div>
         </div>
-        <div id="bottom">
-            <h1>From bottom</h1>
+
+        <div class="slidein2 slide" id="slidein2">
+          <div class="row">
+            <div id="left">
+              <h1>From left</h1>
+            </div>
+            <div id="opacity">
+              <h1>Fade in</h1>
+            </div>
+            <div id="bottom">
+              <h1>From bottom</h1>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
-</div>
+      </div>
 
       // <div
       //   class={{
