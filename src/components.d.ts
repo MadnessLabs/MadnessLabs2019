@@ -108,9 +108,6 @@ export namespace Components {
     'title': string;
   }
   interface MlNavigation {
-    /**
-    * Is the navigation expanded?
-    */
     'expanded': boolean;
     /**
     * A list of links to put in the navigation
@@ -343,9 +340,6 @@ declare namespace LocalJSX {
     'title'?: string;
   }
   interface MlNavigation extends JSXBase.HTMLAttributes<HTMLMlNavigationElement> {
-    /**
-    * Is the navigation expanded?
-    */
     'expanded'?: boolean;
     /**
     * A list of links to put in the navigation

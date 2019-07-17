@@ -1,4 +1,4 @@
-@keyframes easeDownFadeIn {
+/* @keyframes easeDownFadeIn {
   0% {
     transform: translateY(-20px);
     opacity: 0;
@@ -48,7 +48,7 @@
 }
 
 :host,
-.nav-warpper {
+.nav-wrapper {
   position: relative;
   display: block;
   height: 100%;
@@ -78,7 +78,7 @@ ml-latest-post {
 h1.name {
   animation: easeDownFadeIn 2s ease-in forwards;
   position: absolute;
-  top: 35vh;
+  top: 33vh;
   left: 0;
   right: 0;
   text-align: center;
@@ -95,7 +95,7 @@ h1.name {
 h2.tagline {
   animation: easeRightFadeIn 2s ease-in 1s forwards;
   position: absolute;
-  top: 50vh;
+  top: 43vh;
   font-size: 80px;
   letter-spacing: 2px;
   color: var(--ion-color-light);
@@ -109,11 +109,11 @@ h2.tagline {
 }
 
 img.logo {
-  animation: heartbeat 1s ease-in-out infinite;
+  animation: heartbeat 1s ease-in-out 1;
   display: inline-block;
-  width: 25vw;
+  width: 18vw;
   padding-left: 2vw;
-  margin-bottom: -10vw;
+  margin-bottom: -7vw;
   opacity: 0.8;
 }
 
@@ -223,4 +223,38 @@ ion-item:hover ion-icon {
     height: 30px;
     width: 30px;
   }
+} */
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.slide .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+}
+
+.intro {
+  background: #305a5b;
+}
+
+.parallax {
+  background: url(/assets/images/raf2/1E5B1781@2x.png) 50% 0;
+}
+
+.slidein {
+  background: #5b3030;
+}
+
+.slidein2 {
+  background: #304b5b;
+}
+
+.slidein2 .row {
+  justify-content: space-around;
 }
