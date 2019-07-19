@@ -1,6 +1,6 @@
 import { Component, Element, Listen, Prop, State, h } from "@stencil/core";
 import ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
-import { TweenMax, Linear } from "gsap/all";
+import { TimelineMax, Linear } from "gsap/all";
 // import { TweenLite, TimelineMax, Linear, Back, Sine } from 'gsap/all';
 import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
@@ -12,9 +12,10 @@ import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 })
 export class MlNavigation {
   // tweenMax = new TweenMax;
-  // timelineMax = new TimelineMax();
+  timelineMax = new TimelineMax();
+  // tweenMax = TweenMax();
 
-  // controller;
+  controller = new ScrollMagic.Controller();
 
   @Element()
   MlNavigationElement: HTMLMlNavigationElement;
@@ -71,28 +72,34 @@ export class MlNavigation {
     this.currentUrl = window.location.pathname;
   }
   componentDidLoad() {
-    // const shadowRootMlNavEl = this.MlNavigationElement.shadowRoot;
-    // const navWrapper = shadowRootMlNavEl.querySelector('.nav-wrapper');
-    // console.log(navWrapper, 'navWrapper');
-    // const navWrapper = this.MlNavigationElement.querySelector('.nav-wrapper');
+    const navWrapper = this.MlNavigationElement.querySelector(".nav-wrapper");
 
-    // const scrollMagicController = new ScrollMagic();
+    const scene = new ScrollMagic.Scene({
+      triggerElement: navWrapper,
+      triggerHook: "onEnter"
+    })
+      .duration("100%")
+      .setTween(navWrapper, {
+        height: "200px",
+        ease: Linear.easeNone
+      })
+      .addIndicators();
 
-    //   const scene1 = new ScrollMagic.Scene({
-    //     triggerElement: navWrapper,
-    //     triggerHook: "onEnter"
-    //   })
-    //     .duration("100%");
-    //     // .setTween(navWrapper {
-    //     //   height: "200px",
-    //     //   ease: Linear.easeNone
-    //     // })
-    //     const tween1 = TweenMax.to(navWrapper {height: "200px", ease: Linear.easeNone})
+    const scene2 = new ScrollMagic.Scene({
+      triggerElement: navWrapper,
+      triggerHook: "onEnter"
+    })
+      .duration("100%")
+      .setTween(navWrapper, {
+        width: "400px",
+        ease: Linear.easeNone
+      })
+      .addIndicators();
 
-    //     scrollMagicController.addScene(scene1);
+    scene.addTo(this.controller);
+    scene2.addTo(this.controller);
 
-    // // this.controller = new ScrollMagic.Controller();
-
+    this.controller = new ScrollMagic.Controller();
   }
 
   render() {

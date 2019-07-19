@@ -1,4 +1,4 @@
-/* @keyframes easeDownFadeIn {
+@keyframes easeDownFadeIn {
   0% {
     transform: translateY(-20px);
     opacity: 0;
@@ -223,38 +223,5 @@ ion-item:hover ion-icon {
     height: 30px;
     width: 30px;
   }
-} */
-
-body {
-  margin: 0;
-  font-family: sans-serif;
 }
 
-.slide .row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: white;
-  text-align: center;
-}
-
-.intro {
-  background: #305a5b;
-}
-
-.parallax {
-  background: url(/assets/images/raf2/1E5B1781@2x.png) 50% 0;
-}
-
-.slidein {
-  background: #5b3030;
-}
-
-.slidein2 {
-  background: #304b5b;
-}
-
-.slidein2 .row {
-  justify-content: space-around;
-}
