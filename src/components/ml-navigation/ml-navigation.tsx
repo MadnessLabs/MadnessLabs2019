@@ -72,31 +72,30 @@ export class MlNavigation {
     this.currentUrl = window.location.pathname;
   }
   componentDidLoad() {
-    const navWrapper = this.MlNavigationElement.querySelector(".nav-wrapper");
+    // const navWrapper = this.MlNavigationElement.querySelector(".nav-wrapper");
 
-    const scene = new ScrollMagic.Scene({
-      triggerElement: navWrapper,
-      triggerHook: "onEnter"
-    })
-      .duration("100%")
-      .setTween(navWrapper, {
-        height: "200px",
-        ease: Linear.easeNone
-      })
-      .addIndicators();
+    // const scene = new ScrollMagic.Scene({
+    //   triggerElement: navWrapper,
+    //   triggerHook: "onEnter"
+    // })
+    //   .duration("200%")
+    //   .setTween(navWrapper, {
+    //     height: "200px",
+    //     ease: Linear.easeNone
+    //   })
+    //   // .addIndicators();
 
     const scene2 = new ScrollMagic.Scene({
-      triggerElement: navWrapper,
-      triggerHook: "onEnter"
+      triggerElement: 'app-about',
+      triggerHook: 0,
     })
-      .duration("100%")
-      .setTween(navWrapper, {
-        width: "400px",
-        ease: Linear.easeNone
+      // .duration("200%")
+      .setTween('.test-div', {
+        background: "red"
       })
       .addIndicators();
 
-    scene.addTo(this.controller);
+    // scene.addTo(this.controller);
     scene2.addTo(this.controller);
 
     this.controller = new ScrollMagic.Controller();
@@ -104,40 +103,43 @@ export class MlNavigation {
 
   render() {
     return (
-      <div
-        ref={el => (this.parallaxEl = el as any)}
-        class={{
-          "nav-wrapper": true
-        }}
-      >
-        <video autoplay muted loop width="960" height="540">
-          <source src="/assets/videos/starry-ocean.mov" />
-          <source src="/assets/videos/starry-ocean.mp4" />
-        </video>
-        <ml-latest-post />
-        <h1 class="name">Madness Labs</h1>
-        <h2 class="tagline">
-          Creativity with
-          <img class="logo" src="/assets/images/ml-logo.png" />
-        </h2>
+      <div class="test-div">
 
-        <ion-grid>
-          <ion-row>
-            {this.links.map(link => (
-              <ion-col
-                class={{
-                  active: this.currentUrl === link.url
-                }}
-              >
-                <ion-item href={link.url} class="nav-link">
-                  <ion-icon name={link.icon} />
-                  <ion-label>{link.label}</ion-label>
-                </ion-item>
-              </ion-col>
-            ))}
-          </ion-row>
-        </ion-grid>
       </div>
+      // <div
+      //   ref={el => (this.parallaxEl = el as any)}
+      //   class={{
+      //     "nav-wrapper": true
+      //   }}
+      // >
+      //   <video autoplay muted loop width="960" height="540">
+      //     <source src="/assets/videos/starry-ocean.mov" />
+      //     <source src="/assets/videos/starry-ocean.mp4" />
+      //   </video>
+      //   <ml-latest-post />
+      //   <h1 class="name">Madness Labs</h1>
+      //   <h2 class="tagline">
+      //     Creativity with
+      //     <img class="logo" src="/assets/images/ml-logo.png" />
+      //   </h2>
+
+      //   <ion-grid class="nav-bar">
+      //     <ion-row>
+      //       {this.links.map(link => (
+      //         <ion-col
+      //           class={{
+      //             active: this.currentUrl === link.url
+      //           }}
+      //         >
+      //           <ion-item href={link.url} class="nav-link">
+      //             <ion-icon name={link.icon} />
+      //             <ion-label>{link.label}</ion-label>
+      //           </ion-item>
+      //         </ion-col>
+      //       ))}
+      //     </ion-row>
+      //   </ion-grid>
+      // </div>
     );
   }
 }

@@ -1,4 +1,4 @@
-@keyframes easeDownFadeIn {
+/* @keyframes easeDownFadeIn {
   0% {
     transform: translateY(-20px);
     opacity: 0;
@@ -224,4 +224,8 @@ ion-item:hover ion-icon {
     width: 30px;
   }
 }
-
+ */
+ .test-div {
+   height: 500px;
+   background: pink;
+ }
