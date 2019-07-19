@@ -87,7 +87,7 @@ export class MlNavigation {
 
     const scene2 = new ScrollMagic.Scene({
       triggerElement: 'app-about',
-      triggerHook: 0,
+      triggerHook: 0.5,
     })
       // .duration("200%")
       .setTween('.test-div', {
