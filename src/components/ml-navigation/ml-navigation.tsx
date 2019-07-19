@@ -1,26 +1,26 @@
 import { Component, Element, Listen, Prop, State, h } from "@stencil/core";
 import ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
-// import { TweenMax, TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
-// import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+import { TweenMax, Linear } from "gsap/all";
+// import { TweenLite, TimelineMax, Linear, Back, Sine } from 'gsap/all';
 import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap";
-import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
-
+import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 
 @Component({
   tag: "ml-navigation",
-  styleUrl: "ml-navigation.css"
+  styleUrl: "ml-navigation.css",
+  scoped: true
 })
 export class MlNavigation {
-  /**
-   * Is the navigation expanded?
-   */
+  // tweenMax = new TweenMax;
+  // timelineMax = new TimelineMax();
 
-  // Parallax background
-
-  controller = new ScrollMagic.Controller();
+  // controller;
 
   @Element()
   MlNavigationElement: HTMLMlNavigationElement;
+
+  @State()
+  parallaxEl: any;
 
   @Prop() expanded = false;
   /**
@@ -71,109 +71,66 @@ export class MlNavigation {
     this.currentUrl = window.location.pathname;
   }
   componentDidLoad() {
-    // Parallax background
-    new ScrollMagic.Scene({
-      triggerElement: "#parallax",
-      triggerHook: "onEnter"
-    })
-      .duration("200%")
-      .setTween("#parallax", {
-        backgroundPosition: "50% 100%",
-        // ease: Linear.easeNone
-      })
-      .addIndicators()
-      .addTo(this.controller);
+    // const shadowRootMlNavEl = this.MlNavigationElement.shadowRoot;
+    // const navWrapper = shadowRootMlNavEl.querySelector('.nav-wrapper');
+    // console.log(navWrapper, 'navWrapper');
+    // const navWrapper = this.MlNavigationElement.querySelector('.nav-wrapper');
+
+    // const scrollMagicController = new ScrollMagic();
+
+    //   const scene1 = new ScrollMagic.Scene({
+    //     triggerElement: navWrapper,
+    //     triggerHook: "onEnter"
+    //   })
+    //     .duration("100%");
+    //     // .setTween(navWrapper {
+    //     //   height: "200px",
+    //     //   ease: Linear.easeNone
+    //     // })
+    //     const tween1 = TweenMax.to(navWrapper {height: "200px", ease: Linear.easeNone})
+
+    //     scrollMagicController.addScene(scene1);
+
+    // // this.controller = new ScrollMagic.Controller();
+
   }
 
   render() {
     return (
-      <div>
-        <div class="parallax slide" id="parallax">
-          <div class="row">
-            <h1>Parallax background</h1>
-          </div>
-        </div>
+      <div
+        ref={el => (this.parallaxEl = el as any)}
+        class={{
+          "nav-wrapper": true
+        }}
+      >
+        <video autoplay muted loop width="960" height="540">
+          <source src="/assets/videos/starry-ocean.mov" />
+          <source src="/assets/videos/starry-ocean.mp4" />
+        </video>
+        <ml-latest-post />
+        <h1 class="name">Madness Labs</h1>
+        <h2 class="tagline">
+          Creativity with
+          <img class="logo" src="/assets/images/ml-logo.png" />
+        </h2>
 
-        <div class="slidein slide" id="slidein">
-          <div class="row">
-            <h1>Slide and pin</h1>
-          </div>
-        </div>
-
-        <div class="slidein2 slide" id="slidein2">
-          <div class="row">
-            <div id="left">
-              <h1>From left</h1>
-            </div>
-            <div id="opacity">
-              <h1>Fade in</h1>
-            </div>
-            <div id="bottom">
-              <h1>From bottom</h1>
-            </div>
-          </div>
-        </div>
-
-        <div class="parallax slide" id="parallax">
-          <div class="row">
-            <h1>Parallax background</h1>
-          </div>
-        </div>
-
-        <div class="slidein slide" id="slidein">
-          <div class="row">
-            <h1>Slide and pin</h1>
-          </div>
-        </div>
-
-        <div class="slidein2 slide" id="slidein2">
-          <div class="row">
-            <div id="left">
-              <h1>From left</h1>
-            </div>
-            <div id="opacity">
-              <h1>Fade in</h1>
-            </div>
-            <div id="bottom">
-              <h1>From bottom</h1>
-            </div>
-          </div>
-        </div>
+        <ion-grid>
+          <ion-row>
+            {this.links.map(link => (
+              <ion-col
+                class={{
+                  active: this.currentUrl === link.url
+                }}
+              >
+                <ion-item href={link.url} class="nav-link">
+                  <ion-icon name={link.icon} />
+                  <ion-label>{link.label}</ion-label>
+                </ion-item>
+              </ion-col>
+            ))}
+          </ion-row>
+        </ion-grid>
       </div>
-
-      // <div
-      //   class={{
-      //     "nav-wrapper": true
-      //   }}
-      // >
-      //   <video autoplay muted loop width="960" height="540">
-      //     <source src="/assets/videos/starry-ocean.mov" />
-      //     <source src="/assets/videos/starry-ocean.mp4" />
-      //   </video>
-      //   <ml-latest-post />
-      //   <h1 class="name">Madness Labs</h1>
-      //   <h2 class="tagline">
-      //     Creativity with
-      //     <img class="logo" src="/assets/images/ml-logo.png" />
-      //   </h2>
-
-      //   <ion-grid>
-      //     <ion-row>
-      //       {this.links.map(link => (
-      //         <ion-col
-      //           class={{
-      //             active: this.currentUrl === link.url
-      //           }}
-      //         >
-      //           <ion-item href={link.url} class="nav-link">
-      //             <ion-icon name={link.icon} />
-      //             <ion-label>{link.label}</ion-label>
-      //           </ion-item>
-      //         </ion-col>
-      //       ))}
-      //     </ion-row>
-      //   </ion-grid>
-      // </div>
     );
   }
 }
