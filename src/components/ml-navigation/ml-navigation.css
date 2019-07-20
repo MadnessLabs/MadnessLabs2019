@@ -49,8 +49,10 @@
 
 .example-class {
   position: fixed !important;
-  min-height: 200px !important;
-  height: 200px !important;
+  min-height: 250px !important;
+  height: 250px !important;
+  width: calc(100% - 17px) !important;
+  min-width: calc(100% - 17px) !important;
 }
 
 

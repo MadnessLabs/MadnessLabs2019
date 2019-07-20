@@ -72,14 +72,22 @@ export class MlNavigation {
     this.currentUrl = window.location.pathname;
   }
   componentDidLoad() {
+    console.log(Linear);
+    
     const navWrapper = this.MlNavigationElement.querySelector(".nav-wrapper");
 
     console.log(document.querySelector('ion-nav'), 'this is the document');
     
+    console.log(window.innerHeight, 'this is the viewport height');
+    const scrollAmount = window.innerHeight - 250;
+
+    console.log(scrollAmount);
+    
+    
 
     const tl = new TimelineMax();
 
-    tl.to(navWrapper, 1, {height: "200px", minHeight: "auto", ease: Linear.easeNone, onComplete: () => { navWrapper.classList.add('example-class') }  });
+    tl.to(navWrapper, 1, {onComplete: () => { navWrapper.classList.add('example-class') }  });
 
     console.log(tl, 'this is all loggin correctly and stuff');
     
@@ -88,28 +96,23 @@ export class MlNavigation {
       triggerElement: navWrapper,
       triggerHook: 0
     })
-      .duration("20%")
-      // .setTween(navWrapper, {
-      //   height: "200px",
-      //   minHeight: "auto",
-      //   ease: Linear.easeNone
-      // })
+      .duration(scrollAmount)
       .setTween(tl)
       .addIndicators();
 
-    // const scene2 = new ScrollMagic.Scene({
-    //   triggerElement: "app-about",
-    //   triggerHook: 0.7
-    // })
-    //   .setTween(navWrapper, {
-    //     position: "fixed",
-    //     height: "200px",
-    //     minHeight: "auto"
-    //   })
-    //   .addIndicators();
+    const scene2 = new ScrollMagic.Scene({
+      triggerElement: "app-about",
+      triggerHook: 0
+    })
+      .setTween(navWrapper, {
+        position: "fixed",
+        height: "200px",
+        minHeight: "auto"
+      })
+      .addIndicators();
 
     scene.addTo(this.controller);
-    // scene2.addTo(this.controller);
+    scene2.addTo(this.controller);
   }
 
   render() {
