@@ -11,10 +11,6 @@ import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
   scoped: true
 })
 export class MlNavigation {
-  // tweenMax = new TweenMax;
-  // timelineMax = new TimelineMax();
-  // tweenMax = TweenMax();
-
   controller = new ScrollMagic.Controller();
 
   @Element()
@@ -73,24 +69,21 @@ export class MlNavigation {
   }
   componentDidLoad() {
     console.log(Linear);
-    
-    const navWrapper = this.MlNavigationElement.querySelector(".nav-wrapper");
 
-    console.log(document.querySelector('ion-nav'), 'this is the document');
-    
-    console.log(window.innerHeight, 'this is the viewport height');
+    const navWrapper = this.MlNavigationElement.querySelector(".nav-wrapper");
+    const heroText = navWrapper.querySelector('.hero-text');
     const scrollAmount = window.innerHeight - 250;
 
-    console.log(scrollAmount);
-    
-    
-
     const tl = new TimelineMax();
+    const tl2 = new TimelineMax();
+    console.log(tl2);
 
-    tl.to(navWrapper, 1, {onComplete: () => { navWrapper.classList.add('example-class') }  });
-
-    console.log(tl, 'this is all loggin correctly and stuff');
-    
+    tl.to(navWrapper, 1, {
+      onComplete: () => {
+        navWrapper.classList.add("example-class");
+      }
+    });
+    tl2.to(heroText, 1, {x:"-=250", y:"+=450"});
 
     const scene = new ScrollMagic.Scene({
       triggerElement: navWrapper,
@@ -101,14 +94,12 @@ export class MlNavigation {
       .addIndicators();
 
     const scene2 = new ScrollMagic.Scene({
-      triggerElement: "app-about",
-      triggerHook: 0
+      triggerElement: navWrapper,
+      triggerHook: 0,
+      offset: 100
     })
-      .setTween(navWrapper, {
-        position: "fixed",
-        height: "200px",
-        minHeight: "auto"
-      })
+      .duration(scrollAmount)
+      .setTween(tl2)
       .addIndicators();
 
     scene.addTo(this.controller);
@@ -117,40 +108,44 @@ export class MlNavigation {
 
   render() {
     return (
-        <div
-          ref={el => (this.parallaxEl = el as any)}
-          class={{
-            "nav-wrapper": true
-          }}
-        >
-          <video autoplay muted loop width="960" height="540">
-            <source src="/assets/videos/starry-ocean.mov" />
-            <source src="/assets/videos/starry-ocean.mp4" />
-          </video>
-          <ml-latest-post />
-          <h1 class="name">Madness Labs</h1>
+      <div
+        ref={el => (this.parallaxEl = el as any)}
+        class={{
+          "nav-wrapper": true
+        }}
+      >
+        <video autoplay muted loop width="960" height="540">
+          <source src="/assets/videos/starry-ocean.mov" />
+          <source src="/assets/videos/starry-ocean.mp4" />
+        </video>
+        <ml-latest-post />
+        <div class="hero-text">
+          <div class="ml-headline">
+            <h1 class="name">Madness Labs</h1>
+          </div>
           <h2 class="tagline">
-            Creativity with
+            <span>Creativity with</span>
             <img class="logo" src="/assets/images/ml-logo.png" />
           </h2>
-
-          <ion-grid class="nav-bar">
-            <ion-row>
-              {this.links.map(link => (
-                <ion-col
-                  class={{
-                    active: this.currentUrl === link.url
-                  }}
-                >
-                  <ion-item href={link.url} class="nav-link">
-                    <ion-icon name={link.icon} />
-                    <ion-label>{link.label}</ion-label>
-                  </ion-item>
-                </ion-col>
-              ))}
-            </ion-row>
-          </ion-grid>
         </div>
+
+        <ion-grid class="nav-bar">
+          <ion-row>
+            {this.links.map(link => (
+              <ion-col
+                class={{
+                  active: this.currentUrl === link.url
+                }}
+              >
+                <ion-item href={link.url} class="nav-link">
+                  <ion-icon name={link.icon} />
+                  <ion-label>{link.label}</ion-label>
+                </ion-item>
+              </ion-col>
+            ))}
+          </ion-row>
+        </ion-grid>
+      </div>
     );
   }
 }
