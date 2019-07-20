@@ -47,6 +47,13 @@
   }
 }
 
+.example-class {
+  position: fixed !important;
+  min-height: 200px !important;
+  height: 200px !important;
+}
+
+
 :host,
 .nav-wrapper {
   position: relative;

@@ -79,7 +79,7 @@ export class MlNavigation {
 
     const tl = new TimelineMax();
 
-    tl.to(navWrapper, 1, {height: "200px", minHeight: "auto", ease: Linear.easeNone, onComplete: () => { }  });
+    tl.to(navWrapper, 1, {height: "200px", minHeight: "auto", ease: Linear.easeNone, onComplete: () => { navWrapper.classList.add('example-class') }  });
 
     console.log(tl, 'this is all loggin correctly and stuff');
     
@@ -88,7 +88,7 @@ export class MlNavigation {
       triggerElement: navWrapper,
       triggerHook: 0
     })
-      .duration("60%")
+      .duration("20%")
       // .setTween(navWrapper, {
       //   height: "200px",
       //   minHeight: "auto",
