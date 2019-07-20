@@ -1,6 +1,6 @@
 import { Component, Element, Listen, Prop, State, h } from "@stencil/core";
 import ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
-import { TimelineMax, Linear } from "gsap/all";
+import { Linear, TimelineMax } from "gsap/all";
 // import { TweenLite, TimelineMax, Linear, Back, Sine } from 'gsap/all';
 import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
@@ -12,7 +12,7 @@ import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 })
 export class MlNavigation {
   // tweenMax = new TweenMax;
-  timelineMax = new TimelineMax();
+  // timelineMax = new TimelineMax();
   // tweenMax = TweenMax();
 
   controller = new ScrollMagic.Controller();
@@ -74,24 +74,37 @@ export class MlNavigation {
   componentDidLoad() {
     const navWrapper = this.MlNavigationElement.querySelector(".nav-wrapper");
 
+    console.log(document.querySelector('ion-nav'), 'this is the document');
+    
+
+    const tl = new TimelineMax();
+
+    tl.to(navWrapper, 1, {height: "200px", minHeight: "auto", ease: Linear.easeNone, onComplete: () => { }  });
+
+    console.log(tl, 'this is all loggin correctly and stuff');
+    
+
     const scene = new ScrollMagic.Scene({
       triggerElement: navWrapper,
       triggerHook: 0
     })
       .duration("60%")
-      .setTween(navWrapper, {
-        height: "200px",
-        minHeight: "20vh",
-        ease: Linear.easeNone
-      })
+      // .setTween(navWrapper, {
+      //   height: "200px",
+      //   minHeight: "auto",
+      //   ease: Linear.easeNone
+      // })
+      .setTween(tl)
       .addIndicators();
 
     // const scene2 = new ScrollMagic.Scene({
     //   triggerElement: "app-about",
-    //   triggerHook: 0.3
+    //   triggerHook: 0.7
     // })
     //   .setTween(navWrapper, {
-    //     position: "fixed"
+    //     position: "fixed",
+    //     height: "200px",
+    //     minHeight: "auto"
     //   })
     //   .addIndicators();
 
@@ -101,7 +114,6 @@ export class MlNavigation {
 
   render() {
     return (
-      <div class="trigger-nav-wrapper">
         <div
           ref={el => (this.parallaxEl = el as any)}
           class={{
@@ -136,8 +148,6 @@ export class MlNavigation {
             </ion-row>
           </ion-grid>
         </div>
-        <div class="nav-trigger" />
-      </div>
     );
   }
 }
