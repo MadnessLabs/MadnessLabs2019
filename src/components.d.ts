@@ -21,10 +21,63 @@ export namespace Components {
     'db': DatabaseService;
   }
   interface AppApps {}
+  interface AppCalendar {}
   interface AppCommunity {}
   interface AppHome {}
   interface AppMedia {}
   interface AppRoot {}
+  interface FtInput {
+    'accept'?: string;
+    'alt'?: string;
+    'autoComplete'?: string;
+    'autoFocus'?: boolean;
+    'autocomplete'?: string;
+    'autofocus'?: boolean | string;
+    'capture'?: string;
+    'checked'?: boolean;
+    'crossOrigin'?: string;
+    'crossorigin'?: string;
+    'disabled'?: boolean;
+    'form'?: string;
+    'formAction'?: string;
+    'formEncType'?: string;
+    'formMethod'?: string;
+    'formNoValidate'?: boolean;
+    'formTarget'?: string;
+    'formaction'?: string;
+    'format'?: "usd";
+    'formenctype'?: string;
+    'formmethod'?: string;
+    'formnovalidate'?: boolean;
+    'formtarget'?: string;
+    'height'?: number | string;
+    'iconLeft': string;
+    'iconRight': string;
+    'label': string;
+    'list'?: string;
+    'max'?: number | string;
+    'maxLength'?: number;
+    'maxlength'?: number | string;
+    'min'?: number | string;
+    'minLength'?: number;
+    'minlength'?: number | string;
+    'multiple'?: boolean;
+    'name'?: string;
+    'pattern'?: string;
+    'placeholder'?: string;
+    'readOnly'?: boolean;
+    'readonly'?: boolean | string;
+    'required'?: boolean;
+    'size'?: number;
+    'src'?: string;
+    'step'?: number | string;
+    'type': any;
+    'value'?: string | string[] | number;
+    'width'?: number | string;
+  }
+  interface FtmsChooseService {
+    'serviceOptions': any;
+  }
   interface MlApps {
     'apps': any;
   }
@@ -138,6 +191,12 @@ declare global {
     new (): HTMLAppAppsElement;
   };
 
+  interface HTMLAppCalendarElement extends Components.AppCalendar, HTMLStencilElement {}
+  var HTMLAppCalendarElement: {
+    prototype: HTMLAppCalendarElement;
+    new (): HTMLAppCalendarElement;
+  };
+
   interface HTMLAppCommunityElement extends Components.AppCommunity, HTMLStencilElement {}
   var HTMLAppCommunityElement: {
     prototype: HTMLAppCommunityElement;
@@ -160,6 +219,18 @@ declare global {
   var HTMLAppRootElement: {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
+  };
+
+  interface HTMLFtInputElement extends Components.FtInput, HTMLStencilElement {}
+  var HTMLFtInputElement: {
+    prototype: HTMLFtInputElement;
+    new (): HTMLFtInputElement;
+  };
+
+  interface HTMLFtmsChooseServiceElement extends Components.FtmsChooseService, HTMLStencilElement {}
+  var HTMLFtmsChooseServiceElement: {
+    prototype: HTMLFtmsChooseServiceElement;
+    new (): HTMLFtmsChooseServiceElement;
   };
 
   interface HTMLMlAppsElement extends Components.MlApps, HTMLStencilElement {}
@@ -224,10 +295,13 @@ declare global {
   interface HTMLElementTagNameMap {
     'app-about': HTMLAppAboutElement;
     'app-apps': HTMLAppAppsElement;
+    'app-calendar': HTMLAppCalendarElement;
     'app-community': HTMLAppCommunityElement;
     'app-home': HTMLAppHomeElement;
     'app-media': HTMLAppMediaElement;
     'app-root': HTMLAppRootElement;
+    'ft-input': HTMLFtInputElement;
+    'ftms-choose-service': HTMLFtmsChooseServiceElement;
     'ml-apps': HTMLMlAppsElement;
     'ml-divider': HTMLMlDividerElement;
     'ml-floating-button': HTMLMlFloatingButtonElement;
@@ -246,10 +320,66 @@ declare namespace LocalJSX {
     'db'?: DatabaseService;
   }
   interface AppApps extends JSXBase.HTMLAttributes<HTMLAppAppsElement> {}
+  interface AppCalendar extends JSXBase.HTMLAttributes<HTMLAppCalendarElement> {}
   interface AppCommunity extends JSXBase.HTMLAttributes<HTMLAppCommunityElement> {}
   interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {}
   interface AppMedia extends JSXBase.HTMLAttributes<HTMLAppMediaElement> {}
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
+  interface FtInput extends JSXBase.HTMLAttributes<HTMLFtInputElement> {
+    'accept'?: string;
+    'alt'?: string;
+    'autoComplete'?: string;
+    'autoFocus'?: boolean;
+    'autocomplete'?: string;
+    'autofocus'?: boolean | string;
+    'capture'?: string;
+    'checked'?: boolean;
+    'crossOrigin'?: string;
+    'crossorigin'?: string;
+    'disabled'?: boolean;
+    'form'?: string;
+    'formAction'?: string;
+    'formEncType'?: string;
+    'formMethod'?: string;
+    'formNoValidate'?: boolean;
+    'formTarget'?: string;
+    'formaction'?: string;
+    'format'?: "usd";
+    'formenctype'?: string;
+    'formmethod'?: string;
+    'formnovalidate'?: boolean;
+    'formtarget'?: string;
+    'height'?: number | string;
+    'iconLeft'?: string;
+    'iconRight'?: string;
+    'label'?: string;
+    'list'?: string;
+    'max'?: number | string;
+    'maxLength'?: number;
+    'maxlength'?: number | string;
+    'min'?: number | string;
+    'minLength'?: number;
+    'minlength'?: number | string;
+    'multiple'?: boolean;
+    'name'?: string;
+    'onFtChange'?: (event: CustomEvent<any>) => void;
+    'onFtInput'?: (event: CustomEvent<any>) => void;
+    'pattern'?: string;
+    'placeholder'?: string;
+    'readOnly'?: boolean;
+    'readonly'?: boolean | string;
+    'required'?: boolean;
+    'size'?: number;
+    'src'?: string;
+    'step'?: number | string;
+    'type'?: any;
+    'value'?: string | string[] | number;
+    'width'?: number | string;
+  }
+  interface FtmsChooseService extends JSXBase.HTMLAttributes<HTMLFtmsChooseServiceElement> {
+    'onSelectService'?: (event: CustomEvent<any>) => void;
+    'serviceOptions'?: any;
+  }
   interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {
     'apps'?: any;
   }
@@ -361,10 +491,13 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     'app-about': AppAbout;
     'app-apps': AppApps;
+    'app-calendar': AppCalendar;
     'app-community': AppCommunity;
     'app-home': AppHome;
     'app-media': AppMedia;
     'app-root': AppRoot;
+    'ft-input': FtInput;
+    'ftms-choose-service': FtmsChooseService;
     'ml-apps': MlApps;
     'ml-divider': MlDivider;
     'ml-floating-button': MlFloatingButton;

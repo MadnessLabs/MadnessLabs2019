@@ -105,8 +105,13 @@ export class AppRoot {
             componentProps={this.defaultProps}
             component="app-media"
           />
+          <ion-route
+            url="/calendar"
+            componentProps={this.defaultProps}
+            component="app-calendar"
+          />          
         </ion-router>
-        <ml-navigation />
+        {/* <ml-navigation /> */}
         <ion-nav />
       </ion-app>
     );

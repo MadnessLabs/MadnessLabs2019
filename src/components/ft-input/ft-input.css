@@ -1,0 +1,75 @@
+:host {
+    font-family: var(
+      --ft-input-font-family,
+      var(--theme-font-primary, Arial, Helvetica, sans-serif)
+    );
+  }
+  .ft-input-wrapper {
+    position: relative;
+    width: 100%;
+    height: var(--ft-input-height, 60px);
+  }
+  .ft-input-wrapper.ft-input-has-icon-left label,
+  .ft-input-wrapper.ft-input-has-icon-left input {
+    text-indent: calc(var(--ft-icon-size, 30px) + 5px);
+  }
+  .ft-input-icon-left,
+  .ft-input-icon-right {
+    color: var(--ft-icon-color, var(--ft-input-color, #bbb));
+    font-size: var(--ft-icon-size, 30px);
+    position: absolute;
+    bottom: var(--ft-icon-bottom, 5px);
+  }
+  .ft-input-icon-left {
+    left: 0;
+  }
+  .ft-input-icon-right {
+    right: 0;
+  }
+  .ft-input {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    padding: var(--ft-input-padding, 10px 0 0 0);
+    margin: var(--ft-input-margin, 0 0 20px 0);
+    width: var(--ft-input-width, 100%);
+    box-shadow: none;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-weight: var(--ft-input-font-weight, bold);
+    font-size: var(--ft-input-font-size, 22px);
+    letter-spacing: var(--ft-input-letter-spacing, 1px);
+    color: var(--ft-input-color, #333);
+    border-bottom: var(--ft-input-border-bottom, 2px solid #bbb);
+    background-color: var(--ft-input-background-color, transparent);
+  }
+  .ft-input-label {
+    position: absolute;
+    left: var(--ft-input-label-left, 0);
+    top: var(--ft-input-label-top, 28px);
+    color: var(--ft-input-label-color, #bbb);
+    transition: var(--ft-input-label-transition, 0.5s);
+    font-size: var(--ft-input-label-font-size, var(--ft-input-font-size, 22px));
+    pointer-events: none;
+  }
+  .ft-input:focus ~ label,
+  .ft-input:valid ~ label {
+    top: var(--ft-input-focus-top, 8px);
+    color: var(--ft-input-focus-color, var(--theme-primary, blue));
+    font-size: var(--ft-input-focus-font-size, 100%);
+    font-weight: var(--ft-input-focus-font-weight, bold);
+  }
+  .ft-input:focus,
+  .ft-input:valid {
+    border-bottom: var(
+      --ft-input-focus-border-bottom,
+      2px solid var(--ft-input-focus-color, var(--theme-primary, blue))
+    ) !important;
+  }
+  .ft-input[type="number"]::-webkit-inner-spin-button,
+  .ft-input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
