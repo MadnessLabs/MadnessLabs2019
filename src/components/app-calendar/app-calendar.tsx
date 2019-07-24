@@ -21,6 +21,7 @@ export class AppCalendar {
         return (
             <div>
                 <p>Hello AppCalendar!</p>
+
                 {
                     this.renderStep()
                 }

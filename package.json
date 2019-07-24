@@ -17,7 +17,7 @@
   "dependencies": {
     "@ionic/core": "one",
     "@types/jest": "^24.0.14",
-    "cleave": "^1.0.0-alpha.10",
+    "cleave.js": "^1.4.7",
     "firebase": "~6.2.0",
     "scrollmagic-plugin-gsap": "^1.0.3"
   },

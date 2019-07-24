@@ -75,6 +75,26 @@ export namespace Components {
     'value'?: string | string[] | number;
     'width'?: number | string;
   }
+  interface FtSelect {
+    'badge': string;
+    'label': string;
+    'modal': string;
+    'name': string;
+    'open': (event: any) => Promise<void>;
+    'options': [
+    {
+      name: any;
+      value: any;
+      payload: any;
+    }
+    ];
+    'placeholder': string;
+    'required': boolean;
+    'type': string;
+    'updateValue': (index: any) => Promise<void>;
+    'value': any;
+    'where': string;
+  }
   interface FtmsChooseService {
     'serviceOptions': any;
   }
@@ -227,6 +247,12 @@ declare global {
     new (): HTMLFtInputElement;
   };
 
+  interface HTMLFtSelectElement extends Components.FtSelect, HTMLStencilElement {}
+  var HTMLFtSelectElement: {
+    prototype: HTMLFtSelectElement;
+    new (): HTMLFtSelectElement;
+  };
+
   interface HTMLFtmsChooseServiceElement extends Components.FtmsChooseService, HTMLStencilElement {}
   var HTMLFtmsChooseServiceElement: {
     prototype: HTMLFtmsChooseServiceElement;
@@ -301,6 +327,7 @@ declare global {
     'app-media': HTMLAppMediaElement;
     'app-root': HTMLAppRootElement;
     'ft-input': HTMLFtInputElement;
+    'ft-select': HTMLFtSelectElement;
     'ftms-choose-service': HTMLFtmsChooseServiceElement;
     'ml-apps': HTMLMlAppsElement;
     'ml-divider': HTMLMlDividerElement;
@@ -375,6 +402,27 @@ declare namespace LocalJSX {
     'type'?: any;
     'value'?: string | string[] | number;
     'width'?: number | string;
+  }
+  interface FtSelect extends JSXBase.HTMLAttributes<HTMLFtSelectElement> {
+    'badge'?: string;
+    'label'?: string;
+    'modal'?: string;
+    'name'?: string;
+    'onFtChange'?: (event: CustomEvent<any>) => void;
+    'onFtSelectClose'?: (event: CustomEvent<any>) => void;
+    'onFtSelectOpen'?: (event: CustomEvent<any>) => void;
+    'options'?: [
+    {
+      name: any;
+      value: any;
+      payload: any;
+    }
+    ];
+    'placeholder'?: string;
+    'required'?: boolean;
+    'type'?: string;
+    'value'?: any;
+    'where'?: string;
   }
   interface FtmsChooseService extends JSXBase.HTMLAttributes<HTMLFtmsChooseServiceElement> {
     'onSelectService'?: (event: CustomEvent<any>) => void;
@@ -497,6 +545,7 @@ declare namespace LocalJSX {
     'app-media': AppMedia;
     'app-root': AppRoot;
     'ft-input': FtInput;
+    'ft-select': FtSelect;
     'ftms-choose-service': FtmsChooseService;
     'ml-apps': MlApps;
     'ml-divider': MlDivider;
