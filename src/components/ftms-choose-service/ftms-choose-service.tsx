@@ -4,7 +4,8 @@ import {
   Element,
   Event,
   EventEmitter,
-  Prop
+  Prop,
+  State
 } from "@stencil/core";
 
 @Component({
@@ -12,29 +13,53 @@ import {
   styleUrl: "ftms-choose-service.css"
 })
 export class FtmsChooseService {
-  @Prop() serviceOptions;
-  @Event() selectService: EventEmitter;
-  @Element() ftmsChooseServiceEl: HTMLFtmsChooseServiceElement;
+  selectEl;
+  @Prop({mutable: true}) serviceOptions: any;
+  @State() selectedService: any;
+  @Event() sendSelectedService: EventEmitter;
+  @Element() ftmsChooseServiceEl: any;
 
-  example(event) {
-    console.log(event);
-    console.log("IN THE example thing");
+  selectService(service, index) {
+    this.deselectServcies();
+    this.selectedService = service;
+    this.serviceOptions[index].selected = true;
+    this.serviceOptions = this.serviceOptions;
+    console.log(this.serviceOptions, 'service Options Array');
+    console.log(this.selectedService, 'the actual Service Selected, an Object');
   }
+
+  deselectServcies() {
+    this.serviceOptions.forEach((index) => {
+      console.log(this.serviceOptions, ' service options wtf');
+      console.log('index wtf');
+      
+      
+      // this.serviceOptions[index].selected = false;
+    });
+    // this.serviceOptions = this.serviceOptions;
+    // console.log(this.serviceOptions, 'within DESELECT SERVCIES');
+  }
+
   onFormSubmit(event) {
     event.preventDefault;
-    const selectEl = this.ftmsChooseServiceEl.querySelector(".serviceSelect");
-    // selectEl.options[selectEl.selectedIndex.value]
-    console.log(selectEl.options[selectEl.selectedIndex].value, " this is the select El");
+    this.sendSelectedService.emit(this.selectedService); 
+  }
+
+  componentDidLoad(){
+    this.selectService(this.serviceOptions[0], 0);
   }
 
   render() {
     return (
       <div class="choose-services-wrapper">
-        <select class="serviceSelect" onChange={event => this.example(event)}>
-          {this.serviceOptions.map(service => (
-            <option>{service.type}</option>
+        <div class="service-list">
+
+          {this.serviceOptions.map((service, index ) => (
+            <div class="service-item" onClick={() => this.selectService(service, index)} >
+              <h3>{service.type}</h3><p>{service.description}</p>
+            </div>
           ))}
-        </select>
+        </div>
         <button onClick={event => this.onFormSubmit(event)}>BUTTON</button>
       </div>
     );

@@ -1,6 +1,24 @@
 /* h1, h2, h3, h4, p, span {
     color: black;
 } */
+.app-calendar-wrapper {
+    margin: 0px 10px;
+}
+.app-calendar-wrapper p {
+    margin-left: 10px;
+}
+.app-calendar-wrapper button {
+    margin-left: 10px;
+    padding: 8px 20px;
+}
+
 h1, h2, h3, h4, p, span  {
     color: black !important;
+}
+
+.service-item {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid black;
 }

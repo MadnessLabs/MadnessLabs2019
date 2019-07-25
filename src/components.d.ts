@@ -95,6 +95,9 @@ export namespace Components {
     'value': any;
     'where': string;
   }
+  interface FtmsCalendarPicker {
+    'typeOfService': any;
+  }
   interface FtmsChooseService {
     'serviceOptions': any;
   }
@@ -253,6 +256,12 @@ declare global {
     new (): HTMLFtSelectElement;
   };
 
+  interface HTMLFtmsCalendarPickerElement extends Components.FtmsCalendarPicker, HTMLStencilElement {}
+  var HTMLFtmsCalendarPickerElement: {
+    prototype: HTMLFtmsCalendarPickerElement;
+    new (): HTMLFtmsCalendarPickerElement;
+  };
+
   interface HTMLFtmsChooseServiceElement extends Components.FtmsChooseService, HTMLStencilElement {}
   var HTMLFtmsChooseServiceElement: {
     prototype: HTMLFtmsChooseServiceElement;
@@ -328,6 +337,7 @@ declare global {
     'app-root': HTMLAppRootElement;
     'ft-input': HTMLFtInputElement;
     'ft-select': HTMLFtSelectElement;
+    'ftms-calendar-picker': HTMLFtmsCalendarPickerElement;
     'ftms-choose-service': HTMLFtmsChooseServiceElement;
     'ml-apps': HTMLMlAppsElement;
     'ml-divider': HTMLMlDividerElement;
@@ -424,8 +434,11 @@ declare namespace LocalJSX {
     'value'?: any;
     'where'?: string;
   }
+  interface FtmsCalendarPicker extends JSXBase.HTMLAttributes<HTMLFtmsCalendarPickerElement> {
+    'typeOfService'?: any;
+  }
   interface FtmsChooseService extends JSXBase.HTMLAttributes<HTMLFtmsChooseServiceElement> {
-    'onSelectService'?: (event: CustomEvent<any>) => void;
+    'onSendSelectedService'?: (event: CustomEvent<any>) => void;
     'serviceOptions'?: any;
   }
   interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {
@@ -546,6 +559,7 @@ declare namespace LocalJSX {
     'app-root': AppRoot;
     'ft-input': FtInput;
     'ft-select': FtSelect;
+    'ftms-calendar-picker': FtmsCalendarPicker;
     'ftms-choose-service': FtmsChooseService;
     'ml-apps': MlApps;
     'ml-divider': MlDivider;
