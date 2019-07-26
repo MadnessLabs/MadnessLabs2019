@@ -24,20 +24,18 @@ export class FtmsChooseService {
     this.selectedService = service;
     this.serviceOptions[index].selected = true;
     this.serviceOptions = this.serviceOptions;
-    console.log(this.serviceOptions, 'service Options Array');
-    console.log(this.selectedService, 'the actual Service Selected, an Object');
+    // console.log(this.serviceOptions, 'service Options Array');
+    // console.log(this.selectedService, 'the actual Service Selected, an Object');
   }
 
   deselectServcies() {
-    this.serviceOptions.forEach((index) => {
+    this.serviceOptions.forEach((service, index) => {
       console.log(this.serviceOptions, ' service options wtf');
-      console.log('index wtf');
-      
-      
-      // this.serviceOptions[index].selected = false;
+      console.log(index, 'index wtf');
+      service.selected = false;
     });
-    // this.serviceOptions = this.serviceOptions;
-    // console.log(this.serviceOptions, 'within DESELECT SERVCIES');
+    this.serviceOptions = this.serviceOptions;
+    console.log(this.serviceOptions, 'within DESELECT SERVCIES');
   }
 
   onFormSubmit(event) {
@@ -48,14 +46,17 @@ export class FtmsChooseService {
   componentDidLoad(){
     this.selectService(this.serviceOptions[0], 0);
   }
-
+  // class="service-item" 
   render() {
     return (
       <div class="choose-services-wrapper">
+
+        <h1>Pick A Service: </h1>
+
         <div class="service-list">
 
           {this.serviceOptions.map((service, index ) => (
-            <div class="service-item" onClick={() => this.selectService(service, index)} >
+            <div  class={service.selected ? "service-item selected-service-item" : "service-item"} onClick={() => this.selectService(service, index)} >
               <h3>{service.type}</h3><p>{service.description}</p>
             </div>
           ))}

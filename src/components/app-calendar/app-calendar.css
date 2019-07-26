@@ -20,5 +20,9 @@ h1, h2, h3, h4, p, span  {
     margin: 10px;
     padding: 10px;
     cursor: pointer;
-    border: 1px solid black;
+    border: 2px solid black;
+}
+
+.selected-service-item {
+    border: 2px solid #FF1493;
 }

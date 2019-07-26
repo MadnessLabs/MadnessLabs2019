@@ -96,6 +96,7 @@ export namespace Components {
     'where': string;
   }
   interface FtmsCalendarPicker {
+    'calendarScheduleObject': any;
     'typeOfService': any;
   }
   interface FtmsChooseService {
@@ -435,6 +436,7 @@ declare namespace LocalJSX {
     'where'?: string;
   }
   interface FtmsCalendarPicker extends JSXBase.HTMLAttributes<HTMLFtmsCalendarPickerElement> {
+    'calendarScheduleObject'?: any;
     'typeOfService'?: any;
   }
   interface FtmsChooseService extends JSXBase.HTMLAttributes<HTMLFtmsChooseServiceElement> {
