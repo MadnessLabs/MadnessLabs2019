@@ -73,22 +73,41 @@ export class AppCalendar {
         return (
           <ftms-calendar-picker
             typeOfService="example"
-            calendarScheduleObject={[
+            calendarScheduleObjects={[
               {
                 year: 2019,
                 months: [
                   {
-                    july: {
-                        startTime: 9,
-                        service: {
-                          type: "grab covfefe",
-                          description:
-                            "want to spend 30 mins having a chat about your business and what we can do for you, let's a covfefe",
-                          time: 0.5,
-                          selected: false
+                    july: [
+                      {
+                        1: {
+                          startTime: 9,
+                          service: {
+                            type: "grab covfefe",
+                            description:
+                              "a friendly game of Settlers of Catan. Let's talk business whilte we trade resources",
+                            time: 0.5,
+                            selected: false
+                          }
                         }
                       }
-                  }
+                    ]
+                  },
+                  { august: [
+                      {
+                        12: {
+                            startTime: 11,
+                            service: {
+                              type: "catan",
+                              description:
+                                "want to spend 30 mins having a chat about your business and what we can do for you, let's a covfefe",
+                              time: 0.5,
+                              selected: false
+                            }
+                        }
+                      }
+                    ] 
+                }
                 ]
               }
             ]}

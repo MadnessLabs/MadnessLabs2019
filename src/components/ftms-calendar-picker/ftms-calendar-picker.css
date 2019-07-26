@@ -1,3 +1,23 @@
-ftms-calendar-picker {
-    /* Component styles go here */
+.calendar-year {
+    display: flex;
+    justify-content:  center;
+    width: 100%;
+    flex-wrap: nowrap;
+    text-align: center;
+    align-items: center;
+}
+
+.calendar-year span ion-icon {
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.calendar-year span {
+    display: inline-block;
+    width: 33%;
+}
+
+.calendar-year h3 {
+    display: inline-block; 
+    width: 33%;
 }
