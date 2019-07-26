@@ -74,24 +74,24 @@ export class AppCalendar {
           <ftms-calendar-picker
             typeOfService="example"
             calendarScheduleObject={[
+              {
+                year: 2019,
+                months: [
                   {
-                    2019: [
-                      {
-                        july: {
-                          startTime: 9,
-                          service: {
-                            type: "grab covfefe",
-                            description:
-                              "want to spend 30 mins having a chat about your business and what we can do for you, let's a covfefe",
-                            time: 0.5,
-                            selected: false
-                          }
+                    july: {
+                        startTime: 9,
+                        service: {
+                          type: "grab covfefe",
+                          description:
+                            "want to spend 30 mins having a chat about your business and what we can do for you, let's a covfefe",
+                          time: 0.5,
+                          selected: false
                         }
                       }
-                    ]
                   }
                 ]
-            }
+              }
+            ]}
           />
         );
     }

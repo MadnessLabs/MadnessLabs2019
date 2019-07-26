@@ -20,16 +20,29 @@ export class FtmsCalendarPicker {
     }
 
     constructDateObject() {
+        console.log('make it here?2');
+        
         // const dateMax = this.currentYear + 10;
         // let i;
-        // year is not iterable but its an array and should be?
 
-        console.log(this.calendarScheduleObject.year, 'this year should be a thing that is iterable');
-
-        // for (i = this.currentYear; i < dateMax; i++) {
-        //     [...this.calendarScheduleObject.year, this.currentYear];
+        // let currentYearObject;
+        // let newYearObject = [];
+        console.log(this.calendarScheduleObject[0].year, 'calendarSchedObj');
+        console.log(this.currentYear, 'this.currentYEAR');
+        
+        // for (i = 0; i < 10; i++) {
+        //     currentYearObject = this.calendarScheduleObject.year === this.currentYear ? this.currentYear : { year: this.currentYear };
+        //     newYearObject = [...newYearObject, currentYearObject];
+        //     this.calendarScheduleObject = newYearObject;
+            
+        //     // newYearObject = [...this.calendarScheduleObject, currentYearObject];
+        //     // this.calendarScheduleObject = newYearObject;
+        //     // console.log(this.currentYear, 'CURRENT YEAR');
+        //     // console.log(dateMax, 'SAME DATE MAX');
+        //     this.currentYear + 1;
         // }
-        console.log(this.calendarScheduleObject, ' this OBJECT');
+        // console.log(this.calendarScheduleObject, ' thisCalendarScheduleObject');
+        // console.log(newYearObject, ' newYearObject');
     }
 
     componentDidLoad() {

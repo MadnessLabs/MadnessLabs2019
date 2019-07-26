@@ -29,13 +29,10 @@ export class FtmsChooseService {
   }
 
   deselectServcies() {
-    this.serviceOptions.forEach((service, index) => {
-      console.log(this.serviceOptions, ' service options wtf');
-      console.log(index, 'index wtf');
+    this.serviceOptions.forEach((service, _index) => {
       service.selected = false;
     });
     this.serviceOptions = this.serviceOptions;
-    console.log(this.serviceOptions, 'within DESELECT SERVCIES');
   }
 
   onFormSubmit(event) {
