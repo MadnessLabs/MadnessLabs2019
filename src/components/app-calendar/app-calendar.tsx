@@ -78,6 +78,7 @@ export class AppCalendar {
                 year: 2019,
                 months: [
                   {
+                    name: 'january',
                     january: [
                       {
                         1: {
