@@ -78,7 +78,7 @@ export class AppCalendar {
                 year: 2019,
                 months: [
                   {
-                    july: [
+                    january: [
                       {
                         1: {
                           startTime: 9,
