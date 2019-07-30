@@ -43,34 +43,57 @@ export class FtmsCalendarPicker {
 
   constructMonthObject() {
     let i;
-    let monthObject;
+    let newMonthObject;
+    let oldMonthObject;
 
     this.calendarScheduleObjects.forEach((year, yearIndex) => {
 
       for (i = 0; i < 12; i++) {
         switch (i) {
           case 0:
-            monthObject = year.months[i].january
-              ? year.months[i]
-              : { name: 'january', january: [] };
-
-            year.months[0] = monthObject;
-
-            this.calendarScheduleObjects[yearIndex].months[0] = monthObject;
+            if( year.months[i] ) {
+              if( year.months[i].name === 'january' ) {
+                newMonthObject = year.months[i];
+                this.calendarScheduleObjects[yearIndex].months[0] = newMonthObject;
+              } else {
+                newMonthObject = { name: 'january', january: [] };
+                oldMonthObject = year.months[i];
+                this.calendarScheduleObjects[yearIndex].months[0] = newMonthObject;
+                this.calendarScheduleObjects[yearIndex].months[1] =
+                oldMonthObject;
+              }
             this.calendarScheduleObjects = this.calendarScheduleObjects;
+            }
+            console.log(this.calendarScheduleObjects, 'within first Switch CASE');
             break;
             case 1:
-              console.log('logging this stuff out');
+                if( year.months[i] ) {
+                  if( year.months[i].name === 'february' ) {
+                    newMonthObject = year.months[i];
+                    this.calendarScheduleObjects[yearIndex].months[1] = newMonthObject;
+                  } else {
+                    newMonthObject = { name: 'february', january: [] };
+                    oldMonthObject = year.months[i];
+                    this.calendarScheduleObjects[yearIndex].months[1] = newMonthObject;
+                    this.calendarScheduleObjects[yearIndex].months[2] =
+                    oldMonthObject;
+                  }
+                this.calendarScheduleObjects = this.calendarScheduleObjects;
+                }
+                console.log(this.calendarScheduleObjects, 'within first Switch CASE');
+                break;            
+            // case 1:
+            //   console.log('logging this stuff out');
               
-              monthObject = year.months[i].january
-                ? year.months[i]
-                : { name: 'february', january: [] };
+            //   newMonthObject = year.months[i].name === 'february'
+            //     ? year.months[i]
+            //     : { name: 'february', january: [] };
   
-              year.months[1] = monthObject;
+            //   year.months[1] = newMonthObject;
   
-              this.calendarScheduleObjects[yearIndex].months[1] = monthObject;
-              this.calendarScheduleObjects = this.calendarScheduleObjects;
-              break;
+            //   this.calendarScheduleObjects[yearIndex].months[1] = newMonthObject;
+            //   this.calendarScheduleObjects = this.calendarScheduleObjects;
+            //   break;
         }
       }
     });
@@ -87,20 +110,18 @@ export class FtmsCalendarPicker {
   }
 
   render() {
-      // claims  year.map isnt a function. what a claim
-      console.log(this.calendarScheduleObjects, 'thisCalendarScheduleObj&!!!ct');
       
     return (
       <div class="calendar-picker-wrapper">
         <h1>Calendar!</h1>
         {this.calendarScheduleObjects.map(year=> (
           <div>
-            <p>asdf{year.year}</p>
+            <p>{year.year}</p>
             {/* {year.map(month => (
                 {month.name}
             ))} */}
             {year.months.map( month => (
-                <div>CD {month.name}</div>
+                <div>* {month.name}</div>
             ))}
           </div>
         ))}

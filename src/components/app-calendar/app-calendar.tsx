@@ -95,7 +95,7 @@ export class AppCalendar {
                     ]
                   },
                   { 
-                    namme: 'august',
+                    name: 'august',
                     august: [
                       {
                         12: {
