@@ -94,7 +94,9 @@ export class AppCalendar {
                       }
                     ]
                   },
-                  { august: [
+                  { 
+                    namme: 'august',
+                    august: [
                       {
                         12: {
                             startTime: 11,

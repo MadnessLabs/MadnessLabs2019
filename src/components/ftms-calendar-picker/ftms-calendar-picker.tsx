@@ -7,7 +7,6 @@ import { Component, h, Prop, State } from "@stencil/core";
 })
 export class FtmsCalendarPicker {
   @Prop() typeOfService: any;
-  // @State() totalYears: number;
   @State() currentYear: number;
   @State() currentMonth: number;
   @State() yearIndex = 0;
@@ -38,33 +37,40 @@ export class FtmsCalendarPicker {
       this.calendarScheduleObjects = newCalendarScheduleObjects;
       this.currentYear = this.currentYear + 1;
     }
-    console.log(this.calendarScheduleObjects, "1?");
+
     this.constructMonthObject();
   }
 
   constructMonthObject() {
     let i;
     let monthObject;
-    // let newCalendarScheduleObjects = [];
 
     this.calendarScheduleObjects.forEach((year, yearIndex) => {
-      // may have an issue with scope with the index?
-      // have to determine days in the month at some point too;
 
       for (i = 0; i < 12; i++) {
         switch (i) {
           case 0:
             monthObject = year.months[i].january
               ? year.months[i]
-              : { january: [] };
+              : { name: 'january', january: [] };
 
             year.months[0] = monthObject;
-            console.log(year.months[0], "is the right thing here?");
 
             this.calendarScheduleObjects[yearIndex].months[0] = monthObject;
             this.calendarScheduleObjects = this.calendarScheduleObjects;
-            console.log(this.calendarScheduleObjects, "2?");
             break;
+            case 1:
+              console.log('logging this stuff out');
+              
+              monthObject = year.months[i].january
+                ? year.months[i]
+                : { name: 'february', january: [] };
+  
+              year.months[1] = monthObject;
+  
+              this.calendarScheduleObjects[yearIndex].months[1] = monthObject;
+              this.calendarScheduleObjects = this.calendarScheduleObjects;
+              break;
         }
       }
     });
@@ -77,23 +83,24 @@ export class FtmsCalendarPicker {
 
   componentDidLoad() {
     this.findDate();
-    console.log(this.calendarScheduleObjects, "0????");
     this.constructDateObject();
   }
 
   render() {
       // claims  year.map isnt a function. what a claim
+      console.log(this.calendarScheduleObjects, 'thisCalendarScheduleObj&!!!ct');
+      
     return (
       <div class="calendar-picker-wrapper">
         <h1>Calendar!</h1>
-        {this.calendarScheduleObjects.map(year => (
+        {this.calendarScheduleObjects.map(year=> (
           <div>
             <p>asdf{year.year}</p>
             {/* {year.map(month => (
                 {month.name}
             ))} */}
-            {year.map( month => (
-                <div>asdf{month}</div>
+            {year.months.map( month => (
+                <div>CD {month.name}</div>
             ))}
           </div>
         ))}
