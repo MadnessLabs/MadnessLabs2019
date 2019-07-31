@@ -5,20 +5,47 @@ import { Component, h, Listen, State } from "@stencil/core";
   styleUrl: "app-calendar.css"
 })
 export class AppCalendar {
-
   @State() step = 1;
   @State() typeOfService: any;
-
+  @State() timeSlots = [];
   user = {
     id: 123,
-    firstName: 'Aaron',
-    lastName: 'Happe'
-  }
-
+    firstName: "Aaron",
+    lastName: "Happe"
+  };
   @Listen("sendSelectedService")
   listenForService(event) {
     console.log(event, "selected Service Event");
     this.step = 2;
+  }
+  @Listen("sendTimeSlotEvent")
+  lisetnForTimeSlot(event){
+    console.log(event);
+    this.step = 3;
+  }
+  @Listen("sendDateStamp")
+  getScheduleData(event) {
+    // makes call to api and returns
+    console.log(event, 'the Event goes here');
+    
+    this.timeSlots = [
+      {
+        slot: "3:30 am",
+        time: "2019-07-30 03:30:00 cst",
+        user: 123
+      },
+      {
+        slot: "4:00 am",
+        time: "2019-07-30 04:00:00 cst",
+        user: 332
+      },
+      {
+        slot: "4:30 am",
+        time: "2019-07-30 04:30:00 cst",
+        user: 123
+      }
+    ];
+    this.timeSlots = this.timeSlots;
   }
 
   // temporary
@@ -64,11 +91,9 @@ export class AppCalendar {
           />
         );
       case 2:
-        return (
-          <ftms-calendar-picker
-            typeOfService="example"
-          />
-        );
+        return <ftms-calendar-picker typeOfService="example"  timeSlots={this.timeSlots} />;
+      case 3: 
+            return <ftms-send-user-info></ftms-send-user-info>
     }
   }
 

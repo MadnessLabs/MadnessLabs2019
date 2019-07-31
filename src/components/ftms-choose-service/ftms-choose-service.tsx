@@ -40,8 +40,6 @@ export class FtmsChooseService {
   }
 
   componentDidLoad(){
-    console.log(this.user, 'thisDotUSER');
-    
     this.selectService(this.serviceOptions[0], 0);
   }
   // class="service-item" 

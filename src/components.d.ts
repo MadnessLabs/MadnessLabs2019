@@ -96,12 +96,14 @@ export namespace Components {
     'where': string;
   }
   interface FtmsCalendarPicker {
+    'timeSlots': any;
     'typeOfService': any;
   }
   interface FtmsChooseService {
     'serviceOptions': any;
     'user': any;
   }
+  interface FtmsSendUserInfo {}
   interface MlApps {
     'apps': any;
   }
@@ -269,6 +271,12 @@ declare global {
     new (): HTMLFtmsChooseServiceElement;
   };
 
+  interface HTMLFtmsSendUserInfoElement extends Components.FtmsSendUserInfo, HTMLStencilElement {}
+  var HTMLFtmsSendUserInfoElement: {
+    prototype: HTMLFtmsSendUserInfoElement;
+    new (): HTMLFtmsSendUserInfoElement;
+  };
+
   interface HTMLMlAppsElement extends Components.MlApps, HTMLStencilElement {}
   var HTMLMlAppsElement: {
     prototype: HTMLMlAppsElement;
@@ -340,6 +348,7 @@ declare global {
     'ft-select': HTMLFtSelectElement;
     'ftms-calendar-picker': HTMLFtmsCalendarPickerElement;
     'ftms-choose-service': HTMLFtmsChooseServiceElement;
+    'ftms-send-user-info': HTMLFtmsSendUserInfoElement;
     'ml-apps': HTMLMlAppsElement;
     'ml-divider': HTMLMlDividerElement;
     'ml-floating-button': HTMLMlFloatingButtonElement;
@@ -436,6 +445,9 @@ declare namespace LocalJSX {
     'where'?: string;
   }
   interface FtmsCalendarPicker extends JSXBase.HTMLAttributes<HTMLFtmsCalendarPickerElement> {
+    'onSendDateStamp'?: (event: CustomEvent<any>) => void;
+    'onSendTimeSlotEvent'?: (event: CustomEvent<any>) => void;
+    'timeSlots'?: any;
     'typeOfService'?: any;
   }
   interface FtmsChooseService extends JSXBase.HTMLAttributes<HTMLFtmsChooseServiceElement> {
@@ -443,6 +455,7 @@ declare namespace LocalJSX {
     'serviceOptions'?: any;
     'user'?: any;
   }
+  interface FtmsSendUserInfo extends JSXBase.HTMLAttributes<HTMLFtmsSendUserInfoElement> {}
   interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {
     'apps'?: any;
   }
@@ -563,6 +576,7 @@ declare namespace LocalJSX {
     'ft-select': FtSelect;
     'ftms-calendar-picker': FtmsCalendarPicker;
     'ftms-choose-service': FtmsChooseService;
+    'ftms-send-user-info': FtmsSendUserInfo;
     'ml-apps': MlApps;
     'ml-divider': MlDivider;
     'ml-floating-button': MlFloatingButton;
