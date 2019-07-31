@@ -7,144 +7,88 @@ import { Component, h, Prop, State } from "@stencil/core";
 })
 export class FtmsCalendarPicker {
   @Prop() typeOfService: any;
-  @State() currentYear: number;
-  @State() currentMonth: number;
-  @State() yearIndex = 0;
-  @Prop({ mutable: true }) calendarScheduleObjects: any;
+  @State() todayObject: any = {};
+  @State() tomorrowObject: any = {};
+  // @State() timeslots: any = [
+  //   { today: {
+  //     timeslots: []
+  //     }
+  //   },
+  //   {
+  //     tomororw: {
+  //       timeslots:[]
+  //     }
+  //   }
+  // ];
+  @State() days = {};
 
-  findDate() {
-    const dateObject = new Date();
-    this.currentYear = dateObject.getFullYear();
-    this.currentMonth = dateObject.getMonth();
-  }
+  createSlots(){
 
-  constructDateObject() {
-    let i;
-    let yearObject;
-    let newCalendarScheduleObjects = [];
+    this.days[this.tomorrowObject.dayKey] = [];
 
-    for (i = 0; i < 2; i++) {
-      if (
-        this.calendarScheduleObjects[i] &&
-        this.calendarScheduleObjects[i].year === this.currentYear
-      ) {
-        yearObject = this.calendarScheduleObjects[i];
-      } else {
-        yearObject = { year: this.currentYear, months: [{}] };
-      }
-
-      newCalendarScheduleObjects = [...newCalendarScheduleObjects, yearObject];
-      this.calendarScheduleObjects = newCalendarScheduleObjects;
-      this.currentYear = this.currentYear + 1;
+    let time = this.todayObject.newDate.getHours() + 1;
+    
+    while(time < 15.5) {
+      
+      this.days[this.tomorrowObject.dayKey].push({
+        "slot": time
+      }) 
+      time = time + .5;
+      console.log(time);
     }
-
-    this.constructMonthObject();
-  }
-
-  constructMonthObject() {
-    let i;
-    let newMonthObject;
-    let oldMonthObject;
-
-    this.calendarScheduleObjects.forEach((year, yearIndex) => {
-
-      for (i = 0; i < 12; i++) {
-        switch (i) {
-          case 0:
-            if( year.months[i] ) {
-              if( year.months[i].name === 'january' ) {
-                newMonthObject = year.months[i];
-                this.calendarScheduleObjects[yearIndex].months[0] = newMonthObject;
-              } else {
-                newMonthObject = { name: 'january', january: [] };
-                oldMonthObject = year.months[i];
-                this.calendarScheduleObjects[yearIndex].months[0] = newMonthObject;
-                this.calendarScheduleObjects[yearIndex].months[1] =
-                oldMonthObject;
-              }
-            this.calendarScheduleObjects = this.calendarScheduleObjects;
-            }
-            console.log(this.calendarScheduleObjects, 'within first Switch CASE');
-            break;
-            case 1:
-                if( year.months[i] ) {
-                  if( year.months[i].name === 'february' ) {
-                    newMonthObject = year.months[i];
-                    this.calendarScheduleObjects[yearIndex].months[1] = newMonthObject;
-                  } else {
-                    newMonthObject = { name: 'february', january: [] };
-                    oldMonthObject = year.months[i];
-                    this.calendarScheduleObjects[yearIndex].months[1] = newMonthObject;
-                    this.calendarScheduleObjects[yearIndex].months[2] =
-                    oldMonthObject;
-                  }
-                this.calendarScheduleObjects = this.calendarScheduleObjects;
-                }
-                console.log(this.calendarScheduleObjects, 'within first Switch CASE');
-                break;            
-            // case 1:
-            //   console.log('logging this stuff out');
-              
-            //   newMonthObject = year.months[i].name === 'february'
-            //     ? year.months[i]
-            //     : { name: 'february', january: [] };
-  
-            //   year.months[1] = newMonthObject;
-  
-            //   this.calendarScheduleObjects[yearIndex].months[1] = newMonthObject;
-            //   this.calendarScheduleObjects = this.calendarScheduleObjects;
-            //   break;
-        }
-      }
-    });
-  }
-
-  changeCalendarYear(direction) {
-    this.yearIndex =
-      direction === "left" ? this.yearIndex - 1 : this.yearIndex + 1;
+    console.log(this.days, 'ASDFEFASDF');
+    
   }
 
   componentDidLoad() {
-    this.findDate();
-    this.constructDateObject();
+    let dateObj = new Date();
+
+    this.todayObject.newDate = dateObj;
+    this.todayObject.month = dateObj.getUTCMonth() + 1; //months from 1-12
+    this.todayObject.day = dateObj.getUTCDate();
+    this.todayObject.year = dateObj.getUTCFullYear();
+    this.todayObject.todayString =
+      this.todayObject.month +
+      " " +
+      this.todayObject.day +
+      ", " +
+      this.todayObject.year;
+
+    this.todayObject.dayKey = this.todayObject.year + "-" + this.todayObject.month + "-" + this.todayObject.day;
+
+    let initDateObj2 = new Date(this.todayObject.todayString);
+    initDateObj2.setDate(dateObj.getDate() + 1);
+
+    this.tomorrowObject.newDate = initDateObj2;
+    this.tomorrowObject.month = initDateObj2.getUTCMonth() + 1; //months from 1-12
+    this.tomorrowObject.day = initDateObj2.getUTCDate();
+    this.tomorrowObject.year = initDateObj2.getUTCFullYear();
+    this.tomorrowObject.todayString = this.tomorrowObject.month + " " + this.tomorrowObject.day + ", " + this.tomorrowObject.year;
+
+    this.tomorrowObject.dayKey = this.tomorrowObject.year + "-" + this.tomorrowObject.month + "-" + this.tomorrowObject.day;
+
+
+    console.log(this.todayObject, ' 1todayObject');
+    console.log(this.tomorrowObject, ' 2tomorrowObject');
+    
+    this.createSlots();
+  }
+
+  convertToHours(){
+
   }
 
   render() {
-      
-    return (
-      <div class="calendar-picker-wrapper">
-        <h1>Calendar!</h1>
-        {this.calendarScheduleObjects.map(year=> (
-          <div>
-            <p>{year.year}</p>
-            {/* {year.map(month => (
-                {month.name}
-            ))} */}
-            {year.months.map( month => (
-                <div>* {month.name}</div>
-            ))}
-          </div>
-        ))}
-        <div class="calendar-year">
-          {this.yearIndex === 1 ? (
-            <span class="year-back">
-              <ion-icon
-                name="arrow-dropleft"
-                onClick={() => this.changeCalendarYear("left")}
-              />
-            </span>
-          ) : null}
-          <h3>{this.calendarScheduleObjects[this.yearIndex].year}</h3>
-          {this.yearIndex === 0 ? (
-            <span class="year-forward">
-              <ion-icon
-                name="arrow-dropright"
-                onClick={() => this.changeCalendarYear("right")}
-              />
-            </span>
-          ) : null}
-        </div>
+    //
+    return(
+      <div class="picker-wrapper">
+        {this.days[this.tomorrowObject.dayKey].map(day => (
+          <p>{day.slot} o-clock</p>
+        )
+
+        )}
       </div>
-    );
+      ) 
+      ;
   }
 }

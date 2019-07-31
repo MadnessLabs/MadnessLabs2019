@@ -15,6 +15,7 @@ import {
 export class FtmsChooseService {
   selectEl;
   @Prop({mutable: true}) serviceOptions: any;
+  @Prop() user: any;
   @State() selectedService: any;
   @Event() sendSelectedService: EventEmitter;
   @Element() ftmsChooseServiceEl: any;
@@ -24,8 +25,6 @@ export class FtmsChooseService {
     this.selectedService = service;
     this.serviceOptions[index].selected = true;
     this.serviceOptions = this.serviceOptions;
-    // console.log(this.serviceOptions, 'service Options Array');
-    // console.log(this.selectedService, 'the actual Service Selected, an Object');
   }
 
   deselectServcies() {
@@ -41,12 +40,15 @@ export class FtmsChooseService {
   }
 
   componentDidLoad(){
+    console.log(this.user, 'thisDotUSER');
+    
     this.selectService(this.serviceOptions[0], 0);
   }
   // class="service-item" 
   render() {
     return (
       <div class="choose-services-wrapper">
+        <p>Hi, <span>{this.user.firstName}.</span></p>
 
         <h1>Pick A Service: </h1>
 

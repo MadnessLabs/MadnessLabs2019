@@ -1,23 +1,7 @@
-.calendar-year {
-    display: flex;
-    justify-content:  center;
-    width: 100%;
-    flex-wrap: nowrap;
-    text-align: center;
-    align-items: center;
-}
-
-.calendar-year span ion-icon {
-    font-size: 32px;
+.picker-wrapper p {
+    display: block;
     cursor: pointer;
-}
-
-.calendar-year span {
-    display: inline-block;
-    width: 33%;
-}
-
-.calendar-year h3 {
-    display: inline-block; 
-    width: 33%;
+    background: #eee;
+    padding: 10px;
+    border: 1px solid lightblue;
 }
