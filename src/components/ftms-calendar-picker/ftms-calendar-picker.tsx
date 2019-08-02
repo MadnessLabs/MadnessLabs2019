@@ -1,4 +1,4 @@
-import { Component, h, Event, EventEmitter, Prop, State } from "@stencil/core";
+import { Component, h, Event, EventEmitter,Prop, State } from "@stencil/core";
 
 @Component({
   tag: "ftms-calendar-picker",
@@ -7,18 +7,21 @@ import { Component, h, Event, EventEmitter, Prop, State } from "@stencil/core";
 })
 export class FtmsCalendarPicker {
   @Prop() typeOfService: any;
-  date: any;
+  @Prop() date: any;
   @Event() sendDateStamp: EventEmitter;
   @Event() sendTimeSlotEvent: EventEmitter;
+  @State() chosenIndex = undefined;
   @State() days = {};
   @State() timeSlotChosen: any;
   @Prop() timeSlots: any;
 
-  setTimeSlot(_event, slot, _index) {
-    // this.timeSlotChosen[index].chosen = true;
+
+
+
+
+  setTimeSlot(_event, slot, index) {
     this.timeSlotChosen = slot;
-    console.log(this.timeSlotChosen, ' time slot has been chosen');
-    
+    this.chosenIndex = index;
   }
 
   onFormSubmit(event){
@@ -26,18 +29,16 @@ export class FtmsCalendarPicker {
   }
 
   componentDidLoad() {
-    this.date = new Date();
-    console.log(this.date, ' thisDATE');
     this.sendDateStamp.emit({event,
       value: this.date});
-      console.log(this.timeSlots, 'timeSLOTS');
   }
+
 
   render() {
     //
     return(
       <div class="picker-wrapper">
-        {this.timeSlots.map((slot, index) => <p onClick={event => this.setTimeSlot(event, slot, index)}>{slot.slot}</p>)}
+        {this.timeSlots.map((slot, index) => <p class={this.chosenIndex === index ? ' chosen-index' : null} onClick={event => this.setTimeSlot(event, slot, index)}>{slot.slot}</p>)}
         <button onClick={event => this.onFormSubmit(event)}>BUTTON</button>
       </div>
       ) 

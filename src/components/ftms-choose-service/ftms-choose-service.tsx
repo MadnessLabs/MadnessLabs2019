@@ -16,21 +16,14 @@ export class FtmsChooseService {
   selectEl;
   @Prop({mutable: true}) serviceOptions: any;
   @Prop() user: any;
+  @State() chosenIndex: any;
   @State() selectedService: any;
   @Event() sendSelectedService: EventEmitter;
   @Element() ftmsChooseServiceEl: any;
 
   selectService(service, index) {
-    this.deselectServcies();
     this.selectedService = service;
-    this.serviceOptions[index].selected = true;
-    this.serviceOptions = this.serviceOptions;
-  }
-
-  deselectServcies() {
-    this.serviceOptions.forEach((service, _index) => {
-      service.selected = false;
-    });
+    this.chosenIndex = index;
     this.serviceOptions = this.serviceOptions;
   }
 
@@ -40,9 +33,10 @@ export class FtmsChooseService {
   }
 
   componentDidLoad(){
+    this.chosenIndex = 0;
     this.selectService(this.serviceOptions[0], 0);
   }
-  // class="service-item" 
+
   render() {
     return (
       <div class="choose-services-wrapper">
@@ -53,7 +47,7 @@ export class FtmsChooseService {
         <div class="service-list">
 
           {this.serviceOptions.map((service, index ) => (
-            <div  class={service.selected ? "service-item selected-service-item" : "service-item"} onClick={() => this.selectService(service, index)} >
+            <div  class={this.chosenIndex === index ? "service-item selected-service-item" : "service-item"} onClick={() => this.selectService(service, index)} >
               <h3>{service.type}</h3><p>{service.description}</p>
             </div>
           ))}

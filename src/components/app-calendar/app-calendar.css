@@ -5,7 +5,7 @@
     margin: 0px 10px;
 }
 .app-calendar-wrapper p {
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 .app-calendar-wrapper button {
     margin-left: 10px;
@@ -14,6 +14,34 @@
 
 h1, h2, h3, h4, p, span  {
     color: black !important;
+}
+
+.ft-input.sc-ft-input {
+    position: static !important;
+    padding-top: 32px !important;
+    padding-bottom: 6px !important;
+}
+
+.ft-input.sc-ft-input:focus, .ft-input.sc-ft-input:valid {
+    --ft-input-focus-border-bottom: 1px solid black;
+    padding-left: 10px;
+}
+
+p {
+    margin-right: 0;
+}
+
+label {
+    padding-left: 10px;
+}
+
+app-calendar ft-input {
+    border-bottom: 1px solid black !important;
+    --theme-primary: black;
+}
+app-calendar input {
+    border: 1px solid black !important;
+    border-bottom: 1px !important;
 }
 
 .service-item {

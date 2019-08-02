@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 
 
 @Component({
@@ -7,12 +7,24 @@ import { Component, h } from '@stencil/core';
 })
 export class FtmsSendUserInfo {
 
-    
+    @Prop() formatedYear: any;
+    @Event() sendingUserInfo: EventEmitter;
 
+    onFormSubmit(event){
+        this.sendingUserInfo.emit(event);
+      }    
+  
     render() {
         return (
-            <div>
-                <p>Hello FtmsSendUserInfo!</p>
+            <div class="send-user-info-wrapper">
+                <h1>Finish Booking</h1>
+                <p>Please fill the form below and hit submit to book your Free Evaluation on {this.formatedYear}.</p>
+                <form>
+                    <ft-input label="address" type="text"></ft-input>
+                    <ft-input label="phone number"></ft-input>
+                    <ft-input label="email"></ft-input>
+                    <button onClick={event => this.onFormSubmit(event)}>BUTTON</button>
+                </form>
             </div>
         );
     }

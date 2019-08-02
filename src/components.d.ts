@@ -96,6 +96,7 @@ export namespace Components {
     'where': string;
   }
   interface FtmsCalendarPicker {
+    'date': any;
     'timeSlots': any;
     'typeOfService': any;
   }
@@ -103,7 +104,17 @@ export namespace Components {
     'serviceOptions': any;
     'user': any;
   }
-  interface FtmsSendUserInfo {}
+  interface FtmsDisplayConfirmation {
+    'address': any;
+    'dayOfWeek': any;
+    'formatedDate': any;
+    'service': any;
+    'time': any;
+    'userName': any;
+  }
+  interface FtmsSendUserInfo {
+    'formatedYear': any;
+  }
   interface MlApps {
     'apps': any;
   }
@@ -271,6 +282,12 @@ declare global {
     new (): HTMLFtmsChooseServiceElement;
   };
 
+  interface HTMLFtmsDisplayConfirmationElement extends Components.FtmsDisplayConfirmation, HTMLStencilElement {}
+  var HTMLFtmsDisplayConfirmationElement: {
+    prototype: HTMLFtmsDisplayConfirmationElement;
+    new (): HTMLFtmsDisplayConfirmationElement;
+  };
+
   interface HTMLFtmsSendUserInfoElement extends Components.FtmsSendUserInfo, HTMLStencilElement {}
   var HTMLFtmsSendUserInfoElement: {
     prototype: HTMLFtmsSendUserInfoElement;
@@ -348,6 +365,7 @@ declare global {
     'ft-select': HTMLFtSelectElement;
     'ftms-calendar-picker': HTMLFtmsCalendarPickerElement;
     'ftms-choose-service': HTMLFtmsChooseServiceElement;
+    'ftms-display-confirmation': HTMLFtmsDisplayConfirmationElement;
     'ftms-send-user-info': HTMLFtmsSendUserInfoElement;
     'ml-apps': HTMLMlAppsElement;
     'ml-divider': HTMLMlDividerElement;
@@ -445,6 +463,7 @@ declare namespace LocalJSX {
     'where'?: string;
   }
   interface FtmsCalendarPicker extends JSXBase.HTMLAttributes<HTMLFtmsCalendarPickerElement> {
+    'date'?: any;
     'onSendDateStamp'?: (event: CustomEvent<any>) => void;
     'onSendTimeSlotEvent'?: (event: CustomEvent<any>) => void;
     'timeSlots'?: any;
@@ -455,7 +474,18 @@ declare namespace LocalJSX {
     'serviceOptions'?: any;
     'user'?: any;
   }
-  interface FtmsSendUserInfo extends JSXBase.HTMLAttributes<HTMLFtmsSendUserInfoElement> {}
+  interface FtmsDisplayConfirmation extends JSXBase.HTMLAttributes<HTMLFtmsDisplayConfirmationElement> {
+    'address'?: any;
+    'dayOfWeek'?: any;
+    'formatedDate'?: any;
+    'service'?: any;
+    'time'?: any;
+    'userName'?: any;
+  }
+  interface FtmsSendUserInfo extends JSXBase.HTMLAttributes<HTMLFtmsSendUserInfoElement> {
+    'formatedYear'?: any;
+    'onSendingUserInfo'?: (event: CustomEvent<any>) => void;
+  }
   interface MlApps extends JSXBase.HTMLAttributes<HTMLMlAppsElement> {
     'apps'?: any;
   }
@@ -576,6 +606,7 @@ declare namespace LocalJSX {
     'ft-select': FtSelect;
     'ftms-calendar-picker': FtmsCalendarPicker;
     'ftms-choose-service': FtmsChooseService;
+    'ftms-display-confirmation': FtmsDisplayConfirmation;
     'ftms-send-user-info': FtmsSendUserInfo;
     'ml-apps': MlApps;
     'ml-divider': MlDivider;

@@ -3,5 +3,8 @@
     cursor: pointer;
     background: #eee;
     padding: 10px;
-    border: 1px solid lightblue;
+    border: 2px solid lightblue;
+}
+.picker-wrapper .chosen-index {
+    border-color: pink;
 }
